@@ -1,0 +1,94 @@
+\input{header}
+
+\usepackage{subfiles} % Subfiles einbinden
+
+\newcommand{\thesisTitle}{
+\begin{sffamily}
+\centering
+\Huge\textbf{\docTitle}\\
+\vspace{4em}
+\huge\textbf{\docThesisType}\\
+\centering von\\
+\Large\textbf{\docAuthor}\\
+% \vspace{2em}
+\includegraphics[width=\textwidth]{bilder/logo/UniKonstanz_Logo_Optimum.pdf}\\
+\Large\docUnisection\\
+\Large\docDepartment\\
+\vspace{3em}
+\centering\begin{tabular}{lll}%
+Gutachter: & & \docSupervisorOne\\
+% 2. Gutachter: & & \docSupervisorTwo\\%
+\end{tabular}\\
+\end{sffamily}
+}%
+
+
+\date{01.10.2023}
+\year{2023}
+\author{Emil Steiner}
+\title{Computersimulationen der Spinfluktuationen in einem Orthoferrit}
+\subtitle{}
+\thesisType{Bachelorarbeit}
+\unisection{Naturwissenschaftliche Fakultät}
+\department{Fachbereich Physik}
+\supervisorOne{Prof. Dr. Ulrich Nowak}
+\supervisorTwo{Prof. Dr. Platzhalter}
+
+
+\begin{document}
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------TITELSEITE-ABSTRACT----------------------------------------%
+%---------------------------------------------------------------------------------------------%
+2
+\thesisTitle
+\thispagestyle{empty}
+\pagenumbering{alph}
+\newpage
+
+% \subfileinclude{0-titel}
+	% Griechische (unsichtbare) Seitenzahlen, damit kein doppeltes Vorkommen
+% \includepdf{out/titlepage.pdf}
+
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------INHALTSVERZEICHNIS---------------------------------%
+%---------------------------------------------------------------------------------------------%
+\tableofcontents
+\thispagestyle{empty}	% Seite ohne Seitenkopf
+\newpage
+\setcounter{page}{1}	% Seitenzahle auf 1 Setzen
+\pagenumbering{arabic}	% Arabische Seitenzahlen
+
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------DOKUMENTENKÖRPER-----------------------------------%
+%---------------------------------------------------------------------------------------------%
+
+
+\subfileinclude{1-einleitung}
+\subfileinclude{2-theorie}
+\subfileinclude{3-methoden}
+\subfileinclude{4-diskussion}
+\subfileinclude{5-fazit}
+
+
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------QUELLENVERZEICHNIS---------------------------------%
+%---------------------------------------------------------------------------------------------%
+\newpage
+\bibliography{literatur}
+\bibliographystyle{babalpha}
+
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------ABBILDUNGSVERZEICHNIS------------------------------%
+%---------------------------------------------------------------------------------------------%
+% \listoffigures
+
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------TABELLENVERZEICHNIS--------------------------------%
+%---------------------------------------------------------------------------------------------%
+% \listoftables
+
+%---------------------------------------------------------------------------------------------%
+%------------------------------------------ANHÄNGE--------------------------------------------%
+%---------------------------------------------------------------------------------------------%
+\subfileinclude{6-Anhang}
+\end{document}
