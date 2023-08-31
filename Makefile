@@ -11,4 +11,6 @@ all: $(MAINFILE).tex
 clean:
 	rm -rf ./out/*
 
+get-plots:
+	rsync -avz --progress scc:Documents/Bachelorarbeit/Analysis/plots/ ~/Bachelorarbeit/Analysis/plots/
 
