@@ -3,10 +3,30 @@
 \section{Simulationsmethoden und Datenanalyse}
 
 \subsection{Numerische Simulation}
+Um Das System von mehreren magnetischen Momenten zu simulieren, wird das programm \texttt{cuteLLG}\cite{cuteLLG} verwendet, welches von Andread Donges entwickelt wurde. Es basiert auf der \enquote{Landau-Lifshitz-Gilbert} (LLG) Gleichung, welche die Bewegung von magnetischen Momenten beschreibt. Die LLG Gleichung ist definiert als:
 
 \subsection{Algorithmus zur Extraktion von Telegrafenrauschen}
 
+
+\cite{random-telegraph-analysis}
 \subsection{Fouriertransformation}
+
+Für die Analyse in der Frequenzdomäne wird die diskrete Fouriertransformation benötigt. Dafür wird die \enquote{fast Fourier transformation} (FFT) verwendet, welche die Berechnung der Fouriertransformation mit einer Laufzeit von $\mathcal{O}(n \log n)$ ermöglicht. Die FFT wird in der Bibliothek \texttt{numpy}\cite{numpy} implementiert.
+
+Die diskrete Fouriertransformation einer Funktion $f(t)$ ist hier definiert als:
+
+\begin{align}
+    \tilde{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i \omega t} \dd{t}
+\end{align}
+
+und die inverse Fouriertransformation als:
+
+\begin{align}
+    f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \tilde{f}(\omega) e^{i \omega t} \dd{\omega}
+\end{align}\cite{numpy-fft}
+
+% bibliography (temporary)
+\bibliography{literatur}
 
 \end{document}
 

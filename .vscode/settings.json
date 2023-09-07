@@ -1,3 +1,7 @@
 {
-    "latex-workshop.latex.outDir": "%DIR%/latex.out"
+    "latex-workshop.latex.outDir": "%DIR%/latex.out",
+    "cSpell.words": [
+        "Lifschitz",
+        "Telegrafenrauschen"
+    ]
 }

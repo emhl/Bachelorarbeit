@@ -2,15 +2,130 @@
 \begin{document}
 \section{Theoretische Grundlagen}
 
+In diesem Abschnitt werden die theoretischen Grundlagen, die diese Arbeit
+benötigt, erläutert.
+
 \subsection{Heisenberg Modell}
 
-\subsection{Landau-Lifschitz-Gilbert Gleichung}
+Um das System von mehreren magnetischen Momenten zu beschreiben, wird das
+klassische Heisenberg Modell verwendet. Es beschreibt die Wechselwirkung
+zwischen den magnetischen Momenten der einzelnen Atome.
+
+Die magnetischen Momente \(\vec{\mu}\) werden als Vektoren der Länge
+\(\mu_{\text{S}}\) angenommen.
+Die normierten und dimensionslosen magnetischen Momente werden mit \(\vec{S}\)
+bezeichnet:
+
+\begin{align}
+	\vec{S} = \frac{\vec{\mu}}{\mu_{\text{S}}}
+\end{align}
+
+Da ein Antiferromagnet betrachtet wird, bei dem die magnetischen Momente in
+entgegengesetzte Richtungen zeigen und die Beträge der magnetischen Momente
+gleich sind gilt zusätzlich \(\mu_{S,i} = \mu_{S,j} = \mu_{S}\).
+
+Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche
+sich aus mehreren Komponenten zusammensetzt:
+
+\subsubsection*{Heisenberg Austauschwechselwirkung}
+
+\begin{align}
+	\mathcal{H}_{\text{EXC}} = -\sum_{i,j} J_{ij} \vec{S}_i \cdot \vec{S}_j
+\end{align}
+
+\subsubsection*{Dzyaloshinskii-Moriya Wechselwirkung}
+% Dzyaloshinskii-Moriya interaction 
+
+\begin{align}
+	\mathcal{H}_{\text{DMI}} = \sum_{i,j} \vec{D}_{ij} \cdot (\vec{S}_i \times
+	\vec{S}_j)
+\end{align}
+
+\subsubsection*{Anisotropien}
+% uniaxial anisotropy
+\begin{align}
+	\mathcal{H}_{\text{UA}} = -\sum_{i} \qty(\vec{S}_i)^\dagger \mathbf{d}_i
+	\vec{S}_i
+\end{align}
+
+% cubic anisotropy
+
+\begin{align}
+	\mathcal{H}_{\text{CA}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2
+	\qty(\vec{S}_{i,z})^2 - L_{i,y} \qty(\vec{S}_{i,z})^2 \qty(\vec{S}_{i,x})^2
+	-
+	L_{i,z} \qty(\vec{S}_{i,x})^2 \qty(\vec{S}_{i,y})^2
+\end{align}
+
+% zwei ionen anisotropie
+
+\begin{align}
+	\mathcal{H}_{\text{TIA}} = -\sum_{i,j} \vec{S}_i \mathbf{\kappa}_{ij}
+	\vec{S}_j
+\end{align}
+
+\subsubsection*{Zeeman Wechselwirkung}
+% Zeeman
+
+\begin{align}
+	\mathcal{H}_{\text{Z}} = -\sum_{i} \vec{S}_i \cdot \mathbf{H} \cdot
+	\vec{S}_i
+\end{align}
+
+% Dipol Dipol wechselwirkung
+\subsubsection*{Dipol-Dipol Wechselwirkung}
+
+\begin{align}
+	\vec{B}(\vec{r}) & = \frac{\mu_0}{4\pi} \qty[3 \frac{\vec{r}(\vec{\mu}
+			\cdot
+			\vec{r})}{r^5} - \frac{\vec{\mu}}{r^3}]
+\end{align}
+
+\begin{align}
+	\mathcal{H}_{\text{DD}} & = \sum_{\substack{i,j \\ i \neq j}}
+	\frac{\mu_0}{4\pi}
+	\cdot  \frac{3(\vec{\mu}_i \cdot \vec{r}_{ij})(\vec{\mu}_j \cdot
+		\vec{r}_{ij})
+	- \vec{\mu}_i \cdot \vec{\mu}_j}{r_{ij}^3}      \\
+	                        & = \sum_{\substack{i,j \\ i \neq j}}
+	\frac{\mu_0 \cdot \mu_{\text{S,i}} \cdot \mu_{\text{S,j}}}{4\pi}
+	\cdot \frac{3(\vec{S}_i \cdot \vec{r}_{ij})(\vec{S}_j \cdot
+		\vec{r}_{ij})
+		- \vec{S}_i \cdot \vec{S}_j}{r_{ij}^3}
+\end{align}
+
+\subsection{Bewegungsgleichung: Landau-Lifschitz-Gilbert Gleichung}
+
+% Landau-Lifschitz Gleichung (1935)
+\begin{align} 
+    \pdv{\vec{S}_i}{t} &= -\frac{\gamma \vec{S}_i}{\mu_{\text{S}}} \times \qty(\mathcal{H}_{\text{i}} + \alpha \vec{S}_i \times \mathcal{H}_{\text{i}}) \\
+    \mathcal{H}_{\text{i}} &= - \pdv{\mathcal{H}}{\vec{S}_i}
+    %&= - \pdv{\qty(\mathcal{H}_{\text{DD}} + \mathcal{H}_{\text{EXC}} + \mathcal{H}_{\text{ANI}} + \mathcal{H}_{\text{Z}}) }{\vec{S}_i} 
+\end{align}
+
+% LL + Gilbert Gleichung (1955)
+
+\begin{align}
+    \pdv{\vec{S}_i}{t} = -\frac{\gamma \vec{S}_i}{\mu_{\text{S}}(1+\alpha^2)} \times
+    \qty(\mathcal{H}_{\text{i}} + \alpha \vec{S}_i \times \mathcal{H}_{\text{i}})
+\end{align}
 
 \subsection{Modellierung von Orthoferrit}
 
 \subsection{Telegrafenrauschen}
-% 	4. Telegrafenrauschen (Markow-Prozess)
-% 		1. Spektrale Leistungsdichte und Autocovarianz
 
+\subsubsection*{Markow-Prozess}
+
+% symmetrisch
+
+
+% asymmetrisch
+
+
+
+\subsubsection*{Spektrale Leistungsdichte und Autokovarianz}
+
+% bibliography (temporary)
+% \bibliography{literatur}
 
 \end{document}
