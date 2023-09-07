@@ -4,6 +4,7 @@
   year        = {2020},
   title       = {Spin fluctuations in magnetic materials: a computer simulation},
   type        = {Bachelorarbeit},
+  language = {english},
   institution = {Universität Konstanz}
 }
 
@@ -13,6 +14,7 @@
   year        = {2022},
   title       = {Computer simulations on spin noise in antiferromagnetic structures},
   type        = {Masterarbeit},
+  language = {english},
   institution = {Universität Konstanz}
 }
 
@@ -23,6 +25,7 @@
   year      = {2020},
   title     = {Mathematical Physics - Applications and Problems},
   edition   = {},
+  language = {english},
   isbn      = {978-3-030-39680-0},
   publisher = {Springer Nature},
   address   = {Singapore}
@@ -31,22 +34,24 @@
 
 @book{Nolting-3-elektrodynamik,
   title     = {Grundkurs Theoretische Physik 3: Elektrodynamik},
-  author    = {Wolfgang Nolting (auth.)},
+  author    = {Wolfgang Nolting},
   publisher = {Springer Spektrum},
   isbn      = {978-3-642-37904-8,978-3-642-37905-5},
   year      = {2013},
   series    = {Springer-Lehrbuch},
+  language = {german},
   edition   = {10},
   volume    = {}
 }
 
 @book{Nolting-6-statistische-physik,
   title     = {Grundkurs Theoretische Physik 6: Statistische Physik},
-  author    = {Wolfgang Nolting (auth.)},
+  author    = {Wolfgang Nolting},
   publisher = {Springer Spektrum},
   isbn      = {978-3-642-25392-8,978-3-642-25393-5},
   year      = {2014},
   series    = {Springer-Lehrbuch},
+  language = {german},
   edition   = {7},
   volume    = {}
 }
@@ -57,6 +62,7 @@
   publisher = {Oxford University Press },
   isbn      = {0198505922,9780198505921,0198505914,9780198505914},
   year      = {2011},
+  language = {english},
   series    = {Oxford master series in condensed matter physics},
   edition   = {},
   volume    = {}
@@ -75,9 +81,20 @@
   language  = {German}
 }
 
+# Dokumentationen
+
+@manual{numpy-fft,
+  author       = {NumPy Developers},
+  title        = {Discrete Fourier Transform (numpy.fft)},
+  url          = {https://numpy.org/doc/stable/reference/routines.fft.html},
+  accessdate   = {2023-09-07},
+  language     = {english},
+}
+
+
 # Wissenschaftliche Paper
 
-@article{random-telegraph,
+@article{random-telegraph-analysis,
   author   = {Yuzhelevski, Y. and Yuzhelevski, M. and Jung, G.},
   title    = {{Random telegraph noise analysis in time domain}},
   journal  = {Review of Scientific Instruments},
@@ -89,6 +106,7 @@
   abstract = {{A new procedure for analysis of random telegraph signals in time domain has been developed and applied to the analysis of voltage fluctuations in the current induced dissipative state in superconducting thin films. The procedure, based entirely on the difference in the statistical properties of discrete Marcovian telegraph fluctuations and Gaussian background noise, ascribes each point of the experimental time record to one of the telegraph states. The average statistical lifetimes and amplitudes of the telegraph signal are then determined in an iterative way by fitting the amplitude histogram of thus obtained record of the redistributed data to the two-Gaussian histogram of the original experimental signal. The procedure allows for analyzing “noisy” random telegraph signals with low ratio between the signal amplitude and the intensity of the background noise that cannot be analyzed by the classical approach. Separation of the time record into two subrecords relative to two telegraph states also enables in-depth analysis of the spectral properties of the background noise observed together with the telegraph fluctuations.}},
   issn     = {0034-6748},
   doi      = {10.1063/1.1150519},
+  language = {english},
   url      = {https://doi.org/10.1063/1.1150519},
   eprint   = {https://pubs.aip.org/aip/rsi/article-pdf/71/4/1681/8813943/1681\_1\_online.pdf}
 }
@@ -104,5 +122,44 @@
   booktitle={Micromagnetism},
   pages={858--876},
   editor={Kronmüller, Helmut},
+  language = {english},
   author={Nowak, Ulrich}
+}
+
+# Programme
+
+@Article{numpy,
+ title         = {Array programming with {NumPy}},
+ author        = {Charles R. Harris and K. Jarrod Millman and St{\'{e}}fan J.
+                 van der Walt and Ralf Gommers and Pauli Virtanen and David
+                 Cournapeau and Eric Wieser and Julian Taylor and Sebastian
+                 Berg and Nathaniel J. Smith and Robert Kern and Matti Picus
+                 and Stephan Hoyer and Marten H. van Kerkwijk and Matthew
+                 Brett and Allan Haldane and Jaime Fern{\'{a}}ndez del
+                 R{\'{i}}o and Mark Wiebe and Pearu Peterson and Pierre
+                 G{\'{e}}rard-Marchant and Kevin Sheppard and Tyler Reddy and
+                 Warren Weckesser and Hameer Abbasi and Christoph Gohlke and
+                 Travis E. Oliphant},
+ year          = {2020},
+ month         = sep,
+ journal       = {Nature},
+ volume        = {585},
+ number        = {7825},
+ pages         = {357--362},
+ doi           = {10.1038/s41586-020-2649-2},
+ publisher     = {Springer Science and Business Media {LLC}},
+ language      = {english},
+ url           = {https://doi.org/10.1038/s41586-020-2649-2}
+}
+
+@misc{cuteLLG,
+  author = {Andreas Donges, AG Nowak},
+  title = {"cuLLG":
+  A GPU implementation of the LLG using CUDA. Can run on the GPU nodes in SCC},
+  year = {2023},
+  institution = {Universität Konstanz},
+  type = {Gitlab repository},
+  language = {english},
+  url = {https://gitlab.inf.uni-konstanz.de/ag-nowak/cuteLLG},
+  commit = {7be5cdb434e7c102e608c781cb03dee0d02d768d}
 }
