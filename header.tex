@@ -5,11 +5,11 @@
 %	Werden bei den Paketen bestimmte Optionen gesetzt, so sind die Wichtigsten erklaert
 %	solange sie nicht selbsterklärend sind
 
-
 %----------------------------------------------------------------%
 %--------------------------GRUNDEINSTELLUNGEN--------------------%
 %----------------------------------------------------------------%
-\documentclass[oneside, ngerman, footinclude=on, captions=tableheading,]{scrartcl}
+\documentclass[oneside, ngerman, footinclude=on,
+    captions=tableheading,]{scrartcl}
 %	'oneside'/'twoside': nicht zwischen linker und rechter Seite unterscheiden (alternativ twoside)
 %	'twocolumn': wuerde 2 Spalten auf dem Blatt platzieren
 %	'bibliography=totocnumbered': Normal nummeriertes Inhaltsverzeichnis (Kapitelnummer)
@@ -19,18 +19,24 @@
 %	'captions=tableheading': Tabellenueberschriften explizit verwenden, erhoeht den Abstand zur Tabelle
 
 \addtolength{\textheight}{3.5cm} % verkleinert fußzeile
-\usepackage[ngerman, english, main=ngerman]{babel}	
+\usepackage[ngerman, english, main=ngerman]{babel}
 
-\usepackage[T1]{fontenc}							%	Wie wird Text ausgegeben, d.h. im PDF
-\usepackage[utf8]{inputenc}							%	Welche Zeichen 'versteht' LaTeX bei der Eingabe?
-\usepackage{lmodern}								%	Laedt Schriften, die geglaettet sind
-\usepackage{dsfont}                                 %   ermöglicht Schreiben der Symbole von Mengen wie den Ganzen Zahlen							
-\usepackage{blindtext}								%	Beispieltext, zum Testen geeignet
+\usepackage[T1]{fontenc}
+%	Wie wird Text ausgegeben, d.h. im PDF
+\usepackage[utf8]{inputenc}
+%	Welche Zeichen 'versteht' LaTeX bei der Eingabe?
+\usepackage{lmodern}
+%	Laedt Schriften, die geglaettet sind
+\usepackage{dsfont}
+%   ermöglicht Schreiben der Symbole von Mengen wie den Ganzen Zahlen							
+\usepackage{blindtext}
+%	Beispieltext, zum Testen geeignet
 
 %----------------------------------------------------------------%
 %--------------------------ABSTÄNDE------------------------------%
 %----------------------------------------------------------------%
-\usepackage[onehalfspacing]{setspace}				%	Für Zeilenabstaende: 'singlespacing' (einfach), 'onehalfspacing' (1.5-fach), 'doublespacing' (2fach)
+\usepackage[onehalfspacing]{setspace}
+%	Für Zeilenabstaende: 'singlespacing' (einfach), 'onehalfspacing' (1.5-fach), 'doublespacing' (2fach)
 %\setlength{\parindent}{0cm}						%	Laengenangabe für die Einrueckung der ersten Zeile eines neuen Absatzes.
 %\setlength{\parskip}{6pt plus 3pt minus 3pt}		%	Laengenangabe für den Abstand zwischen zwei Absaetzen.
 %	Wenn diese beiden Befehle nicht kommentiert sind, wird ein Absatz nicht eingezogen sondern es gibt einen Abstand
@@ -40,32 +46,42 @@
 %----------------------------------------------------------------%
 %--------------------------MATHE---------------------------------%
 %----------------------------------------------------------------%
-\usepackage[]{mathtools}							%	Erweiterung von AMSMath, laedt automatisch AMSMath - für viele Mathe-Werkzeuge, 'fleqn' als Option ist für Mathe linksbuendig
-\usepackage{amsfonts}								%	Für eine Vielzahl an mathematischen Symbolen
+\usepackage[]{mathtools}
+%	Erweiterung von AMSMath, laedt automatisch AMSMath - für viele Mathe-Werkzeuge, 'fleqn' als Option ist für Mathe linksbuendig
+\usepackage{amsfonts}
+%	Für eine Vielzahl an mathematischen Symbolen
 
 %----------------------------------------------------------------%
 %--------------------------KOPF- UND FUSSZEILEN------------------%
 %----------------------------------------------------------------%
 \usepackage[automark,headsepline=.4pt]{scrlayer-scrpage}
 \pagestyle{scrheadings}
-\setkomafont{pageheadfoot}{\normalfont\bfseries}	%	Normale Schriftart und Fett für den Seitenkopf
-\addtokomafont{pagenumber}{\normalfont\bfseries}	%	Normale Schriftart und Fett für die Seitenzahl
+\setkomafont{pageheadfoot}{\normalfont\bfseries}
+%	Normale Schriftart und Fett für den Seitenkopf
+\addtokomafont{pagenumber}{\normalfont\bfseries}
+%	Normale Schriftart und Fett für die Seitenzahl
 \clearpairofpagestyles
-\ohead{\thepage}									%	Rechter Seitenkopf mit Seitenzahl
-\ihead{\headmark}									%	Linker Seitenkopf mit section
-\ofoot[]{\empty}									%	Leere Fußzeile, ungerade Seiten
+\ohead{\thepage}
+%	Rechter Seitenkopf mit Seitenzahl
+\ihead{\headmark}
+%	Linker Seitenkopf mit section
+\ofoot[]{\empty}
+%	Leere Fußzeile, ungerade Seiten
 %	Definert man oben in der documentclass 'twoside', so wird zwischen geraden und ungeraden Seiten unterschieden (NUR DANN!)
 
 %----------------------------------------------------------------%
 %--------------------------BILDER--------------------------------%
 %----------------------------------------------------------------%
-\usepackage{graphicx}	
+\usepackage{graphicx}
 \usepackage{subcaption}
 % \usepackage{subfig}
 %	Um Bilder einbinden zu koennen 
-\usepackage[dvipsnames,svgnames,table]{xcolor}			%	Farben verwenden, Versch. Farbdefinitionen, Farben in Tabellen (-Reihen, -Spalten)
-\usepackage{pdfpages}									%	pdfs importieren
-\definecolor{Seeblau100}{RGB}{0,169,224}				%	Uni-Farben, z.B. fuer Tabellen
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+%	Farben verwenden, Versch. Farbdefinitionen, Farben in Tabellen (-Reihen, -Spalten)
+\usepackage{pdfpages}
+%	pdfs importieren
+\definecolor{Seeblau100}{RGB}{0,169,224}
+%	Uni-Farben, z.B. fuer Tabellen
 \definecolor{Seeblau65}{RGB}{89,199,254}
 \definecolor{Seeblau35}{RGB}{165,224,254}
 \definecolor{Seeblau20}{RGB}{203,237,254}
@@ -83,16 +99,20 @@
 %----------------------------------------------------------------%
 %--------------------------LISTEN--------------------------------%
 %----------------------------------------------------------------%
-\usepackage{enumitem}							%	Um Listen / Aufzaehlungen leichter zu modifizieren
+\usepackage{enumitem}
+%	Um Listen / Aufzaehlungen leichter zu modifizieren
 %\setlist{noitemsep}							%	Verringert den Abstand in Aufzaehlungen
 
 %----------------------------------------------------------------%
 %--------TABELLEN-/BILDUNTERSCHRIFTEN und NUMMERIERUNG-----------%
 %----------------------------------------------------------------%
-\addtokomafont{captionlabel}{\bfseries}			%	Abbildung X.Y wir fett geschrieben
-\setcapindent{2em}								%	2. Zeile teilweise haengend und eingezogen. Wenn ganz haengend gewuenscht, auskommentieren
+\addtokomafont{captionlabel}{\bfseries}
+%	Abbildung X.Y wir fett geschrieben
+\setcapindent{2em}
+%	2. Zeile teilweise haengend und eingezogen. Wenn ganz haengend gewuenscht, auskommentieren
 
-\numberwithin{equation}{section}				%	Nummerierung der Gleichungen, Tabellen und Bilder nach der Kapitelnummer
+\numberwithin{equation}{section}
+%	Nummerierung der Gleichungen, Tabellen und Bilder nach der Kapitelnummer
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 
@@ -113,12 +133,14 @@
 %----------------------------------------------------------------%
 \usepackage[]{siunitx}
 \NewCommandCopy\qnt\qty
-\sisetup{locale = DE}							%	Automatische Einstellung der Ausgabe für bestimmte Regionen (UK, US, DE, FR, ZA)
+\sisetup{locale = DE}
+%	Automatische Einstellung der Ausgabe für bestimmte Regionen (UK, US, DE, FR, ZA)
 
 %----------------------------------------------------------------%
 %--------------------------URLs / REFs---------------------------%
 %----------------------------------------------------------------%
-\usepackage[hidelinks]{hyperref}				%	Erweiterte Referenzierung ('hidelinks' verhindert Linien um Links)
+\usepackage[hidelinks]{hyperref}
+%	Erweiterte Referenzierung ('hidelinks' verhindert Linien um Links)
 
 \usepackage{cleveref}
 
@@ -143,9 +165,8 @@
 \usepackage{epigraph} % Blockzitate (wie sie in vielen Büchern am Anfang gefunden werden)
 
 \usepackage{physics} % shortcuts für physikalische gleichungen  https://mirror.clientvps.com/CTAN/macros/latex/contrib/physics/physics.pdf
-
+\usepackage{mhchem} % chemische Formeln
 \usepackage{csvsimple} % Tabellen aus csv importieren.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % Datum, Autor, etc.    %
@@ -153,51 +174,50 @@
 
 \def\docDate{}
 \renewcommand{\date}[1]{
-\def\docDate{#1}
+    \def\docDate{#1}
 }
 
 \def\docYear{}
 \renewcommand{\year}[1]{
-\def\docYear{#1}
+    \def\docYear{#1}
 }
 
 \def\docAuthor{}
 \renewcommand{\author}[1]{
-\def\docAuthor{#1}
+    \def\docAuthor{#1}
 }
 
 \def\docTitle{}
 \renewcommand{\title}[1]{
-\def\docTitle{#1}
+    \def\docTitle{#1}
 }
 
 \def\docSubtitle{}
 \renewcommand{\subtitle}[1]{
-\def\docSubtitle{#1}
+    \def\docSubtitle{#1}
 }
 
 \def\docThesisType{}
 \newcommand{\thesisType}[1]{
-\def\docThesisType{#1}
+    \def\docThesisType{#1}
 }
 
 \def\docUnisection{}
 \newcommand{\unisection}[1]{
-\def\docUnisection{#1}
+    \def\docUnisection{#1}
 }
 
 \def\docDepartment{}
 \newcommand{\department}[1]{
-\def\docDepartment{#1}
+    \def\docDepartment{#1}
 }
 
 \def\docSupervisorOne{}
 \newcommand{\supervisorOne}[1]{
-\def\docSupervisorOne{#1}
+    \def\docSupervisorOne{#1}
 }
 
 \def\docSupervisorTwo{}
 \newcommand{\supervisorTwo}[1]{
-\def\docSupervisorTwo{#1}
+    \def\docSupervisorTwo{#1}
 }
-
