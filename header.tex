@@ -31,6 +31,10 @@
 %   ermöglicht Schreiben der Symbole von Mengen wie den Ganzen Zahlen							
 \usepackage{blindtext}
 %	Beispieltext, zum Testen geeignet
+% kein text rechts neben paragraph
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\newcommand{\subsubsubsubsection}[1]{\subparagraph{#1}\mbox{}\\}
+% \setcounter{secnumdepth}{5}
 
 %----------------------------------------------------------------%
 %--------------------------ABSTÄNDE------------------------------%
@@ -148,7 +152,7 @@
 %--------------------------EIGENE BEFEHLE------------------------%
 %----------------------------------------------------------------%
 \newcommand{\dif}{\mathrm{d}}
-\newcommand{\todo}[1]{\textcolor{red}{TODO:~#1}}
+\newcommand{\todo}[1]{{\fontfamily{phv}\selectfont\textcolor{red}{\textbf{ToDo:}~#1}}}
 
 %% Pakete für Umlaute, Rechtschreibung und Orthographie
 %%
