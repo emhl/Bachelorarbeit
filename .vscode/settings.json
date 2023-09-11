@@ -1,7 +1,16 @@
 {
     "latex-workshop.latex.outDir": "%DIR%/latex.out",
     "cSpell.words": [
+        "Ferrit",
         "Lifschitz",
+        "Orthoferrit",
+        "Orthoferrite",
         "Telegrafenrauschen"
+    ],
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/latex.out/",
+        "%TMPFILE%",
+        "-y=defaultIndent: '%INDENT%'"
     ]
 }
