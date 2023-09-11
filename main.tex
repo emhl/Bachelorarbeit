@@ -3,26 +3,25 @@
 \usepackage{subfiles} % Subfiles einbinden
 
 \newcommand{\thesisTitle}{
-\begin{sffamily}
-\centering
-\Huge\textbf{\docTitle}\\
-\vspace{4em}
-\huge\textbf{\docThesisType}\\
-\centering von\\
-\Large\textbf{\docAuthor}\\
-% \vspace{2em}
-\includegraphics[width=\textwidth]{bilder/logo/UniKonstanz_Logo_Optimum.pdf}\\
-\Large\docUnisection\\
-\Large\docDepartment\\
-\vspace{3em}
-\centering\begin{tabular}{lll}%
-Gutachter: & & \docSupervisorOne\\
-% 2. Gutachter: & & \docSupervisorTwo\\%
-Betreuer: & & J. Schlegel\\%
-\end{tabular}\\
-\end{sffamily}
+	\begin{sffamily}
+		\centering
+		\Huge\textbf{\docTitle}\\
+		\vspace{4em}
+		\huge\textbf{\docThesisType}\\
+		\centering von\\
+		\Large\textbf{\docAuthor}\\
+		% \vspace{2em}
+		\includegraphics[width=\textwidth]{bilder/logo/UniKonstanz_Logo_Optimum.pdf}\\
+		\Large\docUnisection\\
+		\Large\docDepartment\\
+		\vspace{3em}
+		\centering\begin{tabular}{lll}%
+			Gutachter: &  & \docSupervisorOne \\
+			% 2. Gutachter: & & \docSupervisorTwo\\%
+			Betreuer:  &  & J. Schlegel       \\%
+		\end{tabular}\\
+	\end{sffamily}
 }%
-
 
 \date{01.10.2023}
 \year{2023}
@@ -35,7 +34,6 @@ Betreuer: & & J. Schlegel\\%
 \supervisorOne{Prof. Dr. U. Nowak}
 \supervisorTwo{Prof. Dr. Platzhalter}
 
-
 \begin{document}
 %---------------------------------------------------------------------------------------------%
 %------------------------------------------TITELSEITE-ABSTRACT----------------------------------------%
@@ -47,7 +45,7 @@ Betreuer: & & J. Schlegel\\%
 \newpage
 
 % \subfileinclude{0-titel}
-	% Griechische (unsichtbare) Seitenzahlen, damit kein doppeltes Vorkommen
+% Griechische (unsichtbare) Seitenzahlen, damit kein doppeltes Vorkommen
 % \includepdf{out/titlepage.pdf}
 
 %---------------------------------------------------------------------------------------------%
@@ -63,12 +61,11 @@ Betreuer: & & J. Schlegel\\%
 %------------------------------------------DOKUMENTENKÖRPER-----------------------------------%
 %---------------------------------------------------------------------------------------------%
 
-
-\subfile{1-einleitung}
+% \subfile{1-einleitung}
 \subfile{2-theorie}
 \subfile{3-methoden}
-\subfile{4-diskussion}
-\subfile{5-fazit}
+% \subfile{4-diskussion}
+% \subfile{5-fazit}
 
 % Gliederung:
 
@@ -95,8 +92,6 @@ Betreuer: & & J. Schlegel\\%
 % 		3. vergleich
 % 5. Fazit
 
-
-
 %---------------------------------------------------------------------------------------------%
 %------------------------------------------QUELLENVERZEICHNIS---------------------------------%
 %---------------------------------------------------------------------------------------------%
@@ -117,5 +112,5 @@ Betreuer: & & J. Schlegel\\%
 %---------------------------------------------------------------------------------------------%
 %------------------------------------------ANHÄNGE--------------------------------------------%
 %---------------------------------------------------------------------------------------------%
-\subfileinclude{6-Anhang}
+% \subfileinclude{6-Anhang}
 \end{document}
