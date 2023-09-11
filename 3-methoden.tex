@@ -1,32 +1,74 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
+\newpage
 \section{Simulationsmethoden und Datenanalyse}
 
 \subsection{Numerische Simulation}
-Um Das System von mehreren magnetischen Momenten zu simulieren, wird das programm \texttt{cuteLLG}\cite{cuteLLG} verwendet, welches von Andread Donges entwickelt wurde. Es basiert auf der \enquote{Landau-Lifshitz-Gilbert} (LLG) Gleichung, welche die Bewegung von magnetischen Momenten beschreibt. Die LLG Gleichung ist definiert als:
+Um Das System von mehreren magnetischen Momenten zu simulieren, wird das
+Programm \texttt{cuteLLG}\cite{cuteLLG} verwendet. \texttt{cuteLLG} wurde von
+Andread Donges (ehemaliger Mitarbeiter der AG Nowak) entwickelt und von
+verschiedenen Mitarbeitern der AG Nowak modifiziert.
+
+\todo{Erklärung wie die numerische lösung von Differentialgleichungen
+    funktioniert}
+
+\todo{Vergleich numerischer verfahren}
+
+Bei der Bewegungsgleichung (LLG) handelt es sich um eine Differentialgleichung,
+die nicht analytisch gelöst werden kann.
+Deshalb wird die Differentialgleichung numerisch gelöst. Dafür gibt es
+verschiedene Verfahren, die sich in der Genauigkeit und der Laufzeit
+unterscheiden.
+
+Die einfachste Methode ist das Euler-Verfahren. Dabei wird die
+Differentialgleichung durch eine lineare Näherung ersetzt. Die Genauigkeit ist
+dabei von der Schrittweite abhängig. Je kleiner die Schrittweite, desto genauer
+ist die Näherung. Die Laufzeit ist dabei proportional zur Anzahl der Schritte.
+Der Fehler steigt also mit einer längeren Laufzeit immer weiter an. Daher ist
+das Euler-Verfahren für lange Simulationen ungeeignet.
+
+\todo{Runge-Kutta-Verfahren}
+
+\todo{Heun-Verfahren}
+
+\cite{Computerphysik}
+
+\todo{Implementation von cuteLLG mit dem Heun-Verfahren}
 
 \subsection{Algorithmus zur Extraktion von Telegrafenrauschen}
 
+\todo{figure Gauss Peaks, die ineinander übergehen}
 
-\cite{random-telegraph-analysis}
+\todo{Vergleich mit kmeans oä. (overshoot problem)}
+
+\todo{Erklärung eigener Abwandlung, welche weniger komplex als
+    \cite{random-telegraph-analysis} ist und trotzdem das overshoot problem löst}
+
 \subsection{Fouriertransformation}
 
-Für die Analyse in der Frequenzdomäne wird die diskrete Fouriertransformation benötigt. Dafür wird die \enquote{fast Fourier transformation} (FFT) verwendet, welche die Berechnung der Fouriertransformation mit einer Laufzeit von $\mathcal{O}(n \log n)$ ermöglicht. Die FFT wird in der Bibliothek \texttt{numpy}\cite{numpy} implementiert.
+Für die Analyse in der Frequenzdomäne wird die diskrete Fouriertransformation
+benötigt. Dafür wird die \enquote{fast Fourier transformation} (FFT) verwendet,
+welche die Berechnung der Fouriertransformation mit einer Laufzeit von
+$\mathcal{O}(n \log n)$ ermöglicht. Die FFT wird in der Bibliothek
+\texttt{numpy}\cite{numpy} implementiert.
 
-Die diskrete Fouriertransformation einer Funktion $f(t)$ ist hier definiert als:
-
+Die diskrete Fouriertransformation einer Funktion $a_m$ mit $m = 0, \dots, n-1$
+wird definiert als:
 \begin{align}
-    \tilde{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-i \omega t} \dd{t}
+    A_k = \sum_{m=0}^{n-1} a_m \exp(-2 \pi i\frac{ k m}{n}) \quad \text{mit}
+    \quad k = 0, \dots, n-1
 \end{align}
 
 und die inverse Fouriertransformation als:
 
 \begin{align}
-    f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \tilde{f}(\omega) e^{i \omega t} \dd{\omega}
+    a_m = \frac{1}{n} \sum_{k=0}^{n-1} A_k \exp(2 \pi i\frac{ k m}{n}) \quad
+    \text{mit} \quad m = 0, \dots, n-1
 \end{align}\cite{numpy-fft}
 
+% Korelationsfunktion?
+
 % bibliography (temporary)
-\bibliography{literatur}
+% \bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}
-
