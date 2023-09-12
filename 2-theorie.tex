@@ -150,10 +150,10 @@ Landau-Lifschitz-Gleichung bezeichnet:
 \begin{align}
 	\pdv{\vec{S}_i}{t}     & = -\frac{\gamma \vec{S}_i}{\mu_{\text{S}}}
 	\times
-	\qty(\mathcal{H}_{\text{i}} + \alpha \vec{S}_i \times
-	\mathcal{H}_{\text{i}})
+	\qty(\vec{\mathcal{H}}_{\text{i}} + \alpha \vec{S}_i \times
+	\vec{\mathcal{H}}_{\text{i}})
 	\\
-	\mathcal{H}_{\text{i}} & = - \pdv{\mathcal{H}}{\vec{S}_i}
+	\vec{\mathcal{H}}_{\text{i}} & = - \pdv{\mathcal{H}}{\vec{S}_i}
 	%&= - \pdv{\qty(\mathcal{H}_{\text{DD}} + \mathcal{H}_{\text{EXC}} + \mathcal{H}_{\text{ANI}} + \mathcal{H}_{\text{Z}}) }{\vec{S}_i} 
 \end{align}\cite{landau-lifshitz}
 
@@ -165,9 +165,11 @@ erweitert:
 	\pdv{\vec{S}_i}{t} = -\frac{\gamma
 		\vec{S}_i}{\mu_{\text{S}}(1+\alpha^2)}
 	\times
-	\qty(\mathcal{H}_{\text{i}} + \alpha \vec{S}_i \times
-	\mathcal{H}_{\text{i}})
+	\qty(\vec{\mathcal{H}}_{\text{i}} + \alpha \vec{S}_i \times
+	\vec{\mathcal{H}}_{\text{i}})
 \end{align}\cite{Gilbert-damping}
+
+\todo{Herleitung über implizite Form}
 
 \subsection{Modellierung von Orthoferrit}
 
@@ -243,7 +245,7 @@ Dichtomische Markow-Prozess (DMP).
 
 Dieser entspricht einer Markow-Kette mit zwei Zuständen (\(c_1\) und \(c_2\))
 zwischen denen die Zustandsvariable \(X(t)\) zufällig hin und her wechselt. Aus
-den Übergangsraten \(\lambda_1\) und \(lambda_2\) bildet sich die
+den Übergangsraten \(\lambda_1\) und \(\lambda_2\) bildet sich die
 Übergangsmatrix \(\mathbf{W}\):
 
 \begin{align}
@@ -306,8 +308,11 @@ Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen:
 \begin{align}
 	P_\beta(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(i \omega
 	\tau) \expval{m_\beta(0) m_\beta(\tau)}
-\end{align}\cite{schlegel-master}
+\end{align}
 
+Eine Herleitung dazu befindet sich in \cite{schlegel-master}.
+
+\todo{Spektrale Leistungsdichte für DMP}
 % bibliography (temporary)
 % \bibliography{literatur} \todo{comment out before compiling main.tex}
 
