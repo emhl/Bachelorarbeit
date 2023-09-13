@@ -23,7 +23,6 @@ bezeichnet:
 Da ein Antiferromagnet betrachtet wird, bei dem die magnetischen Momente in
 entgegengesetzte Richtungen zeigen und die Beträge der magnetischen Momente
 gleich sind gilt zusätzlich \(\mu_{\text{S},i} = \mu_{\text{S},j} = \mu_{S}\).
-\todo{stimmt die Annahme?}
 
 Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche
 sich aus mehreren Komponenten zusammensetzt:
@@ -332,6 +331,12 @@ Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 \frac{1}{\tau_i}\).
 
 \begin{align}
+	\lambda &= \frac{1}{2} \qty(\lambda_1 + \lambda_2)\\
+	e^{\mathbf{W}t} &= \frac{1}{2\lambda} \mqty(\lambda_2 + \lambda_1 e^{-2\lambda t} & \lambda_2 \qty(1- e^{-2\lambda t})\\
+	\lambda_1 \qty(1- e^{-2\lambda t}) & \lambda_1 + \lambda_2 e^{-2\lambda t})
+\end{align}
+
+\begin{align}
 	P(1)                            & = \frac{\tau_1}{\tau_1 + \tau_2} =
 	\frac{\lambda_2 }{\lambda_1 +
 		\lambda_2}
@@ -351,6 +356,13 @@ Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 		(c_1-c_2)^2}{(\lambda_1 + \lambda_2)^2}
 \end{align}
 
+\begin{align}
+	\delta X(t) & = X(t) - \expval{X}\\
+	\expval{\delta X(0)\delta X(t)} &= \frac{\lambda_1 \lambda_2
+	(c_1-c_2)^2}{(\lambda_1 + \lambda_2)^2} \cdot \exp(-\lambda t)\\
+	\tau_\mathrm{corr} &= \frac{1}{2\lambda} = \frac{1}{\lambda_1 +
+		\lambda_2} = \frac{\tau_1 \tau_2}{\tau_1 + \tau_2}
+\end{align}
 \todo{verwendete Formeln vom asymmetrischen DMP}
 
 \subsubsection*{Symmetrischer DMP}
@@ -361,9 +373,8 @@ symmetrisch und viele Ausdrücke vereinfachen sich:
 	\expval{X}        & = 0                    \\
 	\expval{X^2}      & = c^2                  \\
 	\expval{X(0)X(t)} & = c^2 \exp(-\lambda t)
-	 % e^-2*lambda t ?
 \end{align}\cite{matphys}
-
+\todo{\(e^{-2\lambda t}\) oder \(e^{-\lambda t}\)?} 
 \subsubsection*{Spektrale Leistungsdichte und Autokovarianz}
 
 Um das Rauschen in der Frequenzdomäne zu betrachten, wird die spektrale
@@ -379,13 +390,26 @@ Fouriertransformierten der Magnetisierung berechnen:
 
 Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen:
 \begin{align}
-	P_\beta(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(i \omega
+	P_\beta(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(-i \omega
 	\tau) \expval{m_\beta(0) m_\beta(\tau)}
 \end{align}
 
 Eine Herleitung dazu befindet sich in \cite{schlegel-master}.
 
-\todo{Spektrale Leistungsdichte für DMP}
+Die Spektrale Leistungsdichte für den symmetrischen DMP lässt sich somit berechnen:
+
+
+\begin{align}
+	P_\text{DMP}(\omega) &= \int_{-\infty}^{\infty} \dif \tau \ e^{-i \omega \tau} \expval{X(0)X(\tau)}\\
+	&= c^2 \int_{-\infty}^{\infty} \dif \tau \ e^{-i \omega \tau}e^{-\lambda \abs{\tau}}\\
+	&= c^2 \int_{-\infty}^{0} \dif \tau \ e^{-i \omega \tau}e^{\lambda \tau} + c^2 \int_{0}^{\infty} \dif \tau \ e^{-i \omega \tau}e^{-\lambda \tau}\\
+	&= c^2 \int_{0}^{\infty} \dif \tau \ e^{-\lambda \tau} \qty(e^{i \omega \tau} + e^{-i \omega \tau})\\
+	&= c^2 \qty[\frac{e^{-\tau(\lambda + i\omega)}}{\lambda + i\omega} + \frac{e^{-\tau(\lambda + i\omega)}\cdot e^{\tau 2 i \omega)}}{\lambda - i\omega}]_{0}^{\infty}\\
+	&= c^2\qty(\frac{1}{\lambda + i\omega} + \frac{1}{\lambda - i\omega})\\
+	&= \frac{c^2 \cdot 2\lambda}{\lambda^2 + \omega^2}
+\end{align}
+Was einer Lorenzverteilung mit dem Maximum bei \(\omega=0\) entspricht.
+
 % bibliography (temporary)
 \bibliography{literatur} \todo{comment out before compiling main.tex}
 
