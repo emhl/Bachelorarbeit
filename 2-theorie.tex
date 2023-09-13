@@ -142,34 +142,102 @@ Skalarprodukt der beiden Magnetfelder:
 \subsection{Bewegungsgleichung: Landau-Lifschitz-Gilbert Gleichung}
 % Landau-Lifschitz Gleichung (1935)
 Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der
-Hamiltonfunktion die Bewegungsgleichung abgeleitet werden. Die
-Bewegungsgleichung ist eine Differentialgleichung, die die zeitliche Änderung
-der magnetischen Momente beschreibt. Sie wird auch als
-Landau-Lifschitz-Gleichung bezeichnet:
+Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
+\todo{Herleitung über implizite Form}
+Obwohl die Hamiltonfunktion klassisch ist, kann die Bewegungsgleichung über die
+Quantenmechanik hergeleitet werden. Das Ehrenfest-Theorem besagt, dass die
+zeitliche Änderung des Erwartungswertes eines Operators gleich dem
+Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist:
 
 \begin{align}
-	\pdv{\vec{S}_i}{t}     & = -\frac{\gamma \vec{S}_i}{\mu_{\text{S}}}
-	\times
-	\qty(\vec{\mathcal{H}}_{\text{i}} + \alpha \vec{S}_i \times
+	\dv{\hat{\vec{S}}_i}{t} = \frac{i}{\hbar} \expval{\qty[\hat{\vec{S}}_i,
+			\hat{\mathcal{H}}]}
+\end{align}%\cite{qm-1-Schwabl}
+
+Mit der Relation \(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}
+\hat{\vec{J}}_i\) und der Kommutatorrelation \(\qty[\hat{\vec{J}}_i,
+	\hat{\vec{J}}_j] = i \hbar \cdot \varepsilon_{abc}
+\hat{\vec{J}}_{c,i}\) (wobei
+\(\varepsilon\) das Levi-Civita Symbol ist) ergibt sich:
+
+\begin{align}
+	\dv{\vec{S}_i}{t}                             & = -\frac{\gamma
+	}{\mu_{\text{S}}}
+	\qty(\vec{S}_i \times
 	\vec{\mathcal{H}}_{\text{i}})
 	\\
-	\vec{\mathcal{H}}_{\text{i}} & = - \pdv{\mathcal{H}}{\vec{S}_i}
-	%&= - \pdv{\qty(\mathcal{H}_{\text{DD}} + \mathcal{H}_{\text{EXC}} + \mathcal{H}_{\text{ANI}} + \mathcal{H}_{\text{Z}}) }{\vec{S}_i} 
+	\text{mit} \quad \vec{\mathcal{H}}_{\text{i}} & = -
+	\pdv{\mathcal{H}}{\vec{S}_i}
 \end{align}\cite{landau-lifshitz}
 
+\todo{erklärung der einzelnen Terme}
 % LL + Gilbert Gleichung (1955)
 Diese Gleichung wurde 20 Jahre später von Gilbert um einen Dämpfungsterm
 erweitert:
 
 \begin{align}
-	\pdv{\vec{S}_i}{t} = -\frac{\gamma
-		\vec{S}_i}{\mu_{\text{S}}(1+\alpha^2)}
+	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
 	\times
-	\qty(\vec{\mathcal{H}}_{\text{i}} + \alpha \vec{S}_i \times
-	\vec{\mathcal{H}}_{\text{i}})
+	\vec{\mathcal{H}}_{\text{i}}) + \alpha \qty(\vec{S}_i \times
+	\dv{\vec{S}_i}{t})
 \end{align}\cite{Gilbert-damping}
 
-\todo{Herleitung über implizite Form}
+% gleichung in sich selbst einsetzen
+\begin{align}
+	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
+	\times
+	\vec{\mathcal{H}}_{\text{i}}) + \alpha \qty(\vec{S}_i \times
+	\qty(-\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
+		\times
+		\vec{\mathcal{H}}_{\text{i}}) + \alpha \qty(\vec{S}_i \times
+	\dv{\vec{S}_i}{t})))                                                \\
+	                  & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
+	\times
+	\vec{\mathcal{H}}_{\text{i}}) - \frac{\alpha\gamma}{\mu_\text{S}}
+	\qty(\vec{S}_i \times \qty(\vec{S}_i \times
+		\vec{\mathcal{H}}_{\text{i}})) +
+	\alpha^2 \qty(\vec{S}_i \times \qty(\vec{S}_i \times
+		\dv{\vec{S}_i}{t}))
+\end{align}
+
+\begin{align}
+	\alpha^2 \qty(\vec{S}_i \times \qty(\vec{S}_i \times
+	\dv{\vec{S}_i}{t})) & = -\alpha^2\dv{\vec{S}_i}{t}
+\end{align}
+
+\begin{align}
+	\dv{\vec{S}_i}{t} & = -\frac{\gamma
+	}{\mu_{\text{S}}(1+\alpha^2)}\qty[\qty(\vec{S}_i \times
+		\vec{\mathcal{H}}_{\text{i}}) + \alpha \vec{S}_i \times
+		\qty(\vec{S}_i \times
+		\vec{\mathcal{H}}_{\text{i}})]
+\end{align}
+
+\todo{rauschen durch endliche Temperatur}
+
+\begin{align}
+	\vec{\mathcal{H}}_{\text{i}}                 & =
+	-\pdv{\mathcal{H}}{\vec{S}_i} +
+	\vec{\xi}_i(t)
+	\\
+	\expval{\vec{\xi}_i(t)}                      & = 0
+	\\
+	\expval{\xi_{i,\alpha}(t) \xi_{j,\beta}(t')} & = \frac{2\mu_\text{S}
+		\alpha
+	}{\gamma}k_\text{B} T \cdot \delta_{ij} \delta_{\alpha \beta}
+	\delta(t-t')
+\end{align}
+
+\begin{figure}[H]
+	\centering
+	\subcaptionbox{ohne Rauschen}
+	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
+	\subcaptionbox{mit Rauschen}
+	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
+	\caption{\todo{captions}
+		\cite{schlegel-master}}
+	\label{fig:llg-rauschen}
+\end{figure}
 
 \subsection{Modellierung von Orthoferrit}
 
@@ -190,14 +258,17 @@ bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
 
 \begin{figure}[H]
 	\centering
-	\subcaptionbox{Einheitszelle mit DMI Vektoren
-		(gelb)}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_withDMI_labeled.png}}
-	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für \(T <
-		T_l\)}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_belowRT.png}}
-	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für \(T >
-		T_h\)}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_aboveRT.png}}
-	\caption{\todo{ausführlichere} Kristallstruktur von
-		\ce{ErFeO3} \cite{schlegel-master}}
+	\subcaptionbox{Einheitszelle mit DMI
+		Vektoren(gelb)}
+	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_withDMI_labeled.png}}
+	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für
+		\(T<T_l\)}
+	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_belowRT.png}}
+	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für
+		\(T>T_h\)}
+	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_aboveRT.png}}
+	\caption{\todo{ausführlichere} Kristallstruktur von \ce{ErFeO3}
+		\cite{schlegel-master}}
 	\label{fig:orthoferrit2}
 \end{figure}
 
@@ -216,7 +287,8 @@ bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
 	\num{-0.0153}   & \num{0.0153}                                    & 0
 	\\
 	0               & 0                                               &
-	\num{0.905})                                                          \\
+	\num{0.905})
+	\\
 	L_x             & = L_y = L_z = \SI{0.036}{\milli\electronvolt}
 	\\
 	\mathbf{\kappa} & = \mqty(
@@ -225,7 +297,8 @@ bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
 	0               & 0                                               & 0
 	\\
 	0               & 0                                               &
-	\num{-0.1255})                                                        \\
+	\num{-0.1255})
+	\\
 	\vec{D}_x       & = \mqty*(\num{\pm 0.0036}
 	\\ \num{\pm 0.1268} \\ \num{\pm
 		0.1255}), \quad
@@ -314,6 +387,6 @@ Eine Herleitung dazu befindet sich in \cite{schlegel-master}.
 
 \todo{Spektrale Leistungsdichte für DMP}
 % bibliography (temporary)
-% \bibliography{literatur} \todo{comment out before compiling main.tex}
+\bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}
