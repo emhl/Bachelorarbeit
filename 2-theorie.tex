@@ -38,7 +38,7 @@ Wechselwirkung in Antiferromagneten. Klassisch ist sie proportional zum
 Skalarprodukt der magnetischen Momente:
 
 \begin{align}
-	\mathcal{H}_{\text{EXC}} = -\sum_{i,j} J_{ij} \vec{S}_i \cdot \vec{S}_j
+	\mathcal{H}_{\text{EXC}} = -\sum_{i,j} J_{ij} \vec{S}_i \cdot \vec{S}_j\label{eq:hamilton-heisenberg-exc}
 \end{align}
 
 \subsubsection*{Dzyaloshinskii-Moriya Wechselwirkung}
@@ -52,7 +52,7 @@ Kreuzprodukt der magnetischen Momente:
 \begin{align}
 	\mathcal{H}_{\text{DMI}} = \sum_{i,j} \vec{D}_{ij} \cdot (\vec{S}_i
 	\times
-	\vec{S}_j)
+	\vec{S}_j)\label{eq:hamilton-dmi}
 \end{align}
 
 \subsubsection*{Magnetische Anisotropien}
@@ -69,9 +69,9 @@ kann durch die Kristallstruktur des Materials oder durch die Dipol-Dipol
 Wechselwirkung entstehen.\\
 
 \begin{align}
-	\mathcal{H}_{\text{UA}} = -\sum_{i} \qty(\vec{S}_i)^\dagger
+	\mathcal{H}_{\text{2A}} = -\sum_{i} \qty(\vec{S}_i)^\dagger
 	\mathbf{d}_i
-	\vec{S}_i
+	\vec{S}_i\label{eq:hamilton-2a}
 \end{align}
 
 % \subsubsubsection{Anisotropie aus der Kristallstruktur} 
@@ -79,19 +79,19 @@ Wechselwirkung entstehen.\\
 \todo{erklärung Kubische Anisotropie bzw. 4. Ordnung Anisotropie}
 % Kubische Anisotropie
 \begin{align}
-	\mathcal{H}_{\text{KA}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2
+	\mathcal{H}_{\text{4A}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2
 	\qty(\vec{S}_{i,z})^2 - L_{i,y} \qty(\vec{S}_{i,z})^2
 	\qty(\vec{S}_{i,x})^2
 	-
-	L_{i,z} \qty(\vec{S}_{i,x})^2 \qty(\vec{S}_{i,y})^2
+	L_{i,z} \qty(\vec{S}_{i,x})^2 \qty(\vec{S}_{i,y})^2\label{eq:hamilton-4a}
 \end{align}\cite{GrossMarx}
 
 % \subsubsubsection{Zwei-Ionen Anisotropie}
 \todo{erklärung zwei-Ionen Anisotropie}
 
 \begin{align}
-	\mathcal{H}_{\text{ZIA}} = -\sum_{i,j} \vec{S}_i \mathbf{\kappa}_{ij}
-	\vec{S}_j
+	\mathcal{H}_{\text{TIA}} = -\sum_{i,j} \vec{S}_i \mathbf{\kappa}_{ij}
+	\vec{S}_j\label{eq:hamilton-tia}
 \end{align}
 \subsubsection*{Zeeman Wechselwirkung}
 % Zeeman
@@ -100,7 +100,7 @@ Moment auch noch die Zeeman Wechselwirkung:
 
 \begin{align}
 	\mathcal{H}_{\text{Z}} = - B_\text{ext} \sum_{i} \vec{\mu}_i = -
-	B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot \vec{S}_i
+	B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot \vec{S}_i\label{eq:hamilton-zeeman}
 \end{align}
 
 % Dipol Dipol wechselwirkung
@@ -135,7 +135,7 @@ Skalarprodukt der beiden Magnetfelder:
 	\frac{\mu_0 \cdot \mu_{\text{S,i}} \cdot \mu_{\text{S,j}}}{4\pi}
 	\cdot \frac{3(\vec{S}_i \cdot \vec{r}_{ij})(\vec{S}_j \cdot
 		\vec{r}_{ij})
-		- \vec{S}_i \cdot \vec{S}_j \cdot r_{ij}^2}{r_{ij}^5}
+		- \vec{S}_i \cdot \vec{S}_j \cdot r_{ij}^2}{r_{ij}^5}\label{eq:hamilton-dd}
 \end{align}
 
 \subsection{Bewegungsgleichung: Landau-Lifschitz-Gilbert Gleichung}
@@ -229,12 +229,11 @@ erweitert:
 
 \begin{figure}[H]
 	\centering
-	\subcaptionbox{ohne Rauschen}
+	\subcaptionbox{\(T = \SI{0}{\kelvin} \)}
 	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
-	\subcaptionbox{mit Rauschen}
+	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}
 	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
-	\caption{\todo{captions}
-		\cite{schlegel-master}}
+	\caption{Abhängig von der Simulationstemperatur ändert sich die Intensiät des Rauschens.\cite{schlegel-master}}
 	\label{fig:llg-rauschen}
 \end{figure}
 
@@ -251,7 +250,7 @@ bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
 	\caption{Kristallstruktur von
 		\ce{ErFeO3}. Die Eisenatome sind dabei blau, die
 		Sauerstoffatome rot und die Erbiumatome magenta gefärbt.
-		\cite{schlegel-master}\todo{eisen rot und sauerstoff blau?}}
+		\cite{schlegel-master}}
 	\label{fig:orthoferrit}
 \end{figure}
 
@@ -273,8 +272,12 @@ bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
 
 \todo{erklärung für Samarium (reorientierungstemperatur)}
 
+Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei \todo{Wert einfügen}. Bei Samarium-Erbium-Ferrit (\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist.
+
 % Parameter für Simulation
 \todo{wer hat die Parameter bestimmt?}
+
+Für die Simulation wird ein Modell von \ce{ErFeO3} verwendet, bei dem die Parameter \todo{welche explizit} angepasst wurden, um die Reorientierungstemperatur bei Raumtemperatur wie bei \ce{Sm_{0.7}Er_{0.3}FeO3} zu erhalten:
 
 \begin{align}
 	J_1             & = \SI{-22,32}{\milli\electronvolt}, \quad J_2 =
