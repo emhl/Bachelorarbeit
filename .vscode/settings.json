@@ -12,5 +12,12 @@
         "%DIR%/latex.out/",
         "%TMPFILE%",
         "-y=defaultIndent: '%INDENT%'"
-    ]
+    ],
+    "latex-workshop.latex.clean.args": [
+        "-c",
+        "%TEX%",
+        "-e",
+        "$bibtex_fudge=1"
+    ],
+    "latex-workshop.synctex.afterBuild.enabled": true
 }
