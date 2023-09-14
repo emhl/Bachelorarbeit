@@ -26,7 +26,6 @@ gleich sind gilt zusätzlich \(\mu_{\text{S},i} = \mu_{\text{S},j} = \mu_{S}\).
 
 Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche
 sich aus mehreren Komponenten zusammensetzt:
-\todo{Einzelne komponenten stärker ausführen?}
 
 \subsubsection*{Heisenberg Austauschwechselwirkung}
 % Heisenberg Austauschwechselwirkung
@@ -142,7 +141,7 @@ Skalarprodukt der beiden Magnetfelder:
 % Landau-Lifschitz Gleichung (1935)
 Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der
 Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
-\todo{Herleitung über implizite Form}
+
 Obwohl die Hamiltonfunktion klassisch ist, kann die Bewegungsgleichung über die
 Quantenmechanik hergeleitet werden. Das Ehrenfest-Theorem besagt, dass die
 zeitliche Änderung des Erwartungswertes eines Operators gleich dem
@@ -151,7 +150,7 @@ Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist:
 \begin{align}
 	\dv{\hat{\vec{S}}_i}{t} = \frac{i}{\hbar} \expval{\qty[\hat{\vec{S}}_i,
 			\hat{\mathcal{H}}]}
-\end{align}%\cite{qm-1-Schwabl}
+\end{align}\cite{qm-1-Schwabl}
 
 Mit der Relation \(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}
 \hat{\vec{J}}_i\) und der Kommutatorrelation \(\qty[\hat{\vec{J}}_i,
@@ -163,13 +162,12 @@ Mit der Relation \(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}
 	\dv{\vec{S}_i}{t}                             & = -\frac{\gamma
 	}{\mu_{\text{S}}}
 	\qty(\vec{S}_i \times
-	\vec{\mathcal{H}}_{\text{i}})
+	\vec{\mathcal{H}}_{\text{i}})\label{eq:landau-lifschitz}
 	\\
 	\text{mit} \quad \vec{\mathcal{H}}_{\text{i}} & = -
 	\pdv{\mathcal{H}}{\vec{S}_i}
 \end{align}\cite{landau-lifshitz}
 
-\todo{erklärung der einzelnen Terme}
 % LL + Gilbert Gleichung (1955)
 Diese Gleichung wurde 20 Jahre später von Gilbert um einen Dämpfungsterm
 erweitert:
@@ -181,7 +179,7 @@ erweitert:
 	\dv{\vec{S}_i}{t})
 \end{align}\cite{Gilbert-damping}
 
-% gleichung in sich selbst einsetzen
+Um davon auf eine klassische explizite Bewegungsgleichung zu kommen, muss die Gleichung zuerst in sich selbst eingesetzt werden:
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
 	\times
@@ -198,21 +196,27 @@ erweitert:
 	\alpha^2 \qty(\vec{S}_i \times \qty(\vec{S}_i \times
 		\dv{\vec{S}_i}{t}))
 \end{align}
-
+Aufgrund der Identitäten \(\vec{a} \times \qty(\vec{b} \times \vec{c}) = \vec{b} \qty(\vec{a} \cdot \vec{c}) - \vec{c} \qty(\vec{a} \cdot \vec{b})\), \(\vec{S}_i \bot \dv{\vec{S}_i}{t}\) und \(\vec{S}_i \cdot \vec{S}_i = 1\) ergibt sich:
 \begin{align}
 	\alpha^2 \qty(\vec{S}_i \times \qty(\vec{S}_i \times
 	\dv{\vec{S}_i}{t})) & = -\alpha^2\dv{\vec{S}_i}{t}
 \end{align}
+Somit lässt sich die Bewegungsgleichung nach \(\dv{\vec{S}_i}{t}\) auflösen:
 
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma
-	}{\mu_{\text{S}}(1+\alpha^2)}\qty[\qty(\vec{S}_i \times
-		\vec{\mathcal{H}}_{\text{i}}) + \alpha \vec{S}_i \times
+	}{\mu_{\text{S}}(1+\alpha^2)}\qty[\underbrace{\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}}}_\text{Präzession} + \underbrace{\alpha \vec{S}_i \times
 		\qty(\vec{S}_i \times
-		\vec{\mathcal{H}}_{\text{i}})]
+			\vec{\mathcal{H}}_{\text{i}})}_\text{Dämpfung}]\label{eq:llg}
 \end{align}
+% \todo{erklärung der einzelnen Terme}
+Beim Vergleich mit der Landau-Lifschitz-Gleichung \eqref{eq:landau-lifschitz} fällt auf, dass sich einerseits der vorfaktor geändert hat und andererseits ein Dämpfungsterm hinzugekommen ist. Für \(\alpha = 0\) sind die Gleichungen identisch. 
 
-\todo{rauschen durch endliche Temperatur}
+Der Präzessionsterm beschreibt die Präzession der magnetischen Momente um das effektive Feld.
+
+Der Dämpfungsterm beschreibt die Energie, die aufgewendet werden muss, um die magnetischen Momente zu drehen. Der Dämpfungsterm ist also eine Art Reibungsterm, der die Präzession der magnetischen Momente dämpft.
+
+Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welches durch die endliche Temperatur entsteht. Dieses wird durch einen stochastischen Term \(\vec{\xi}_i(t)\) beschrieben, der die Bewegungsgleichung zu einer stochastischen Differentialgleichung macht:
 
 \begin{align}
 	\vec{\mathcal{H}}_{\text{i}}                 & =
@@ -233,7 +237,7 @@ erweitert:
 	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
 	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}
 	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
-	\caption{Abhängig von der Simulationstemperatur ändert sich die Intensiät des Rauschens.\cite{schlegel-master}}
+	\caption{Simulation der LLG-Gleichung. Der blaue Vektor entspricht dem Spin \(\vec{S}\) und die blaue Linie ist der Pfad, den die Pfeilspitze zurücklegt. Der Graue Vektor entspricht dem effektiven Feld, ohne Rauschen. Der Ptäzessionsterm wird durch den roten vektor beschrieben und der Dämpfungsterm durch den grünen. \cite{schlegel-master}}
 	\label{fig:llg-rauschen}
 \end{figure}
 
@@ -241,7 +245,7 @@ erweitert:
 
 Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein
 Rest ist, durch den sich die verschiedenen Orthoferrite unterscheiden. Hier
-bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
+bildet Erbium (\ce{Er}) diese Restgruppe.
 
 \begin{figure}[H]
 	\centering
@@ -272,7 +276,7 @@ bilden Samarium (\ce{Sm}) und Erbium (\ce{Er}) diese Restgruppe.
 
 \todo{erklärung für Samarium (reorientierungstemperatur)}
 
-Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei \todo{Wert einfügen}. Bei Samarium-Erbium-Ferrit (\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist.
+Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei ungefähr \SI{110}{\kelvin}\cite{Deng2015}. Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei (\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist.
 
 % Parameter für Simulation
 \todo{wer hat die Parameter bestimmt?}
@@ -310,13 +314,15 @@ Für die Simulation wird ein Modell von \ce{ErFeO3} verwendet, bei dem die Param
 	\vec{D}_z = \mqty*(\num{\pm 0.1038}
 	\\ \num{\pm 0.2252} \\ 0)
 \end{align}
-\todo{erläuterung der variablen und referenz zur stelle in der jeweiligen
-	Hamiltonfunktion}
+
+\(J_1\) ist hier der Parameter für die Heisenberg-Austauschwechselwirkung \eqref{eq:hamilton-heisenberg-exc} mit den nächsten Nachbarn (6) und \(J_2\) die mit den übernächsten Nachbarn (12). \(\mathbf{d}\) beschreibt die uniaxiale Anisotropie\eqref{eq:hamilton-2a}, \(L_x\), \(L_y\) und \(L_z\) sind die Koeffizienten der kubischen Anisotropie\eqref{eq:hamilton-4a}, \(\mathbf{\kappa}\) ist die Zwei-Ionen Anisotropie\eqref{eq:hamilton-tia} und \(\vec{D}_x\), \(\vec{D}_y\) und \(\vec{D}_z\) sind die Dzyaloshinskii-Moriya Vektoren\eqref{eq:hamilton-dmi}.
+
+Die Dipol-Dipol Wechselwirkung\eqref{eq:hamilton-dd} wird in der Simulation nicht berücksichtigt, da sie im Vergleich zu den anderen Wechselwirkungen sehr klein ist.
+
+
 \subsection{Telegrafenrauschen}
 
-Das Telegrafenrauschen ist ein stochastischer Prozess, der aus zwei Zuständen
-besteht, die zufällig zwischen einander wechseln. Ein gängiges Modell ist der
-Dichtomische Markow-Prozess (DMP).
+Das Telegrafenrauschen ist ein stochastischer Prozess, der aus zwei Zuständen besteht, die zufällig zwischen einander wechseln. Ein gängiges Modell ist der Dichtomische Markow-Prozess (DMP).
 
 Dieser entspricht einer Markow-Kette mit zwei Zuständen (\(c_1\) und \(c_2\))
 zwischen denen die Zustandsvariable \(X(t)\) zufällig hin und her wechselt. Aus
@@ -366,7 +372,6 @@ Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 	\tau_\mathrm{corr} &= \frac{1}{2\lambda} = \frac{1}{\lambda_1 +
 		\lambda_2} = \frac{\tau_1 \tau_2}{\tau_1 + \tau_2}
 \end{align}
-\todo{verwendete Formeln vom asymmetrischen DMP}
 
 \subsubsection*{Symmetrischer DMP}
 
