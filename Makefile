@@ -13,6 +13,10 @@ main: $(MAINFILE).tex
 subfiles:
 	$(TEX) 1-*.tex 2-*.tex 3-*.tex 4-*.tex 5-*.tex 6-*.tex
 
+# compile specific subfile (e.g. 1-*.tex) when it's number is given as argument
+subfile:
+	$(TEX) $2
+
 clean:
 	rm -rf ./out/*
 
