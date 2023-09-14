@@ -342,12 +342,15 @@ Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 (die mittlere Zeit, die \(X(t)\) in einem Zustand verbringt): \(\lambda_i =
 \frac{1}{\tau_i}\).
 
+
+Mit der mittleren Übergangsrate \(\lambda\) lässt sich die Übergangsmatrix zeitlich entwickeln:
 \begin{align}
 	\lambda &= \frac{1}{2} \qty(\lambda_1 + \lambda_2)\\
 	e^{\mathbf{W}t} &= \frac{1}{2\lambda} \mqty(\lambda_2 + \lambda_1 e^{-2\lambda t} & \lambda_2 \qty(1- e^{-2\lambda t})\\
 	\lambda_1 \qty(1- e^{-2\lambda t}) & \lambda_1 + \lambda_2 e^{-2\lambda t})
 \end{align}
 
+Für \( \lim_{t \to \infty} \) erhalten wir folgende Aufenthaltswahrscheinlichkeiten:
 \begin{align}
 	P(1)                            & = \frac{\tau_1}{\tau_1 + \tau_2} =
 	\frac{\lambda_2 }{\lambda_1 +
@@ -356,7 +359,9 @@ Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 	P(2)                            & = \frac{\tau_2}{\tau_1 + \tau_2} =
 	\frac{\lambda_1 }{\lambda_1 +
 		\lambda_2}
-	\\
+\end{align}
+Damit lässt sich die gemittelte Zustandsvariable \(X(t)\) berechnen:
+\begin{align}
 	\expval{X}                      & = c_1 P(1) + c_2 P(2) = \frac{\tau_1
 		c_1 + \tau_2
 		c_2}{\tau_1 + \tau_2} = \frac{\lambda_2 c_1 + \lambda_1
@@ -367,7 +372,7 @@ Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 		(c_1-c_2)^2}{(\tau_1 + \tau_2)^2} = \frac{\lambda_1 \lambda_2
 		(c_1-c_2)^2}{(\lambda_1 + \lambda_2)^2}
 \end{align}
-
+Die Autokorrelationsfunktion und die Korrelationszeit lassen sich damit dann auch berechnen:
 \begin{align}
 	\delta X(t) & = X(t) - \expval{X}\\
 	\expval{\delta X(0)\delta X(t)} &= \frac{\lambda_1 \lambda_2
