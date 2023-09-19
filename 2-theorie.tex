@@ -2,7 +2,7 @@
 \begin{document}
 \newpage
 \section{Theoretische Grundlagen}
-
+\todo{Kapitälchen?}
 In diesem Abschnitt werden die theoretischen Grundlagen, die diese Arbeit
 benötigt, erläutert.
 
@@ -12,18 +12,19 @@ Um das System von mehreren magnetischen Momenten zu beschreiben, wird das
 klassische Heisenberg Modell verwendet. Es beschreibt die Wechselwirkung
 zwischen den magnetischen Momenten der einzelnen Atome.
 
-Die magnetischen Momente \(\vec{\mu}\) werden als Vektoren der Länge
+Die magnetischen Momente \(\vec{\mu}\) werden als klassische dreidimensionale
+Vektoren der Länge
 \(\mu_{\text{S}}\) angenommen.
 Die normierten und dimensionslosen magnetischen Momente werden mit \(\vec{S}\)
 bezeichnet:
 
 \begin{align}
-	\vec{S} = \frac{\vec{\mu}}{\mu_{\text{S}}}
+	\vec{S}_i = \frac{\vec{\mu}_i}{\mu_{\text{S},i}}
 \end{align}
 
-Da ein Antiferromagnet betrachtet wird, bei dem die magnetischen Momente in
-entgegengesetzte Richtungen zeigen und die Beträge der magnetischen Momente
-gleich sind gilt zusätzlich \(\mu_{\text{S},i} = \mu_{\text{S},j} = \mu_{S}\).
+% Da ein Antiferromagnet betrachtet wird, bei dem die magnetischen Momente in
+% entgegengesetzte Richtungen zeigen und die Beträge der magnetischen Momente
+% gleich sind gilt zusätzlich \(\mu_{\text{S},i} = \mu_{\text{S},j} = \mu_{S}\).
 
 Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche
 sich aus mehreren Komponenten zusammensetzt:
@@ -33,112 +34,139 @@ sich aus mehreren Komponenten zusammensetzt:
 
 Die Heisenberg Austauschwechselwirkung beschreibt die Wechselwirkung zwischen
 den magnetischen Momenten der einzelnen Atome aufgrund von überlappten
-Wellenfunktionen~\cite{Heisenberg-Ferromagnetismus}. Sie ist die dominierende
-Wechselwirkung in Antiferromagneten. Klassisch ist sie proportional zum
-Skalarprodukt der magnetischen Momente:
+Wellenfunktionen~\cite{Heisenberg-Ferromagnetismus}. Sie ist in der Regel die
+dominierende Wechselwirkung in magnetisch geordneten Strukturen.
+% Klassisch ist sie proportional zum Skalarprodukt der magnetischen Momente:
+
+\todo{verweis literatur mit Herleitung}
+
+Die Hamiltonfunktion für die Heisenberg Austauschwechselwirkung kann wie folgt
+geschrieben werden:
 
 \begin{align}
-	\mathcal{H}_{\text{EXC}} = -\sum_{i,j} J_{ij} \vec{S}_i \cdot \vec{S}_j\label{eq:hamilton-heisenberg-exc}
+	\mathcal{H}_{\text{EXC}} = -\sum_{i,j} J_{ij} \vec{S}_i \cdot
+	\vec{S}_j\label{eq:hamilton-heisenberg-exc}
 \end{align}
 
 \subsubsection*{Dzyaloshinskii-Moriya Wechselwirkung}
 % Dzyaloshinskii-Moriya interaction 
 
 Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte
-antisymmetrische Interaktion von zwei Spins\cite{DMI}. Sie ist in
-Antiferromagneten die zweitstärkste Wechselwirkung und ist proportional zum
+antisymmetrische Interaktion von zwei Spins \cite{DMI}.
+\todo{erklärung indirekt antisymmetrische Interaktion}
+Sie ist hier die zweitstärkste Wechselwirkung und ist proportional zum
 Kreuzprodukt der magnetischen Momente:
 
 \begin{align}
-	\mathcal{H}_{\text{DMI}} = \sum_{i,j} \vec{D}_{ij} \cdot (\vec{S}_i
+	\mathcal{H}_{\text{DMI}} = -\sum_{i,j} \vec{D}_{ij} \cdot (\vec{S}_i
 	\times
 	\vec{S}_j)\label{eq:hamilton-dmi}
 \end{align}
 
+\todo{Herkunft der DMI (Spin-Bahn Kopplung)}
+
+\todo{Kombi Austausch und DMI}
 \subsubsection*{Magnetische Anisotropien}
 Magnetische Momente können eine Präferenz für eine bestimmte Richtung haben.
-Die Energie, die aufgewendet werden muss, um das magnetische Moment aus dieser
-Richtung zu drehen, wird als Anisotropie bezeichnet. Es gibt verschiedene Arten
-von Anisotropien.
+% Die Energie, die aufgewendet werden muss, um das magnetische Moment aus dieser Richtung zu drehen, wird als Anisotropie bezeichnet. 
+Es gibt verschiedene Arten von Anisotropien.
 
-Die hier betrachteten Anisotropien sind verschiedene Kristallanisotropien.
+Die hier betrachteten Anisotropien sind verschiedene kristalline Anisotropien
 
-Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamilton Funktion bei:
+\todo{kristalline Anisotropien erklären}
+
+Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamilton
+Funktion bei:
 \begin{align}
 	\mathcal{H}_{\text{2.AI}} = -\sum_{i} \qty(\vec{S}_i)^\dagger
-	\mathbf{d}_i
+	\mat{d}_i
 	\vec{S}_i\label{eq:hamilton-2a}
 \end{align}
 
-Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische Anisotropie, welche eine Anisotropie vierter Ordnung ist:
+\todo{erkllärung leichte und harte Achse}
+
+Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische
+Anisotropie, welche eine Anisotropie vierter Ordnung ist \cite{GrossMarx}:
 \begin{align}
-	\mathcal{H}_{\text{KAI}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2
+	\mathcal{H}_{\text{4.AI}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2
 	\qty(\vec{S}_{i,z})^2 + L_{i,y} \qty(\vec{S}_{i,z})^2
 	\qty(\vec{S}_{i,x})^2
 	+
-	L_{i,z} \qty(\vec{S}_{i,x})^2 \qty(\vec{S}_{i,y})^2\label{eq:hamilton-4a}
-\end{align}\cite{GrossMarx}
+	L_{i,z} \qty(\vec{S}_{i,x})^2
+	\qty(\vec{S}_{i,y})^2\label{eq:hamilton-4a}
+\end{align}
 
 Außerdem wird noch die Zwei-Ionen Anisotropie berücksichtigt:
 \begin{align}
-	\mathcal{H}_{\text{TIA}} = -\sum_{i,j} \vec{S}_i \mathbf{\kappa}_{ij}
+	\mathcal{H}_{\text{TIA}} = -\sum_{i,j} \vec{S}_i \mat{\kappa}_{ij}
 	\vec{S}_j\label{eq:hamilton-tia}
 \end{align}
 \subsubsection*{Zeeman Wechselwirkung}
 % Zeeman
 Bei einem äußeren Magnetfeld \(B_\text{ext}\) wirkt auf jedes magnetische
-Moment auch noch die Zeeman Wechselwirkung:
+Moment die Zeeman Wechselwirkung:
 
 \begin{align}
 	\mathcal{H}_{\text{Z}} = - B_\text{ext} \sum_{i} \vec{\mu}_i = -
-	B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot \vec{S}_i\label{eq:hamilton-zeeman}
+	B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot
+	\vec{S}_i\label{eq:hamilton-zeeman}
 \end{align}
+
+\todo{paralelle Ausrichtung im gegensatz zu Anisotropie}
 
 % Dipol Dipol wechselwirkung
 \subsubsection*{Dipol-Dipol Wechselwirkung}
 
 Jedes magnetische Moment erzeugt ein Magnetfeld, welches aus hinreichender
-Entfernung stehts wie ein Dipolfeld aussieht:
+Entfernung stehts wie ein Dipolfeld aussieht \cite{Nolting-3-elektrodynamik}:
 
 \begin{align}
 	\vec{B}(\vec{r}) & = \frac{\mu_0}{4\pi} \qty[3 \frac{\vec{r}(\vec{\mu}
 			\cdot
 			\vec{r})}{r^5} -
 		\frac{\vec{\mu}}{r^3}]\label{eq:dipolmoment}
-\end{align}\cite{Nolting-3-elektrodynamik}
+\end{align}
 
 Wenn zwei magnetische Momente \(\vec{\mu}_i\) und \(\vec{\mu}_j\) in einem
 Abstand \(r_{ij}\) zueinander stehen, wirkt auf das magnetische Moment
 \(\vec{\mu}_i\) das Magnetfeld \(\vec{B}_j\) und auf das magnetische Moment
-\(\vec{\mu}_j\) das Magnetfeld \(\vec{B}_i\). Die Wechselwirkungsenergie
-zwischen den beiden magnetischen Momenten ist die Energie, die aufgewendet
-werden muss, um die beiden magnetischen Momente aus dem Magnetfeld des jeweils
-anderen zu entfernen. Die Wechselwirkungsenergie ist also proportional zum
-Skalarprodukt der beiden Magnetfelder:
+\(\vec{\mu}_j\) das Magnetfeld \(\vec{B}_i\).
+
+% Die Wechselwirkungsenergie zwischen den beiden magnetischen Momenten ist die Energie, die aufgewendet werden muss, um die beiden magnetischen Momente aus dem Magnetfeld des jeweils anderen zu entfernen. Die Wechselwirkungsenergie ist also proportional zum Skalarprodukt der beiden Magnetfelder:
+
+\todo{Herleitung Hamiltonfunktion}
 
 \begin{align}
-	\mathcal{H}_{\text{DD}} & = \sum_{\substack{i,j           \\ i \neq j}}
+	\mathcal{H}_{\text{DD}} & = \sum_{\substack{i,j                     \\
+	i \neq j}}
+	\vec{\mu}_i \cdot \vec{B}_j(\vec{r}_{ij}) \nonumber                 \\
+	                        & = \sum_{\substack{i,j                     \\
+	i \neq j}}
 	\frac{\mu_0}{4\pi}
 	\cdot  \frac{3(\vec{\mu}_i \cdot \vec{r}_{ij})(\vec{\mu}_j \cdot
 		\vec{r}_{ij})
-	- \vec{\mu}_i \cdot \vec{\mu}_j \cdot r_{ij}^2}{r_{ij}^5} \\
-	                        & = \sum_{\substack{i,j           \\ i \neq j}}
+	- \vec{\mu}_i \cdot \vec{\mu}_j \cdot r_{ij}^2}{r_{ij}^5} \nonumber \\
+	                        & = \sum_{\substack{i,j                     \\
+	i \neq j}}
 	\frac{\mu_0 \cdot \mu_{\text{S,i}} \cdot \mu_{\text{S,j}}}{4\pi}
 	\cdot \frac{3(\vec{S}_i \cdot \vec{r}_{ij})(\vec{S}_j \cdot
 		\vec{r}_{ij})
-		- \vec{S}_i \cdot \vec{S}_j \cdot r_{ij}^2}{r_{ij}^5}\label{eq:hamilton-dd}
+		- \vec{S}_i \cdot \vec{S}_j \cdot
+		r_{ij}^2}{r_{ij}^5}\label{eq:hamilton-dd}
 \end{align}
 
 \subsubsection*{Gesamte Hamilton Funktion}
 
-Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten zusammen:
+Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten
+zusammen:
 
 \begin{align}
 	\mathcal{H} & = \mathcal{H}_{\text{EXC}} + \mathcal{H}_{\text{DMI}} +
 	\mathcal{H}_{\text{2.AI}} + \mathcal{H}_{\text{KAI}} +
 	\mathcal{H}_{\text{TIA}} + \mathcal{H}_{\text{Z}} +
-	\mathcal{H}_{\text{DD}}\label{eq:hamilton}\\
-	&= \todo{einsetzen}
+	\mathcal{H}_{\text{DD}}\label{eq:hamilton}
+	\\
+	            & = \todo{einsetzen}
 \end{align}
 
 \subsection{Bewegungsgleichung: Landau-Lifschitz-Gilbert Gleichung}
@@ -146,44 +174,63 @@ Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten zusammen:
 Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der
 Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
 
-Obwohl die Hamiltonfunktion klassisch ist, kann die Bewegungsgleichung über die
+Obwohl die Hamiltonfunktion klassisch ist \todo{klassisches Heisenberg Modell},
+kann die Bewegungsgleichung über die
 Quantenmechanik hergeleitet werden. Das Ehrenfest-Theorem besagt, dass die
 zeitliche Änderung des Erwartungswertes eines Operators gleich dem
-Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist:
+Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist
+\cite{qm-1-Schwabl}:
 
 \begin{align}
-	\dv{\hat{\vec{S}}_i}{t} = \frac{i}{\hbar} \expval{\qty[\hat{\vec{S}}_i,
-			\hat{\mathcal{H}}]}
-\end{align}\cite{qm-1-Schwabl}
+	\dv{\expval{\hat{\vec{S}}_i}}{t} = \frac{1}{i\hbar}
+	\expval{\qty[\hat{\vec{S}}_i,
+			\hat{\mathcal{H}}]} + \expval{\pdv{\hat{\vec{S}}_i}{t}}
+\end{align}
+
+% \begin{align}
+% 	\dv{\hat{\vec{S}}_i}{t} = \frac{i}{\hbar} \expval{\qty[\hat{\vec{S}}_i,
+% 			\hat{\mathcal{H}}]}
+% \end{align}
 
 Mit der Relation \(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}
 \hat{\vec{J}}_i\) und der Kommutatorrelation \(\qty[\hat{\vec{J}}_i,
 	\hat{\vec{J}}_j] = i \hbar \cdot \varepsilon_{abc}
 \hat{\vec{J}}_{c,i}\) (wobei
-\(\varepsilon\) das Levi-Civita Symbol ist) ergibt sich:
+\(\varepsilon\) das Levi-Civita Symbol und \(\hat{\vec{J}}\) der Drehimpuls
+ist) ergibt sich:
 
 \begin{align}
 	\dv{\vec{S}_i}{t}                             & = -\frac{\gamma
 	}{\mu_{\text{S}}}
 	\qty(\vec{S}_i \times
-	\vec{\mathcal{H}}_{\text{i}})\label{eq:landau-lifschitz}
-	\\
+	\vec{\mathcal{H}}_{\text{i}})                                   \\
 	\text{mit} \quad \vec{\mathcal{H}}_{\text{i}} & = -
 	\pdv{\mathcal{H}}{\vec{S}_i}
-\end{align}\cite{landau-lifshitz}
+\end{align}
 
-% LL + Gilbert Gleichung (1955)
-Diese Gleichung wurde 20 Jahre später von Gilbert um einen Dämpfungsterm
-erweitert:
+% \begin{align}
+% 	\dv{\vec{S}_i}{t}                             & = -\frac{\gamma
+% 	}{\mu_{\text{S}}}
+% 	\qty(\vec{S}_i \times
+% 	\vec{\mathcal{H}}_{\text{i}}) 
+% 	+ \frac{\gamma
+% 	}{\mu_{\text{S}}}\vec{S}_i \times
+% 	\qty(\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}})
+% 	\label{eq:landau-lifschitz}
+% \end{align}\cite{landau-lifshitz}
+
+zusätzlich enthält die gleichung Noch einen Dämpfungsterm
+\cite{Gilbert-damping}:
 
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
 	\times
 	\vec{\mathcal{H}}_{\text{i}}) + \alpha \qty(\vec{S}_i \times
 	\dv{\vec{S}_i}{t})
-\end{align}\cite{Gilbert-damping}
+\end{align}
 
-Um davon auf eine klassische explizite Bewegungsgleichung zu kommen, muss die Gleichung zuerst in sich selbst eingesetzt werden:
+Um davon auf eine klassische explizite Bewegungsgleichung zu kommen, muss die
+Gleichung zuerst in sich selbst eingesetzt werden:
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
 	\times
@@ -200,28 +247,50 @@ Um davon auf eine klassische explizite Bewegungsgleichung zu kommen, muss die Gl
 	\alpha^2 \qty(\vec{S}_i \times \qty(\vec{S}_i \times
 		\dv{\vec{S}_i}{t}))
 \end{align}
-Aufgrund der Identitäten \(\vec{a} \times \qty(\vec{b} \times \vec{c}) = \vec{b} \qty(\vec{a} \cdot \vec{c}) - \vec{c} \qty(\vec{a} \cdot \vec{b})\), \(\vec{S}_i \bot \dv{\vec{S}_i}{t}\) und \(\vec{S}_i \cdot \vec{S}_i = 1\) ergibt sich:
+Aufgrund der Identitäten \(\vec{a} \times \qty(\vec{b} \times \vec{c}) =
+\vec{b} \qty(\vec{a} \cdot \vec{c}) - \vec{c} \qty(\vec{a} \cdot \vec{b})\),
+\(\vec{S}_i \bot \dv{\vec{S}_i}{t}\) und \(\vec{S}_i \cdot \vec{S}_i = 1\)
+ergibt sich:
 \begin{align}
 	\alpha^2 \qty(\vec{S}_i \times \qty(\vec{S}_i \times
 	\dv{\vec{S}_i}{t})) & = -\alpha^2\dv{\vec{S}_i}{t}
 \end{align}
-Somit lässt sich die Bewegungsgleichung nach \(\dv{\vec{S}_i}{t}\) auflösen:
-
+Somit lässt sich die Bewegungsgleichung nach \(\dv{\vec{S}_i}{t}\) auflösen.
+Damit erhalten ergibt sich die Landau-Lifschitz-Gilbert Gleichung:
+\todo{fascinating world of the LLG equation}
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma
-	}{\mu_{\text{S}}(1+\alpha^2)}\qty[\underbrace{\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}}}_\text{Präzession} + \underbrace{\alpha \vec{S}_i \times
-		\qty(\vec{S}_i \times
+	}{\mu_{\text{S}}(1+\alpha^2)}\qty[\underbrace{\vec{S}_i \times
+			\vec{\mathcal{H}}_{\text{i}}}_\text{Präzession} +
+		\underbrace{\alpha \vec{S}_i
+			\times 
+			\qty(\vec{S}_i \times
 			\vec{\mathcal{H}}_{\text{i}})}_\text{Dämpfung}]\label{eq:llg}
 \end{align}
 % \todo{erklärung der einzelnen Terme}
-Beim Vergleich mit der Landau-Lifschitz-Gleichung \eqref{eq:landau-lifschitz} fällt auf, dass sich einerseits der vorfaktor geändert hat und andererseits ein Dämpfungsterm hinzugekommen ist. Für \(\alpha = 0\) sind die Gleichungen identisch. 
+% Beim Vergleich mit der Landau-Lifschitz-Gleichung \eqref{eq:landau-lifschitz} fällt auf, dass sich einerseits der vorfaktor geändert hat und andererseits ein Dämpfungsterm hinzugekommen ist. Für \(\alpha = 0\) sind die Gleichungen identisch. 
 
-Der Präzessionsterm beschreibt die Präzession der magnetischen Momente um das effektive Feld.
+Die Landau-Lifschitz-Gilbert Gleichung unterscheidet sich nur über die Faktoren
+(\(\frac{1
+}{1 + \alpha^2}\) und \(\alpha\)) von der Landau-Lifschitz Gleichung
 
-Der Dämpfungsterm beschreibt die Energie, die aufgewendet werden muss, um die magnetischen Momente zu drehen. Der Dämpfungsterm ist also eine Art Reibungsterm, der die Präzession der magnetischen Momente dämpft.
+Der Präzessionsterm beschreibt die Präzession der magnetischen Momente um das
+effektive Feld.
 
-Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welches durch die endliche Temperatur entsteht. Dieses wird durch einen stochastischen Term \(\vec{\xi}_i(t)\) beschrieben, der die Bewegungsgleichung zu einer stochastischen Differentialgleichung macht:
+% Der Dämpfungsterm beschreibt die Energie, die aufgewendet werden muss, um die magnetischen Momente zu drehen. 
+Der Dämpfungsterm ist eine Art Reibungsterm, der die Präzession der
+magnetischen Momente dämpft und für eine Relaxion in Richtung des effektiven
+Feldes sorgt.
 
+Bis jetzt wurde das System nur bei \(T = \SI{0}{\kelvin}\) betrachtet.
+% Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welches durch die endliche Temperatur entsteht. 
+Durch addition eines Rauschterms \(\vec{\xi}_i(t)\) kann die Bewegungsgleichung
+auch für endliche Temperaturen beschrieben werden.
+% Dieses wird durch einen stochastischen Term \(\vec{\xi}_i(t)\) beschrieben, der die Bewegungsgleichung zu einer stochastischen Differentialgleichung macht:
+Dabei handelt es sich um ein Gausssches weißes Rauschen, welches unkorreliert
+in Raum und Zeit ist.
+
+\todo{Langevin Dynamik}
 \begin{align}
 	\vec{\mathcal{H}}_{\text{i}}                 & =
 	-\pdv{\mathcal{H}}{\vec{S}_i} +
@@ -238,10 +307,19 @@ Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welc
 \begin{figure}[H]
 	\centering
 	\subcaptionbox{\(T = \SI{0}{\kelvin} \)}
+
 	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
 	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}
+
 	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
-	\caption{Simulation der LLG-Gleichung. Der blaue Vektor entspricht dem Spin \(\vec{S}\) und die blaue Linie ist der Pfad, den die Pfeilspitze zurücklegt. Der Graue Vektor entspricht dem effektiven Feld, ohne Rauschen. Der Ptäzessionsterm wird durch den roten vektor beschrieben und der Dämpfungsterm durch den grünen. \cite{schlegel-master}}
+	\caption{Visualisierung der LLG-Gleichung. Der blaue Vektor entspricht
+		dem Spin \(\vec{S}\) und die blaue Linie ist die Dynamik. Der
+		Graue Vektor
+		entspricht dem effektiven Feld, ohne Rauschen. Der
+		Ptäzessionsterm wird durch
+		den roten Vektor beschrieben und der Dämpfungsterm durch den
+		grünen.
+		\cite{schlegel-master}}
 	\label{fig:llg-rauschen}
 \end{figure}
 
@@ -249,7 +327,8 @@ Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welc
 
 Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein
 Rest ist, durch den sich die verschiedenen Orthoferrite unterscheiden. Hier
-bildet Erbium (\ce{Er}) diese Restgruppe.
+bildet Erbium (\ce{Er}) diese Restgruppe. \todo{Samarium jetzt oder erst
+	später?}
 
 % \begin{figure}[htbp]
 % 	\centering
@@ -263,105 +342,166 @@ bildet Erbium (\ce{Er}) diese Restgruppe.
 
 % \todo{erklärung für Samarium (reorientierungstemperatur)}
 
-Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei ungefähr \SI{110}{\kelvin}\cite{Deng2015}. Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei (\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist.
+Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei
+ungefähr \SI{110}{\kelvin} \cite{Deng2015}. Durch teilweises Ersetzen von
+Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei
+(\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es
+im Experiment einfacher zu untersuchen ist. \todo{Zitat Fitzky}
 
 % Parameter für Simulation
 % \todo{wer hat die Parameter bestimmt?}
 
-Für die Simulation wird ein Modell von \ce{ErFeO3} verwendet, bei dem die Anisotropie-Parameter angepasst wurden, um eine Reorientierungstemperatur bei Raumtemperatur wie bei \ce{Sm_{0.7}Er_{0.3}FeO3} zu erhalten:
+Für die Simulation wird ein Modell von einem Orthoferriten verwendet, bei dem
+die Anisotropie-Parameter angepasst wurden, um eine Reorientierungstemperatur
+bei Raumtemperatur wie bei \ce{Sm_{0.7}Er_{0.3}FeO3} zu erhalten.
+Simuliert wird dabei nur das Gitter aus Eisenatomen. Die Einflüssen der
+Sauerstoff-, Erbium und Samariumatome steckt in den Anisotropie-Parametern. Die
+Einheitszelle ist in \cref{fig:orthoferrit} dargestellt.
+
+Die verwendeten Simulationsparameter sind folgende:
 
 \begin{align}
-	J_1             & = \SI{-22,32}{\milli\electronvolt}, \quad J_2 =
+	J_1           & = \SI{-22,32}{\milli\electronvolt}, \quad J_2 =
 	\SI{-1,4}{\milli\electronvolt}\label{eq:params-exc}
 	\\
-	\mathbf{d}      & = \mqty(
-	\num{0.0153}    & \num{-0.0153}                                   & 0
+	\mat{d}       & = \mqty(
+	\num{0.0153}  & \num{-0.0153}                                   & 0
 	\\
-	\num{-0.0153}   & \num{0.0153}                                    & 0
+	\num{-0.0153} & \num{0.0153}                                    & 0
 	\\
-	0               & 0                                               &
-	\num{0.905})\label{eq:params-2a}
+	0             & 0                                               &
+	\num{0.905})\si{\milli\electronvolt} \label{eq:params-2a}
 	\\
-	L_x             & = L_y = L_z = \SI{0.036}{\milli\electronvolt}\label{eq:params-4a}
+	L_x           & = L_y = L_z =
+	\SI{0.036}{\milli\electronvolt}\label{eq:params-4a}
 	\\
-	\mathbf{\kappa} & = \mqty(
-	0               & 0                                               & 0
+	\mat{\kappa}  & = \mqty(
+	0             & 0                                               & 0
 	\\
-	0               & 0                                               & 0
+	0             & 0                                               & 0
 	\\
-	0               & 0                                               &
-	\num{-0.1255})\label{eq:params-tia}
+	0             & 0                                               &
+	\num{-0.1255})\si{\milli\electronvolt} \label{eq:params-tia}
 	\\
-	\vec{D}_x       & = \mqty*(\num{\pm 0.0036}
+	\vec{D}_x     & = \mqty*(\num{\pm 0.0036}
 	\\ \num{\pm 0.1268} \\ \num{\pm
-		0.1255}), \quad
+		0.1255})\si{\milli\electronvolt} , \quad
 	\vec{D}_y = \mqty*(\num{\pm 0.1268}
 	\\ \num{\pm 0.0036} \\ \num{\pm
-		0.1255}), \quad
+		0.1255})\si{\milli\electronvolt} , \quad
 	\vec{D}_z = \mqty*(\num{\pm 0.1038}
-	\\ \num{\pm 0.2252} \\ 0)\label{eq:params-dmi}
+	\\ \num{\pm 0.2252} \\ 0)\si{\milli\electronvolt} \label{eq:params-dmi}
 \end{align}
 
-\(J_1\) ist hier der Parameter für die Heisenberg-Austauschwechselwirkung \eqref{eq:hamilton-heisenberg-exc} mit den nächsten Nachbarn (6) und \(J_2\) die mit den übernächsten Nachbarn (12). \(\mathbf{d}\) beschreibt die uniaxiale Anisotropie\eqref{eq:hamilton-2a}, \(L_x\), \(L_y\) und \(L_z\) sind die Koeffizienten der kubischen Anisotropie\eqref{eq:hamilton-4a}, \(\mathbf{\kappa}\) ist die Zwei-Ionen Anisotropie\eqref{eq:hamilton-tia} und \(\vec{D}_x\), \(\vec{D}_y\) und \(\vec{D}_z\) sind die Dzyaloshinskii-Moriya Vektoren\eqref{eq:hamilton-dmi}.
+\(J_1\) ist hier der Parameter für die Heisenberg-Austauschwechselwirkung
+\eqref{eq:hamilton-heisenberg-exc} mit den nächsten Nachbarn (6) und \(J_2\)
+die mit den übernächsten Nachbarn (12). \todo{Antiferromagnetisch?}\(\bm{d}\)
+beschreibt die uniaxiale Anisotropie\eqref{eq:hamilton-2a}, \(L_x\), \(L_y\)
+und \(L_z\) sind die Koeffizienten der kubischen
+Anisotropie\eqref{eq:hamilton-4a}, \(\bm{\kappa}\) ist die Zwei-Ionen
+Anisotropie\eqref{eq:hamilton-tia} und \(\vec{D}_x\), \(\vec{D}_y\) und
+\(\vec{D}_z\) sind die Dzyaloshinskii-Moriya Vektoren\eqref{eq:hamilton-dmi}.
 
-Die Dipol-Dipol Wechselwirkung\eqref{eq:hamilton-dd} wird in der Simulation nicht berücksichtigt, da sie im Vergleich zu den anderen Wechselwirkungen sehr klein ist.
+Die Dipol-Dipol Wechselwirkung\eqref{eq:hamilton-dd} wird in der Simulation
+nicht berücksichtigt, da sie im Vergleich zu den anderen Wechselwirkungen
+vernachlässigbar ist.
+
+\todo{erklärung Realisation Reorientierungsübergang}
+
+\todo{Projektion xyz \(\to\) abc}
 
 \begin{figure}[htbp]
 	\centering
 	\subcaptionbox{Einheitszelle mit DMI
 		Vektoren(gelb)\label{subfig:orthoferrit-dmi}}
+
 	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_withDMI_labeled.png}}
 	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für
 		\(T<T_l\)\label{subfig:orthoferrit-below-rt}}
+
 	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_belowRT.png}}
 	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für
 		\(T>T_h\)\label{subfig:orthoferrit-above-rt}}
+
 	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_aboveRT.png}}
-	\caption{Kristallstruktur von \ce{ErFeO3}  Die Eisenatome sind dabei blau, die Sauerstoffatome rot und die Erbiumatome magenta gefärbt.
-	\textbf{(a)} Die DMI Vektoren sind gelb eingezeichnet und die Richtung entspricht den Werten in \cref{eq:params-dmi} 
-	\textbf{(b)} Unterhalb der Reorientierungstemperatur Dominiert die Anisotropie zweiter Ordnung (\cref{eq:hamilton-2a,eq:params-2a}), weshalb die magnetischen Momente quasi Parallel zur c-Achse ausgerichtet sind.
-	\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert die Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}), weshalb die magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet sind. Die Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen Momente Quasi parallel zur a-Achse ausgerichtet sind.\cite{schlegel-master}}
+	\caption{Kristallstruktur von \ce{ErFeO3}  Die Eisenatome sind dabei
+		blau, die Sauerstoffatome rot und die Erbiumatome magenta
+		gefärbt.
+		\textbf{(a)} Die DMI Vektoren sind gelb eingezeichnet und die
+		Richtung
+		entspricht den Werten in \cref{eq:params-dmi}
+		\textbf{(b)} Unterhalb der Reorientierungstemperatur Dominiert
+		die
+		Anisotropie zweiter Ordnung
+		(\cref{eq:hamilton-2a,eq:params-2a}), weshalb die
+		magnetischen Momente quasi Parallel zur c-Achse ausgerichtet
+		sind.
+		\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert
+		die
+		Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}),
+		weshalb die
+		magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet
+		sind. Die
+		Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen
+		Momente Quasi
+		parallel zur a-Achse ausgerichtet sind. \cite{schlegel-master}}
 	\label{fig:orthoferrit}
 \end{figure}
 
 \subsection{Telegrafenrauschen}
 
-Das Telegrafenrauschen ist ein stochastischer Prozess, der aus zwei Zuständen besteht, die zufällig zwischen einander wechseln. Ein gängiges Modell ist der Dichtomische Markow-Prozess (DMP).
+\todo{Einleitung warum Telegrafenrauschen relevant ist}
+
+% Das Telegrafenrauschen ist ein stochastischer Prozess, der aus zwei Zuständen besteht, die zufällig zwischen einander wechseln.
+\todo{erkllärung TGR (mehrere zustände) übergangszeit deutlich kürzer als
+	aufenthaltszeit}
+
+Hier wird ein Telegrafenrauschen mit zwei Zuständen betrachtet.
+Ein gängiges Modell ist der Dichtomische Markow-Prozess (DMP).
 
 Dieser entspricht einer Markow-Kette mit zwei Zuständen (\(c_1\) und \(c_2\))
 zwischen denen die Zustandsvariable \(X(t)\) zufällig hin und her wechselt. Aus
 den Übergangsraten \(\lambda_1\) und \(\lambda_2\) bildet sich die
 Übergangsmatrix \(\mathbf{W}\):
-
+\todo{erkllärung Übergangsmatrix + Zitat}
 \begin{align}
-	\mathbf{W} = \mqty(
-	-\lambda_1 & \lambda_2   \\
-	\lambda_1  & -\lambda_2)
+	\dv{P(t)}{t} & = \mathbf{W} P(t) \\
+	\mathbf{W}   & = \mqty(
+	-\lambda_1   & \lambda_2         \\
+	\lambda_1    & -\lambda_2)
 \end{align}
 
 Die Übergangsraten sind umgekehrt proportional zu den mittleren Verweilzeiten
 (die mittlere Zeit, die \(X(t)\) in einem Zustand verbringt): \(\lambda_i =
 \frac{1}{\tau_i}\).
 
-
-Mit der mittleren Übergangsrate \(\lambda\) lässt sich die Übergangsmatrix zeitlich entwickeln:
+Mit der mittleren Übergangsrate \(\lambda\) lässt sich die Übergangsmatrix
+zeitlich entwickeln:
 \begin{align}
-	\lambda &= \frac{1}{2} \qty(\lambda_1 + \lambda_2)\\
-	e^{\mathbf{W}t} &= \frac{1}{2\lambda} \mqty(\lambda_2 + \lambda_1 e^{-2\lambda t} & \lambda_2 \qty(1- e^{-2\lambda t})\\
-	\lambda_1 \qty(1- e^{-2\lambda t}) & \lambda_1 + \lambda_2 e^{-2\lambda t})
+	\lambda                            & = \frac{1}{2} \qty(\lambda_1 +
+	\lambda_2)
+	\\
+	e^{\mathbf{W}t}                    & = \frac{1}{2\lambda}
+	\mqty(\lambda_2 + \lambda_1
+	e^{-2\lambda t}                    & \lambda_2 \qty(1- e^{-2\lambda t})
+	\\
+	\lambda_1 \qty(1- e^{-2\lambda t}) & \lambda_1 + \lambda_2 e^{-2\lambda
+			t})
 \end{align}
 
-Für \( \lim_{t \to \infty} \) erhalten wir folgende Aufenthaltswahrscheinlichkeiten:
+Für \( \lim_{t \to \infty} \) erhalten wir folgende
+Aufenthaltswahrscheinlichkeiten:
 \begin{align}
-	P(1)                            & = \frac{\tau_1}{\tau_1 + \tau_2} =
+	P(1) & = \frac{\tau_1}{\tau_1 + \tau_2} =
 	\frac{\lambda_2 }{\lambda_1 +
 		\lambda_2}
 	\\
-	P(2)                            & = \frac{\tau_2}{\tau_1 + \tau_2} =
+	P(2) & = \frac{\tau_2}{\tau_1 + \tau_2} =
 	\frac{\lambda_1 }{\lambda_1 +
 		\lambda_2}
 \end{align}
-Damit lässt sich die gemittelte Zustandsvariable \(X(t)\) berechnen:
+Damit lässt sich die gemittelte Zustandsvariable \(\expval{X}\) und die Varianz
+\(\expval{\qty(X - \expval{X})^2}\) berechnen:
 \begin{align}
 	\expval{X}                      & = c_1 P(1) + c_2 P(2) = \frac{\tau_1
 		c_1 + \tau_2
@@ -373,61 +513,87 @@ Damit lässt sich die gemittelte Zustandsvariable \(X(t)\) berechnen:
 		(c_1-c_2)^2}{(\tau_1 + \tau_2)^2} = \frac{\lambda_1 \lambda_2
 		(c_1-c_2)^2}{(\lambda_1 + \lambda_2)^2}
 \end{align}
-Die Autokorrelationsfunktion und die Korrelationszeit lassen sich damit dann auch berechnen:
+Die Autokorrelationsfunktion und die Korrelationszeit lassen sich damit dann
+auch berechnen:
 \begin{align}
-	\delta X(t) & = X(t) - \expval{X}\\
-	\expval{\delta X(0)\delta X(t)} &= \frac{\lambda_1 \lambda_2
-	(c_1-c_2)^2}{(\lambda_1 + \lambda_2)^2} \cdot \exp(-\lambda t)\\
-	\tau_\mathrm{corr} &= \frac{1}{2\lambda} = \frac{1}{\lambda_1 +
+	\delta X(t)                     & = X(t) - \expval{X}
+	\\
+	\expval{\delta X(0)\delta X(t)} & = \frac{\lambda_1 \lambda_2
+		(c_1-c_2)^2}{(\lambda_1 + \lambda_2)^2} \cdot \exp(-2\lambda t)
+	\\
+	\tau_\mathrm{corr}              & = \frac{1}{2\lambda} =
+	\frac{1}{\lambda_1 +
 		\lambda_2} = \frac{\tau_1 \tau_2}{\tau_1 + \tau_2}
 \end{align}
 
 \subsubsection*{Symmetrischer DMP}
 
 Wenn \(c_1=-c_2=c\) und \(\lambda_1 = \lambda_2 = \lambda\) gilt, ist der DMP
-symmetrisch und viele Ausdrücke vereinfachen sich:
+symmetrisch und viele Ausdrücke vereinfachen sich \cite{matphys}:
 \begin{align}
-	\expval{X}        & = 0                    \\
-	\expval{X^2}      & = c^2                  \\
-	\expval{X(0)X(t)} & = c^2 \exp(-\lambda t)
-\end{align}\cite{matphys}
-\todo{\(e^{-2\lambda t}\) oder \(e^{-\lambda t}\)?} 
+	\expval{X}        & = 0                     \\
+	\expval{X^2}      & = c^2                   \\
+	\expval{X(0)X(t)} & = c^2 \exp(-2\lambda t)
+\end{align}
+\todo{\(e^{-2\lambda t}\) oder \(e^{-\lambda t}\)?}
+
 \subsubsection*{Spektrale Leistungsdichte und Autokovarianz}
 
 Um das Rauschen in der Frequenzdomäne zu betrachten, wird die spektrale
-Leistungsdichte \(S(f)\) verwendet. Sie lässt sich aus der abgeschnittenen
-Fouriertransformierten der Magnetisierung berechnen:
+Leistungsdichte \(P(\omega)\) verwendet. Sie lässt sich aus der abgeschnittenen
+Fouriertransformierten von \(X(t)\) berechnen:
 \begin{align}
-	\hat{m}_\beta^T(\omega) & = \int_0^T \dif t \ m_\beta(t) \exp(-i \omega
+	\hat{X}^T(\omega) & = \int_0^T \dif t \ X(t) \exp(-i \omega
 	t)
 	\\
-	P_{\beta}(\omega)       & = \lim_{T \to \infty} \frac{1}{T}
-	\abs{\hat{m}_\beta^T(\omega)}^2
+	P(\omega)         & = \lim_{T \to \infty} \frac{1}{T}
+	\abs{\hat{X}^T(\omega)}^2
 \end{align}
 
-Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen:
+Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen
+\cite{Petroni}:
 \begin{align}
-	P_\beta(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(-i \omega
-	\tau) \expval{m_\beta(0) m_\beta(\tau)}
+	P(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(-i \omega
+	\tau) \expval{X(0) X(\tau)}
 \end{align}
 
-Eine Herleitung dazu befindet sich in \cite{schlegel-master}.
+Eine Herleitung dazu befindet sich in \cite{Petroni}
 
-Die Spektrale Leistungsdichte für den symmetrischen DMP lässt sich somit berechnen:
-
+Die Spektrale Leistungsdichte für den symmetrischen DMP lässt sich somit
+berechnen:
 
 \begin{align}
-	P_\text{DMP}(\omega) &= \int_{-\infty}^{\infty} \dif \tau \ e^{-i \omega \tau} \expval{X(0)X(\tau)}\\
-	&= c^2 \int_{-\infty}^{\infty} \dif \tau \ e^{-i \omega \tau}e^{-\lambda \abs{\tau}}\\
-	&= c^2 \int_{-\infty}^{0} \dif \tau \ e^{-i \omega \tau}e^{\lambda \tau} + c^2 \int_{0}^{\infty} \dif \tau \ e^{-i \omega \tau}e^{-\lambda \tau}\\
-	&= c^2 \int_{0}^{\infty} \dif \tau \ e^{-\lambda \tau} \qty(e^{i \omega \tau} + e^{-i \omega \tau})\\
-	&= c^2 \qty[\frac{e^{-\tau(\lambda + i\omega)}}{\lambda + i\omega} + \frac{e^{-\tau(\lambda + i\omega)}\cdot e^{\tau 2 i \omega)}}{\lambda - i\omega}]_{0}^{\infty}\\
-	&= c^2\qty(\frac{1}{\lambda + i\omega} + \frac{1}{\lambda - i\omega})\\
-	&= \frac{c^2 \cdot 2\lambda}{\lambda^2 + \omega^2}
+	P_\text{DMP}(\omega) & = \int_{-\infty}^{\infty} \dif \tau \ e^{-i
+			\omega \tau} \expval{X(0)X(\tau)}\nonumber
+	\\
+	                     & = c^2 \int_{-\infty}^{\infty} \dif \tau \ e^{-i
+			\omega
+			\tau}e^{-\lambda \abs{\tau}}\nonumber
+	\\
+	                     & = c^2 \int_{-\infty}^{0} \dif \tau \ e^{-i
+			\omega \tau}e^{\lambda
+	\tau} + c^2 \int_{0}^{\infty} \dif \tau \ e^{-i \omega \tau}e^{-\lambda
+	\tau}\nonumber
+	\\
+	                     & = c^2 \int_{0}^{\infty} \dif \tau \ e^{-\lambda
+			\tau} \qty(e^{i \omega
+		\tau} + e^{-i \omega \tau})\nonumber
+	\\
+	                     & = c^2 \qty[\frac{e^{-\tau(\lambda +
+					i\omega)}}{\lambda + i\omega} +
+		\frac{e^{-\tau(\lambda - i\omega)}}{\lambda -
+			i\omega}]_{0}^{\infty}\nonumber
+	\\
+	                     & = c^2\qty(\frac{1}{\lambda + i\omega} +
+	\frac{1}{\lambda -
+		i\omega})\nonumber
+	\\
+	                     & = \frac{c^2 \cdot 2\lambda}{\lambda^2 +
+		\omega^2},
 \end{align}
-Was einer Lorenzverteilung mit dem Maximum bei \(\omega=0\) entspricht.
+was einer Lorenzverteilung mit dem Maximum bei \(\omega=0\) entspricht.
 
 % bibliography (temporary)
-%\bibliography{literatur} \todo{comment out before compiling main.tex}
+% \bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}
