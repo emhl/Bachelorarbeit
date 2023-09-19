@@ -41,7 +41,7 @@ Die Hamiltonfunktion für die Heisenberg Austauschwechselwirkung kann wie folgt 
 \subsubsection*{Dzyaloshinskii-Moriya Wechselwirkung}
 % Dzyaloshinskii-Moriya interaction 
 
-Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte antisymmetrische Interaktion von zwei Spins \cite{DMI}.
+Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte antisymmetrische Interaktion von zwei Spins~\cite{DMI}.
 \todo{erklärung indirekt antisymmetrische Interaktion}
 Sie ist hier die zweitstärkste Wechselwirkung und ist proportional zum Kreuzprodukt der magnetischen Momente:
 
@@ -72,7 +72,7 @@ Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamilton Fu
 
 \todo{erkllärung leichte und harte Achse}
 
-Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische Anisotropie, welche eine Anisotropie vierter Ordnung ist \cite{GrossMarx}:
+Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische Anisotropie, welche eine Anisotropie vierter Ordnung ist~\cite{GrossMarx}:
 \begin{align}
 	\mathcal{H}_{\text{4.AI}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2 \qty(\vec{S}_{i,z})^2 
 	+ L_{i,y} \qty(\vec{S}_{i,z})^2 \qty(\vec{S}_{i,x})^2 
@@ -98,7 +98,7 @@ Bei einem äußeren Magnetfeld \(B_\text{ext}\) wirkt auf jedes magnetische Mome
 \subsubsection*{Dipol-Dipol Wechselwirkung}
 
 Jedes magnetische Moment erzeugt ein Magnetfeld, welches aus hinreichender
-Entfernung stehts wie ein Dipolfeld aussieht \cite{Nolting-3-elektrodynamik}:
+Entfernung stehts wie ein Dipolfeld aussieht~\cite{Nolting-3-elektrodynamik}:
 
 \begin{align}
 	\vec{B}(\vec{r}) & = \frac{\mu_0}{4\pi} \qty[3 \frac{\vec{r}(\vec{\mu} \cdot
@@ -145,8 +145,7 @@ Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten zusammen:
 Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
 
 Obwohl die Hamiltonfunktion klassisch ist \todo{klassisches Heisenberg Modell}, kann die Bewegungsgleichung über die Quantenmechanik hergeleitet werden. 
-Das Ehrenfest-Theorem besagt, dass die zeitliche Änderung des Erwartungswertes eines Operators gleich dem Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist
-\cite{qm-1-Schwabl}:
+Das Ehrenfest-Theorem besagt, dass die zeitliche Änderung des Erwartungswertes eines Operators gleich dem Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist \cite{qm-1-Schwabl}:
 
 \begin{align}
 	\dv{\expval{\hat{\vec{S}}_i}}{t} = \frac{1}{i\hbar}
@@ -184,8 +183,7 @@ und der Kommutatorrelation
 % 	\label{eq:landau-lifschitz}
 % \end{align}\cite{landau-lifshitz}
 
-zusätzlich enthält die gleichung Noch einen Dämpfungsterm
-\cite{Gilbert-damping}:
+zusätzlich enthält die gleichung Noch einen Dämpfungsterm~\cite{Gilbert-damping}:
 
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}}) 
@@ -250,32 +248,25 @@ Dabei handelt es sich um ein Gausssches weißes Rauschen, welches unkorreliert i
 
 \todo{Langevin Dynamik}
 \begin{align}
-	\vec{\mathcal{H}}_{\text{i}}                 & =
-	-\pdv{\mathcal{H}}{\vec{S}_i} +
-	\vec{\xi}_i(t)
-	\\
-	\expval{\vec{\xi}_i(t)}                      & = 0
-	\\
-	\expval{\xi_{i,\alpha}(t) \xi_{j,\beta}(t')} & = \frac{2\mu_\text{S}
-		\alpha
-	}{\gamma}k_\text{B} T \cdot \delta_{ij} \delta_{\alpha \beta}
-	\delta(t-t')
+	\vec{\mathcal{H}}_{\text{i}} 
+	& = -\pdv{\mathcal{H}}{\vec{S}_i} + \vec{\xi}_i(t) \\
+	\expval{\vec{\xi}_i(t)} & = 0 \\
+	\expval{\xi_{i,\alpha}(t) \xi_{j,\beta}(t')} 
+	& = \frac{2\mu_\text{S} \alpha}{\gamma}k_\text{B} T \cdot \delta_{ij} \delta_{\alpha \beta}	\delta(t-t')
 \end{align}
 
 \begin{figure}[H]
 	\centering
 	\subcaptionbox{\(T = \SI{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
 	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
-	\caption{Visualisierung der LLG-Gleichung. Der blaue Vektor entspricht dem Spin \(\vec{S}\) und die blaue Linie ist die Dynamik. Der Graue Vektor entspricht dem effektiven Feld, ohne Rauschen. Der Ptäzessionsterm wird durch den roten Vektor beschrieben und der Dämpfungsterm durch den grünen. \cite{schlegel-master}}
+	\caption{Visualisierung der LLG-Gleichung. Der blaue Vektor entspricht dem Spin \(\vec{S}\) und die blaue Linie ist die Dynamik. Der Graue Vektor entspricht dem effektiven Feld, ohne Rauschen. Der Ptäzessionsterm wird durch den roten Vektor beschrieben und der Dämpfungsterm durch den grünen.~\cite{schlegel-master}}
 	\label{fig:llg-rauschen}
 \end{figure}
 
 \subsection{Modellierung von Orthoferrit}
 
-Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein
-Rest ist, durch den sich die verschiedenen Orthoferrite unterscheiden. Hier
-bildet Erbium (\ce{Er}) diese Restgruppe. \todo{Samarium jetzt oder erst
-	später?}
+Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein Rest ist, durch den sich die verschiedenen Orthoferrite unterscheiden. Hier bildet Erbium (\ce{Er}) diese Restgruppe. 
+\todo{Samarium jetzt oder erst	später?}
 
 % \begin{figure}[htbp]
 % 	\centering
@@ -289,11 +280,8 @@ bildet Erbium (\ce{Er}) diese Restgruppe. \todo{Samarium jetzt oder erst
 
 % \todo{erklärung für Samarium (reorientierungstemperatur)}
 
-Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei
-ungefähr \SI{110}{\kelvin} \cite{Deng2015}. Durch teilweises Ersetzen von
-Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei
-(\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es
-im Experiment einfacher zu untersuchen ist. \todo{Zitat Fitzky}
+Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei ungefähr \SI{110}{\kelvin}~\cite{Deng2015}. 
+Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei(\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist~\cite{Fitzky2021}.
 
 % Parameter für Simulation
 % \todo{wer hat die Parameter bestimmt?}
@@ -365,7 +353,7 @@ vernachlässigbar ist.
 	\caption{Kristallstruktur von \ce{ErFeO3}  Die Eisenatome sind dabei blau, die Sauerstoffatome rot und die Erbiumatome magenta gefärbt. 
 	\textbf{(a)} Die DMI Vektoren sind gelb eingezeichnet und die Richtung entspricht den Werten in \cref{eq:params-dmi} 
 	\textbf{(b)} Unterhalb der Reorientierungstemperatur Dominiert die Anisotropie zweiter Ordnung (\cref{eq:hamilton-2a,eq:params-2a}), weshalb die magnetischen Momente quasi Parallel zur c-Achse ausgerichtet sind. 
-	\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert die Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}), weshalb die magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet sind. Die Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen Momente Quasi parallel zur a-Achse ausgerichtet sind. \cite{schlegel-master}}
+	\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert die Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}), weshalb die magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet sind. Die Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen Momente Quasi parallel zur a-Achse ausgerichtet sind.~\cite{schlegel-master}}
 	\label{fig:orthoferrit}
 \end{figure}
 
@@ -379,7 +367,7 @@ vernachlässigbar ist.
 
 Hier wird ein Telegrafenrauschen mit zwei Zuständen betrachtet.
 Ein gängiges Modell ist der Dichtomische Markow-Prozess (DMP).
-Die Gleichungen dazu sind aus \cite{matphys} entnommen.
+Die Gleichungen dazu sind aus~\cite{matphys} entnommen.
 
 Dieser entspricht einer Markow-Kette mit zwei Zuständen (\(c_1\) und \(c_2\))
 zwischen denen die Zustandsvariable \(X(t)\) zufällig hin und her wechselt. Aus
@@ -472,14 +460,13 @@ Fouriertransformierten von \(X(t)\) berechnen:
 	\abs{\hat{X}^T(\omega)}^2
 \end{align}
 
-Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen
-\cite{Petroni}:
+Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen~\cite{Petroni}:
 \begin{align}
 	P(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(-i \omega
 	\tau) \expval{X(0) X(\tau)}
 \end{align}
 
-Eine Herleitung dazu befindet sich in \cite{Petroni}
+Eine Herleitung dazu befindet sich in~\cite{Petroni}
 
 Die Spektrale Leistungsdichte für den symmetrischen DMP lässt sich somit
 berechnen:
