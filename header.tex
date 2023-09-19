@@ -54,7 +54,7 @@
 %	Erweiterung von AMSMath, laedt automatisch AMSMath - für viele Mathe-Werkzeuge, 'fleqn' als Option ist für Mathe linksbuendig
 \usepackage{amsfonts}
 %	Für eine Vielzahl an mathematischen Symbolen
-
+\usepackage{bm} % bold math
 %----------------------------------------------------------------%
 %--------------------------KOPF- UND FUSSZEILEN------------------%
 %----------------------------------------------------------------%
@@ -152,6 +152,7 @@
 %--------------------------EIGENE BEFEHLE------------------------%
 %----------------------------------------------------------------%
 \newcommand{\dif}{\mathrm{d}}
+\newcommand{\mat}[1]{\bm{\mathrm{#1}}}
 \newcommand{\todo}[1]{{\fontfamily{phv}\selectfont\textcolor{red}{\textbf{ToDo:}~#1}}}
 
 %% Pakete für Umlaute, Rechtschreibung und Orthographie
