@@ -3,20 +3,14 @@
 \newpage
 \section{Theoretische Grundlagen}
 \todo{Kapitälchen?}
-In diesem Abschnitt werden die theoretischen Grundlagen, die diese Arbeit
-benötigt, erläutert.
+In diesem Abschnitt werden die theoretischen Grundlagen, die diese Arbeit benötigt, erläutert.
 
 \subsection{Heisenberg Modell}
 
-Um das System von mehreren magnetischen Momenten zu beschreiben, wird das
-klassische Heisenberg Modell verwendet. Es beschreibt die Wechselwirkung
-zwischen den magnetischen Momenten der einzelnen Atome.
+Um das System von mehreren magnetischen Momenten zu beschreiben, wird das klassische Heisenberg Modell verwendet. Es beschreibt die Wechselwirkungzwischen den magnetischen Momenten der einzelnen Atome.
 
-Die magnetischen Momente \(\vec{\mu}\) werden als klassische dreidimensionale
-Vektoren der Länge
-\(\mu_{\text{S}}\) angenommen.
-Die normierten und dimensionslosen magnetischen Momente werden mit \(\vec{S}\)
-bezeichnet:
+Die magnetischen Momente \(\vec{\mu}\) werden als klassische dreidimensionale Vektoren der Länge \(\mu_{\text{S}}\) angenommen.
+Die normierten und dimensionslosen magnetischen Momente werden mit \(\vec{S}\) bezeichnet:
 
 \begin{align}
 	\vec{S}_i = \frac{\vec{\mu}_i}{\mu_{\text{S},i}}
@@ -26,22 +20,18 @@ bezeichnet:
 % entgegengesetzte Richtungen zeigen und die Beträge der magnetischen Momente
 % gleich sind gilt zusätzlich \(\mu_{\text{S},i} = \mu_{\text{S},j} = \mu_{S}\).
 
-Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche
-sich aus mehreren Komponenten zusammensetzt:
+Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche sich aus mehreren Komponenten zusammensetzt:
 
 \subsubsection*{Heisenberg Austauschwechselwirkung}
 % Heisenberg Austauschwechselwirkung
 
-Die Heisenberg Austauschwechselwirkung beschreibt die Wechselwirkung zwischen
-den magnetischen Momenten der einzelnen Atome aufgrund von überlappten
-Wellenfunktionen~\cite{Heisenberg-Ferromagnetismus}. Sie ist in der Regel die
-dominierende Wechselwirkung in magnetisch geordneten Strukturen.
+Die Heisenberg Austauschwechselwirkung beschreibt die Wechselwirkung zwischen den magnetischen Momenten der einzelnen Atome aufgrund von überlappten Wellenfunktionen~\cite{Heisenberg-Ferromagnetismus}. 
+Sie ist in der Regel die dominierende Wechselwirkung in magnetisch geordneten Strukturen.
 % Klassisch ist sie proportional zum Skalarprodukt der magnetischen Momente:
 
 \todo{verweis literatur mit Herleitung}
 
-Die Hamiltonfunktion für die Heisenberg Austauschwechselwirkung kann wie folgt
-geschrieben werden:
+Die Hamiltonfunktion für die Heisenberg Austauschwechselwirkung kann wie folgt geschrieben werden:
 
 \begin{align}
 	\mathcal{H}_{\text{EXC}} = -\sum_{i,j} J_{ij} \vec{S}_i \cdot
@@ -51,11 +41,9 @@ geschrieben werden:
 \subsubsection*{Dzyaloshinskii-Moriya Wechselwirkung}
 % Dzyaloshinskii-Moriya interaction 
 
-Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte
-antisymmetrische Interaktion von zwei Spins \cite{DMI}.
+Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte antisymmetrische Interaktion von zwei Spins \cite{DMI}.
 \todo{erklärung indirekt antisymmetrische Interaktion}
-Sie ist hier die zweitstärkste Wechselwirkung und ist proportional zum
-Kreuzprodukt der magnetischen Momente:
+Sie ist hier die zweitstärkste Wechselwirkung und ist proportional zum Kreuzprodukt der magnetischen Momente:
 
 \begin{align}
 	\mathcal{H}_{\text{DMI}} = -\sum_{i,j} \vec{D}_{ij} \cdot (\vec{S}_i
@@ -75,8 +63,7 @@ Die hier betrachteten Anisotropien sind verschiedene kristalline Anisotropien
 
 \todo{kristalline Anisotropien erklären}
 
-Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamilton
-Funktion bei:
+Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamilton Funktion bei:
 \begin{align}
 	\mathcal{H}_{\text{2.AI}} = -\sum_{i} \qty(\vec{S}_i)^\dagger
 	\mat{d}_i
@@ -85,31 +72,24 @@ Funktion bei:
 
 \todo{erkllärung leichte und harte Achse}
 
-Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische
-Anisotropie, welche eine Anisotropie vierter Ordnung ist \cite{GrossMarx}:
+Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische Anisotropie, welche eine Anisotropie vierter Ordnung ist \cite{GrossMarx}:
 \begin{align}
-	\mathcal{H}_{\text{4.AI}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2
-	\qty(\vec{S}_{i,z})^2 + L_{i,y} \qty(\vec{S}_{i,z})^2
-	\qty(\vec{S}_{i,x})^2
-	+
-	L_{i,z} \qty(\vec{S}_{i,x})^2
-	\qty(\vec{S}_{i,y})^2\label{eq:hamilton-4a}
+	\mathcal{H}_{\text{4.AI}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2 \qty(\vec{S}_{i,z})^2 
+	+ L_{i,y} \qty(\vec{S}_{i,z})^2 \qty(\vec{S}_{i,x})^2 
+	+ L_{i,z} \qty(\vec{S}_{i,x})^2 \qty(\vec{S}_{i,y})^2\label{eq:hamilton-4a}
 \end{align}
 
 Außerdem wird noch die Zwei-Ionen Anisotropie berücksichtigt:
 \begin{align}
-	\mathcal{H}_{\text{TIA}} = -\sum_{i,j} \vec{S}_i \mat{\kappa}_{ij}
-	\vec{S}_j\label{eq:hamilton-tia}
+	\mathcal{H}_{\text{TIA}} = -\sum_{i,j} \vec{S}_i \mat{\kappa}_{ij} \vec{S}_j\label{eq:hamilton-tia}
 \end{align}
 \subsubsection*{Zeeman Wechselwirkung}
 % Zeeman
-Bei einem äußeren Magnetfeld \(B_\text{ext}\) wirkt auf jedes magnetische
-Moment die Zeeman Wechselwirkung:
+Bei einem äußeren Magnetfeld \(B_\text{ext}\) wirkt auf jedes magnetische Moment die Zeeman Wechselwirkung:
 
 \begin{align}
-	\mathcal{H}_{\text{Z}} = - B_\text{ext} \sum_{i} \vec{\mu}_i = -
-	B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot
-	\vec{S}_i\label{eq:hamilton-zeeman}
+	\mathcal{H}_{\text{Z}} = - B_\text{ext} \sum_{i} \vec{\mu}_i = 
+	- B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot \vec{S}_i\label{eq:hamilton-zeeman}
 \end{align}
 
 \todo{paralelle Ausrichtung im gegensatz zu Anisotropie}
@@ -121,64 +101,51 @@ Jedes magnetische Moment erzeugt ein Magnetfeld, welches aus hinreichender
 Entfernung stehts wie ein Dipolfeld aussieht \cite{Nolting-3-elektrodynamik}:
 
 \begin{align}
-	\vec{B}(\vec{r}) & = \frac{\mu_0}{4\pi} \qty[3 \frac{\vec{r}(\vec{\mu}
-			\cdot
-			\vec{r})}{r^5} -
-		\frac{\vec{\mu}}{r^3}]\label{eq:dipolmoment}
+	\vec{B}(\vec{r}) & = \frac{\mu_0}{4\pi} \qty[3 \frac{\vec{r}(\vec{\mu} \cdot
+			\vec{r})}{r^5} - \frac{\vec{\mu}}{r^3}]\label{eq:dipolmoment}
 \end{align}
 
-Wenn zwei magnetische Momente \(\vec{\mu}_i\) und \(\vec{\mu}_j\) in einem
-Abstand \(r_{ij}\) zueinander stehen, wirkt auf das magnetische Moment
-\(\vec{\mu}_i\) das Magnetfeld \(\vec{B}_j\) und auf das magnetische Moment
-\(\vec{\mu}_j\) das Magnetfeld \(\vec{B}_i\).
+Wenn zwei magnetische Momente \(\vec{\mu}_i\) und \(\vec{\mu}_j\) in einem Abstand \(r_{ij}\) zueinander stehen, wirkt auf das magnetische Moment \(\vec{\mu}_i\) das Magnetfeld \(\vec{B}_j\) und auf das magnetische Moment \(\vec{\mu}_j\) das Magnetfeld \(\vec{B}_i\).
 
 % Die Wechselwirkungsenergie zwischen den beiden magnetischen Momenten ist die Energie, die aufgewendet werden muss, um die beiden magnetischen Momente aus dem Magnetfeld des jeweils anderen zu entfernen. Die Wechselwirkungsenergie ist also proportional zum Skalarprodukt der beiden Magnetfelder:
 
 \todo{Herleitung Hamiltonfunktion}
 
 \begin{align}
-	\mathcal{H}_{\text{DD}} & = \sum_{\substack{i,j                     \\
-	i \neq j}}
-	\vec{\mu}_i \cdot \vec{B}_j(\vec{r}_{ij}) \nonumber                 \\
-	                        & = \sum_{\substack{i,j                     \\
-	i \neq j}}
-	\frac{\mu_0}{4\pi}
-	\cdot  \frac{3(\vec{\mu}_i \cdot \vec{r}_{ij})(\vec{\mu}_j \cdot
-		\vec{r}_{ij})
+	\mathcal{H}_{\text{DD}} 
+	& = \sum_{i,j} \vec{\mu}_i \cdot \vec{B}_j(\vec{r}_{ij}) \nonumber \\
+	& = \sum_{i,j} \frac{\mu_0}{4\pi}
+	\cdot \frac{3(\vec{\mu}_i \cdot \vec{r}_{ij})(\vec{\mu}_j \cdot \vec{r}_{ij})
 	- \vec{\mu}_i \cdot \vec{\mu}_j \cdot r_{ij}^2}{r_{ij}^5} \nonumber \\
-	                        & = \sum_{\substack{i,j                     \\
-	i \neq j}}
-	\frac{\mu_0 \cdot \mu_{\text{S,i}} \cdot \mu_{\text{S,j}}}{4\pi}
-	\cdot \frac{3(\vec{S}_i \cdot \vec{r}_{ij})(\vec{S}_j \cdot
-		\vec{r}_{ij})
-		- \vec{S}_i \cdot \vec{S}_j \cdot
-		r_{ij}^2}{r_{ij}^5}\label{eq:hamilton-dd}
+	& = \sum_{i,j} \frac{\mu_0 \cdot \mu_{\text{S,i}} \cdot \mu_{\text{S,j}}}{4\pi}
+	\cdot \frac{3(\vec{S}_i \cdot \vec{r}_{ij})(\vec{S}_j \cdot \vec{r}_{ij})
+	- \vec{S}_i \cdot \vec{S}_j \cdot r_{ij}^2}{r_{ij}^5}\label{eq:hamilton-dd}
 \end{align}
 
 \subsubsection*{Gesamte Hamilton Funktion}
 
-Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten
-zusammen:
+Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten zusammen:
 
 \begin{align}
 	\mathcal{H} & = \mathcal{H}_{\text{EXC}} + \mathcal{H}_{\text{DMI}} +
-	\mathcal{H}_{\text{2.AI}} + \mathcal{H}_{\text{KAI}} +
+	\mathcal{H}_{\text{2.AI}} + \mathcal{H}_{\text{4.AI}} +
 	\mathcal{H}_{\text{TIA}} + \mathcal{H}_{\text{Z}} +
-	\mathcal{H}_{\text{DD}}\label{eq:hamilton}
-	\\
-	            & = \todo{einsetzen}
+	\mathcal{H}_{\text{DD}}\label{eq:hamilton}\nonumber \\
+	& = \underbrace{-\sum_{i,j} J_{ij} \vec{S}_i \cdot \vec{S}_j}_\text{Heisenberg Austausch} % Heisenberg
+	\quad \underbrace{-\sum_{i,j} \vec{D}_{ij} \cdot (\vec{S}_i \times \vec{S}_j)}_\text{DMI} % DMI
+	\quad \underbrace{-\sum_{i} \qty(\vec{S}_i)^\dagger \mat{d}_i \vec{S}_i}_\text{2. Ordnung Anisotropie}\nonumber  \\ % 2.AI
+	& \underbrace{-\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2 \qty(\vec{S}_{i,z})^2 + L_{i,y} \qty(\vec{S}_{i,z})^2 \qty(\vec{S}_{i,x})^2 + L_{i,z} \qty(\vec{S}_{i,x})^2 \qty(\vec{S}_{i,y})^2}_\text{4. Ordnung Anisotropie} \nonumber\\ % 4.AI
+	& \underbrace{-\sum_{i,j} \vec{S}_i \mat{\kappa}_{ij} \vec{S}_j}_\text{TIA}% TIA
+	\quad \underbrace{- B_\text{ext} \sum_{i} \vec{\mu}_i}_\text{Zeeman} \nonumber\\ % Zeeman
+	& \underbrace{ + \sum_{i,j} \frac{\mu_0 \cdot \mu_{\text{S,i}} \cdot \mu_{\text{S,j}}}{4\pi} \cdot \frac{3(\vec{S}_i \cdot \vec{r}_{ij})(\vec{S}_j \cdot \vec{r}_{ij}) - \vec{S}_i \cdot \vec{S}_j \cdot r_{ij}^2}{r_{ij}^5}}_\text{Dipol Dipol Wechselwirkung} % DD
 \end{align}
 
 \subsection{Bewegungsgleichung: Landau-Lifschitz-Gilbert Gleichung}
 % Landau-Lifschitz Gleichung (1935)
-Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der
-Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
+Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
 
-Obwohl die Hamiltonfunktion klassisch ist \todo{klassisches Heisenberg Modell},
-kann die Bewegungsgleichung über die
-Quantenmechanik hergeleitet werden. Das Ehrenfest-Theorem besagt, dass die
-zeitliche Änderung des Erwartungswertes eines Operators gleich dem
-Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist
+Obwohl die Hamiltonfunktion klassisch ist \todo{klassisches Heisenberg Modell}, kann die Bewegungsgleichung über die Quantenmechanik hergeleitet werden. 
+Das Ehrenfest-Theorem besagt, dass die zeitliche Änderung des Erwartungswertes eines Operators gleich dem Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist
 \cite{qm-1-Schwabl}:
 
 \begin{align}
@@ -192,20 +159,18 @@ Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist
 % 			\hat{\mathcal{H}}]}
 % \end{align}
 
-Mit der Relation \(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}
-\hat{\vec{J}}_i\) und der Kommutatorrelation \(\qty[\hat{\vec{J}}_i,
-	\hat{\vec{J}}_j] = i \hbar \cdot \varepsilon_{abc}
-\hat{\vec{J}}_{c,i}\) (wobei
-\(\varepsilon\) das Levi-Civita Symbol und \(\hat{\vec{J}}\) der Drehimpuls
-ist) ergibt sich:
+Mit der Relation 
+\(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}\hat{\vec{J}}_i\) 
+und der Kommutatorrelation 
+\(\qty[\hat{\vec{J}}_i, \hat{\vec{J}}_j] = i \hbar \cdot \varepsilon_{abc} \hat{\vec{J}}_{c,i}\) 
+(wobei \(\varepsilon\) das Levi-Civita Symbol und \(\hat{\vec{J}}\) der Drehimpulsist) ergibt sich:
 
 \begin{align}
-	\dv{\vec{S}_i}{t}                             & = -\frac{\gamma
-	}{\mu_{\text{S}}}
-	\qty(\vec{S}_i \times
-	\vec{\mathcal{H}}_{\text{i}})                                   \\
-	\text{mit} \quad \vec{\mathcal{H}}_{\text{i}} & = -
-	\pdv{\mathcal{H}}{\vec{S}_i}
+	\dv{\vec{S}_i}{t}
+	& = -\frac{\gamma}{\mu_{\text{S}}}
+	\qty(\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}})\\
+	\text{mit} \quad \vec{\mathcal{H}}_{\text{i}} 
+	& = - \pdv{\mathcal{H}}{\vec{S}_i}
 \end{align}
 
 % \begin{align}
@@ -223,10 +188,8 @@ zusätzlich enthält die gleichung Noch einen Dämpfungsterm
 \cite{Gilbert-damping}:
 
 \begin{align}
-	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i
-	\times
-	\vec{\mathcal{H}}_{\text{i}}) + \alpha \qty(\vec{S}_i \times
-	\dv{\vec{S}_i}{t})
+	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}}) 
+	+ \alpha \qty(\vec{S}_i \times \dv{\vec{S}_i}{t})
 \end{align}
 
 Um davon auf eine klassische explizite Bewegungsgleichung zu kommen, muss die
@@ -263,7 +226,7 @@ Damit erhalten ergibt sich die Landau-Lifschitz-Gilbert Gleichung:
 	}{\mu_{\text{S}}(1+\alpha^2)}\qty[\underbrace{\vec{S}_i \times
 			\vec{\mathcal{H}}_{\text{i}}}_\text{Präzession} +
 		\underbrace{\alpha \vec{S}_i
-			\times 
+			\times
 			\qty(\vec{S}_i \times
 			\vec{\mathcal{H}}_{\text{i}})}_\text{Dämpfung}]\label{eq:llg}
 \end{align}
@@ -274,21 +237,16 @@ Die Landau-Lifschitz-Gilbert Gleichung unterscheidet sich nur über die Faktoren
 (\(\frac{1
 }{1 + \alpha^2}\) und \(\alpha\)) von der Landau-Lifschitz Gleichung
 
-Der Präzessionsterm beschreibt die Präzession der magnetischen Momente um das
-effektive Feld.
+Der Präzessionsterm beschreibt die Präzession der magnetischen Momente um das effektive Feld.
 
 % Der Dämpfungsterm beschreibt die Energie, die aufgewendet werden muss, um die magnetischen Momente zu drehen. 
-Der Dämpfungsterm ist eine Art Reibungsterm, der die Präzession der
-magnetischen Momente dämpft und für eine Relaxion in Richtung des effektiven
-Feldes sorgt.
+Der Dämpfungsterm ist eine Art Reibungsterm, der die Präzession der magnetischen Momente dämpft und für eine Relaxion in Richtung des effektiven Feldes sorgt.
 
 Bis jetzt wurde das System nur bei \(T = \SI{0}{\kelvin}\) betrachtet.
 % Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welches durch die endliche Temperatur entsteht. 
-Durch addition eines Rauschterms \(\vec{\xi}_i(t)\) kann die Bewegungsgleichung
-auch für endliche Temperaturen beschrieben werden.
+Durch addition eines Rauschterms \(\vec{\xi}_i(t)\) kann die Bewegungsgleichung auch für endliche Temperaturen beschrieben werden.
 % Dieses wird durch einen stochastischen Term \(\vec{\xi}_i(t)\) beschrieben, der die Bewegungsgleichung zu einer stochastischen Differentialgleichung macht:
-Dabei handelt es sich um ein Gausssches weißes Rauschen, welches unkorreliert
-in Raum und Zeit ist.
+Dabei handelt es sich um ein Gausssches weißes Rauschen, welches unkorreliert in Raum und Zeit ist.
 
 \todo{Langevin Dynamik}
 \begin{align}
@@ -306,20 +264,9 @@ in Raum und Zeit ist.
 
 \begin{figure}[H]
 	\centering
-	\subcaptionbox{\(T = \SI{0}{\kelvin} \)}
-
-	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
-	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}
-
-	{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
-	\caption{Visualisierung der LLG-Gleichung. Der blaue Vektor entspricht
-		dem Spin \(\vec{S}\) und die blaue Linie ist die Dynamik. Der
-		Graue Vektor
-		entspricht dem effektiven Feld, ohne Rauschen. Der
-		Ptäzessionsterm wird durch
-		den roten Vektor beschrieben und der Dämpfungsterm durch den
-		grünen.
-		\cite{schlegel-master}}
+	\subcaptionbox{\(T = \SI{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
+	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
+	\caption{Visualisierung der LLG-Gleichung. Der blaue Vektor entspricht dem Spin \(\vec{S}\) und die blaue Linie ist die Dynamik. Der Graue Vektor entspricht dem effektiven Feld, ohne Rauschen. Der Ptäzessionsterm wird durch den roten Vektor beschrieben und der Dämpfungsterm durch den grünen. \cite{schlegel-master}}
 	\label{fig:llg-rauschen}
 \end{figure}
 
@@ -412,39 +359,13 @@ vernachlässigbar ist.
 
 \begin{figure}[htbp]
 	\centering
-	\subcaptionbox{Einheitszelle mit DMI
-		Vektoren(gelb)\label{subfig:orthoferrit-dmi}}
-
-	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_withDMI_labeled.png}}
-	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für
-		\(T<T_l\)\label{subfig:orthoferrit-below-rt}}
-
-	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_belowRT.png}}
-	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für
-		\(T>T_h\)\label{subfig:orthoferrit-above-rt}}
-
-	{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_aboveRT.png}}
-	\caption{Kristallstruktur von \ce{ErFeO3}  Die Eisenatome sind dabei
-		blau, die Sauerstoffatome rot und die Erbiumatome magenta
-		gefärbt.
-		\textbf{(a)} Die DMI Vektoren sind gelb eingezeichnet und die
-		Richtung
-		entspricht den Werten in \cref{eq:params-dmi}
-		\textbf{(b)} Unterhalb der Reorientierungstemperatur Dominiert
-		die
-		Anisotropie zweiter Ordnung
-		(\cref{eq:hamilton-2a,eq:params-2a}), weshalb die
-		magnetischen Momente quasi Parallel zur c-Achse ausgerichtet
-		sind.
-		\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert
-		die
-		Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}),
-		weshalb die
-		magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet
-		sind. Die
-		Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen
-		Momente Quasi
-		parallel zur a-Achse ausgerichtet sind. \cite{schlegel-master}}
+	\subcaptionbox{Einheitszelle mit DMI Vektoren(gelb)\label{subfig:orthoferrit-dmi}}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_withDMI_labeled.png}}
+	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für \(T<T_l\)\label{subfig:orthoferrit-below-rt}}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_belowRT.png}}
+	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für \(T>T_h\)\label{subfig:orthoferrit-above-rt}}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_aboveRT.png}}
+	\caption{Kristallstruktur von \ce{ErFeO3}  Die Eisenatome sind dabei blau, die Sauerstoffatome rot und die Erbiumatome magenta gefärbt. 
+	\textbf{(a)} Die DMI Vektoren sind gelb eingezeichnet und die Richtung entspricht den Werten in \cref{eq:params-dmi} 
+	\textbf{(b)} Unterhalb der Reorientierungstemperatur Dominiert die Anisotropie zweiter Ordnung (\cref{eq:hamilton-2a,eq:params-2a}), weshalb die magnetischen Momente quasi Parallel zur c-Achse ausgerichtet sind. 
+	\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert die Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}), weshalb die magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet sind. Die Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen Momente Quasi parallel zur a-Achse ausgerichtet sind. \cite{schlegel-master}}
 	\label{fig:orthoferrit}
 \end{figure}
 
@@ -458,6 +379,7 @@ vernachlässigbar ist.
 
 Hier wird ein Telegrafenrauschen mit zwei Zuständen betrachtet.
 Ein gängiges Modell ist der Dichtomische Markow-Prozess (DMP).
+Die Gleichungen dazu sind aus \cite{matphys} entnommen.
 
 Dieser entspricht einer Markow-Kette mit zwei Zuständen (\(c_1\) und \(c_2\))
 zwischen denen die Zustandsvariable \(X(t)\) zufällig hin und her wechselt. Aus
@@ -486,7 +408,7 @@ zeitlich entwickeln:
 	e^{-2\lambda t}                    & \lambda_2 \qty(1- e^{-2\lambda t})
 	\\
 	\lambda_1 \qty(1- e^{-2\lambda t}) & \lambda_1 + \lambda_2 e^{-2\lambda
-			t})
+		t})
 \end{align}
 
 Für \( \lim_{t \to \infty} \) erhalten wir folgende
@@ -529,7 +451,7 @@ auch berechnen:
 \subsubsection*{Symmetrischer DMP}
 
 Wenn \(c_1=-c_2=c\) und \(\lambda_1 = \lambda_2 = \lambda\) gilt, ist der DMP
-symmetrisch und viele Ausdrücke vereinfachen sich \cite{matphys}:
+symmetrisch und viele Ausdrücke vereinfachen sich:
 \begin{align}
 	\expval{X}        & = 0                     \\
 	\expval{X^2}      & = c^2                   \\
@@ -594,6 +516,6 @@ berechnen:
 was einer Lorenzverteilung mit dem Maximum bei \(\omega=0\) entspricht.
 
 % bibliography (temporary)
-% \bibliography{literatur} \todo{comment out before compiling main.tex}
+\bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}
