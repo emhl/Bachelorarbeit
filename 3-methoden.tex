@@ -14,35 +14,89 @@ verschiedenen Mitarbeitern der AG Nowak modifiziert.
 
 \todo{Vergleich numerischer verfahren}
 
-Bei der Bewegungsgleichung (LLG) handelt es sich um eine Differentialgleichung,
-die nicht analytisch gelöst werden kann.
-Deshalb wird die Differentialgleichung numerisch gelöst. Dafür gibt es
-verschiedene Verfahren, die sich in der Genauigkeit und der Laufzeit
-unterscheiden.
+Bei der Bewegungsgleichung (LLG) handelt es sich um eine Differentialgleichung, die nicht analytisch gelöst werden kann.
+Deshalb wird die Differentialgleichung numerisch gelöst. Dafür gibt es verschiedene Verfahren, die sich in der Genauigkeit und der Laufzeit unterscheiden. 
+Die Gleichungen dazu sind aus \cite{Computerphysik} entnommen.
 
 Die einfachste Methode ist das Euler-Verfahren. Dabei wird die
-Differentialgleichung durch eine lineare Näherung ersetzt. Die Genauigkeit ist
-dabei von der Schrittweite abhängig. Je kleiner die Schrittweite, desto genauer
-ist die Näherung. Die Laufzeit ist dabei proportional zur Anzahl der Schritte.
-Der Fehler steigt also mit einer längeren Laufzeit immer weiter an. Daher ist
-das Euler-Verfahren für lange Simulationen ungeeignet.
-
-\todo{Runge-Kutta-Verfahren}
+Differentialgleichung, der Form \(\Dot{x}(t) = f(x(t),t)\), durch eine lineare Näherung 
+\begin{align}
+    x_{n+1}(t) = x_n(t) + h \cdot f(x_n(t),t)
+\end{align}
+ersetzt. Die Genauigkeit ist dabei von der Schrittweite abhängig. Je kleiner die Schrittweite \(h\) ist, desto genauer ist die Näherung. 
+Die Fehler sind allerdings kumulativ, heißt der Fehler eines Schrittes wird in den nächsten Schritt übernommen. Die Lösung wird also immer ungenauer.
+Daher ist das Euler-Verfahren für lange Simulationen ungeeignet.
 
 \todo{Heun-Verfahren}
 
-\cite{Computerphysik}
+Um die Genauigkeit zu erhöhen gibt es verschiedene Möglichkeiten. Eine davon ist das Heun-Verfahren. Hier wird der Nächste Schritt erst mit dem Euler-Verfahren berechnet, aber nur als Schätzwert im impliziten Runge-Kutta-Verfahren 
+\begin{align}
+    x_{n+1} = x_n + \frac{h}{2} \cdot \qty(f(x_n,t) + f(\underbrace{x_{n+1}}_\text{Schätzwert},t))
+\end{align}
+verwendet. Dadurch wird der Fehler des Euler-Verfahrens korrigiert. Die Genauigkeit ist immernoch von der Schrittweite abhängig, aber die Fehler sind nicht kumulativ.
 
 \todo{Implementation von cuteLLG mit dem Heun-Verfahren}
 
+Die Landau-Lifschitz-Gilbert Gleichung lässt sich auf die Form
+\begin{align}
+    \Dot{x}(t) &= f(x(t),t) + \sum_{i=1}^{3N} g_i(x(t),t) \xi_i(t)
+\end{align}
+bringen. 
+
+Mit dem Heun-Verfahren lässt sich der nächste Schritt dann wie folgt berechnen:
+\begin{align}
+    \overline{x}_{n+1} &= x_n + h f(x_n,t) + h \sum_{i=1}^{3N} g_i(x_n,t) \xi_i(t) \\
+    x_{n+1} &= x_n + \frac{h}{2} \qty(f(x_n,t) + f(\overline{x}_{n+1},t)) + \frac{h}{2} \sum_{i=1}^{3N} \qty(g_i(x_n,t) + g_i(\overline{x}_{n+1},t)) \xi_i(t)
+\end{align}\todo{\(h\) vor summe weglassen?}
+
+
+\todo{warum müssen die Spins nach jedem schritt normiert werden?}
+
 \subsection{Algorithmus zur Extraktion von Telegrafenrauschen}
 
+Wenn die breite des weißen gaussverteilten Rauschens in der gleichen größenordnung wie der Abstand zwischen den beiden stabilen Zuständen ist, ist es nicht einfach möglich zu entscheiden, in welchem Zustand sich das System gerade befindet.
 \todo{figure Gauss Peaks, die ineinander übergehen}
-
+\begin{figure}[h]
+    \centering
+    \includegraphics{bilder/plots/theo-vis/gauss-overlap.pdf}
+    \caption{Wahrscheinlichkeitsdichte für verschiedene Abstände zwischen zwei Gaußverteilten Zuständen \label{fig:gauss-overlap}}
+\end{figure}
 \todo{Vergleich mit kmeans oä. (overshoot problem)}
+
+Viele Algorythmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig in den anderen Zustand springen. Dieses Problem wird als overshoot problem bezeichnet. \todo{ was ist der offizielle name?}
+
+\todo{plot von overshoot problem mit kmeans}
+
 
 \todo{Erklärung eigener Abwandlung, welche weniger komplex als
     \cite{random-telegraph-analysis} ist und trotzdem das overshoot problem löst}
+
+In \cite{random-telegraph-analysis} wird ein recht komplexer Algorithmus vorgestellt, der in der Lage ist, eine Telegrafenrauschen Kurve in zwei Zustände zu unterteilen, ohne zum overshooting zu neigen. Für die Analyse der Simulationen wird eine Modifizierte Version dieses Algorithmus verwendet, die weniger komplex ist, aber für die Analyse der Simulationen ausreicht.
+
+
+Als erstes wird ein Histogramm der Rauschkurve erstellt (so normiert, das es der Wahrscheinlichkeitsdichte entspricht). 
+Das erste und das letzte drittel des Histogramms werden dann jeweils mit einer Gaußkurve gefittet, um so die Mittelwerte und die Standardabweichungen der beiden Zustände zu bestimmen.
+
+\todo{plot von histogramm mit gauss fits}
+
+Anhand dieser Werte werden dann zwei Schwellwerte bestimmt, die angeben, wann der Zustand gewechselt wird.
+
+Diese Schwellwerte sind definiert als \(x_0 \pm 3\sigma\). Falls die zwei zustände zu weit auseinander liegen, werden sie so lange verschoben, bis sie sich überlappen. 
+In dem Fall ist es eigentlich sehr einfach zu entscheiden, in welchem Zustand sich das System gerade befindet, aber der Algorithmus ist auf sich überlappende Zustände ausgelegt.
+
+Es ergeben sich also zwei (sich überlappende) Intervalle, welche jeweils einem Zustand zugeordnet werden.
+
+\todo{plot mit upper und lower bound für die zustände}
+
+Es wird angenommen, dass sich das System am Anfang (Nullter Datenpunkt) im ersten Zustand befindet.
+
+Dann wird jeder Datenpunkt der Rauschkurve durchgegangen. Nur, wenn der Datenpunkt sich nicht im Intervall, welches dem aktuellen Zustand zugeordnet ist, befindet, wird der Zustand gewechselt.
+
+\todo{plot mit zuständen und zustandswechsel}
+
+Dadurch, das die Aufenthaltszeit in einem der Zustände deutlich größer ist, als die in der zwischen den Zuständen gewechselt wird, sollte es kein problem sein, dass sehr Kurze Hin- und Zurückwechsel teilweise vernachlässigt werden. 
+
+\todo{umgekehrtes problem zum overshoot problem?}
 
 \subsection{Fouriertransformation}
 
@@ -50,7 +104,7 @@ Für die Analyse in der Frequenzdomäne wird die diskrete Fouriertransformation
 benötigt. Dafür wird die \enquote{fast Fourier transformation} (FFT) verwendet,
 welche die Berechnung der Fouriertransformation mit einer Laufzeit von
 $\mathcal{O}(n \log n)$ ermöglicht. Die FFT wird in der Bibliothek
-\texttt{numpy}\cite{numpy} implementiert.
+\texttt{numpy} \cite{numpy-fft} implementiert.
 
 Die diskrete Fouriertransformation einer Funktion $a_m$ mit $m = 0, \dots, n-1$
 wird definiert als:
@@ -64,7 +118,7 @@ und die inverse Fouriertransformation als:
 \begin{align}
     a_m = \frac{1}{n} \sum_{k=0}^{n-1} A_k \exp(2 \pi i\frac{ k m}{n}) \quad
     \text{mit} \quad m = 0, \dots, n-1
-\end{align}\cite{numpy-fft}
+\end{align}
 
 % Korelationsfunktion?
 
