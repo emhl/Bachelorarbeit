@@ -3,6 +3,8 @@
 \newpage
 \section{Telegrafenrauschen in Samarium-Erbium-Ferrit}
 
+\todo{in allen plots die normierte Magnetisierung verwenden}
+
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/example-telegraph-sim.pdf}
@@ -16,9 +18,8 @@
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
-    \caption{Extraktion aus \SI{1,2}{\nano\s}}\label{fig:Extraktion-ausschnitt}
+    \caption{Extraktion aus \SI{1,2}{\nano\s}\todo{Andere Farbe für fit und extrahiertes Telegrafenrauschen}}\label{fig:Extraktion-ausschnitt}
 \end{figure}
-\todo{Bild ohne zuerst ohne diff?}
 
 \todo{Gauß vs. Lorenzverteilung zum Fitten?}
 % \todo{vergleich mit kmeans?}
@@ -27,31 +28,32 @@
 
 \subsection*{Dominanz des Telegrafenrauschens}
 
-\begin{figure}[h]
+\todo{Spektrale betrachtung der daten in daten in \cref{eq:autocorr}}
+
+
+\begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}
     \caption{vergleich Autokorrelation, von ursprünglichem und bereinigtem Telegrafenrauschen und Differenz. Simulation bei \SI{26.04}{\milli\electronvolt} ohne externes Magnetfeld.}\label{fig:autocorr}
 \end{figure}
 
 \subsection{Simulation ohne externes Magnetfeld}
+\todo{Anderer Titel? Variation der Temperatur}
 \subsubsection{In der Zeitdomäne}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics{bilder/plots/temp_comparison/mc_hist.pdf}
-    \caption{temp hist (bereich mit sichtbarem TGR)}\label{fig:temp-hist-tg}    
-\end{figure}
+\todo{ist es wirklich eine Wahrscheinlichkeitsdichte?}
 
 \begin{figure}[H]
     \centering
-    \includegraphics{bilder/plots/temp_comparison_long/mc_hist.pdf}
-    \caption{temp hist}\label{fig:temp-hist}    
+    \subcaptionbox{bereich mit sichtbarem TGR\label{fig:temp-hist-tg}}{    \includegraphics{bilder/plots/temp_comparison/mc_hist.pdf}    }
+    \subcaptionbox{long \label{fig:temp-hist-long}}{    \includegraphics{bilder/plots/temp_comparison_long/mc_hist.pdf}    }
+    \caption{temp hist\todo{gleiche colormap und nebeneinander}}\label{fig:temp-hist}    
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/mc_diff_hist.pdf}
-    \caption{temp diff hist\todo{Skala}}\label{fig:temp-diff-hist}    
+    \caption{temp diff hist}\label{fig:temp-diff-hist}    
 \end{figure}
 
 \begin{figure}[H]
@@ -81,7 +83,7 @@
     \subcaptionbox{source \label{fig:temp-spd-source}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density.pdf}}
     \subcaptionbox{clean \label{fig:temp-spd-clean}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:temp-spd-diff}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_diff.pdf}}
-    \caption{temp spectral power densities\todo{kleiner?}}\label{fig:temp-spd}
+    \caption{temp spectral power densities\todo{nur eine colorbar?}}\label{fig:temp-spd}
 \end{figure}
 
 
@@ -90,7 +92,7 @@
     % \subcaptionbox{source \label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
     \subcaptionbox{clean \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
-    \caption{temp autocorrelations\todo{kleiner?}}\label{fig:temp-autocorr}
+    \caption{temp autocorrelations}\label{fig:temp-autocorr}
 \end{figure}
 
 
@@ -112,7 +114,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/autocorrelation_amplitude_diff.pdf}
-    \caption{temp autocorrelation amplitude diff Rauschamplitude}\label{fig:temp-autocorr-amplitude-diff}
+    \caption{temp autocorrelation amplitude diff Rauschamplitude\todo{Rauschamplitude von rohem signal hat mehr relevanz}}\label{fig:temp-autocorr-amplitude-diff}
 \end{figure}
 
 \subsection{Simulation mit externem Magnetfeld}
@@ -127,6 +129,8 @@
 
 \subsubsection{In der Zeitdomäne}
 
+\todo{ist es wirklich eine Wahrscheinlichkeitsdichte?}
+
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mc_hist.pdf}
@@ -136,19 +140,15 @@
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/switch_events.pdf}
-    \caption{time of switch event\todo{switch axes}}\label{fig:bz-switch-events}   
+    \caption{time of switch event\todo{größerer Ausschnitt}}\label{fig:bz-switch-events}   
 \end{figure}
+
 
 \begin{figure}[H]
     \centering
-    \includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}
-    \caption{b up percentage violin}\label{fig:bz-up-percentage-violin}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}
-    \caption{b state times comp}\label{fig:bz-state-times-comp}
+    \subcaptionbox(b up percentage violin\label{fig:bz-up-percentage-violin}){\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
+    \subcaptionbox(b state times comp\label{fig:bz-state-times-comp}){\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
+    \caption{b up percentage}\label{fig:bz-violin}
 \end{figure}
 
 \subsubsection{In der Frequenzdomäne}
@@ -156,19 +156,19 @@
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
+    \subcaptionbox{source \todo{auch nur bis 50mT} \label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
     \subcaptionbox{clean \label{fig:bz-spd-clean}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:bz-spd-diff}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_diff.pdf}}
-    \caption{Bz spectral power densities\todo{kleiner?}}\label{fig:bz-spd}
+    \caption{Bz spectral power densities \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-spd}
 \end{figure}
 
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocorrelation.pdf}}
+    \subcaptionbox{source \todo{auch nur bis 50mT} \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocorrelation.pdf}}
     \subcaptionbox{clean \label{fig:bz-autocorr-clean}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:bz-autocorr-diff}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_diff.pdf}}
-    \caption{Bz autocorrelations\todo{kleiner?}}\label{fig:bz-autocorr}
+    \caption{Bz autocorrelations \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-autocorr}
 \end{figure}
 
 \todo{Die Mean Dwell time ist nicht aus der Autokorrelation Bestimmbar (Mittlere Mean Dwell time)}
