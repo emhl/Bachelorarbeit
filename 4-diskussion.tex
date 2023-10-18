@@ -28,8 +28,11 @@
 
 \subsection*{Dominanz des Telegrafenrauschens}
 
-\todo{Spektrale betrachtung der daten in daten in \cref{eq:autocorr}}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}
+    \caption{Spektrale Leistungsdichten von ursprünglichem und bereinigtem Telegrafenrauschen und Differenz. Simulation bei \SI{26.04}{\milli\electronvolt} ohne externes Magnetfeld.}\label{fig:spds}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -45,8 +48,8 @@
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{bereich mit sichtbarem TGR\label{fig:temp-hist-tg}}{    \includegraphics{bilder/plots/temp_comparison/mc_hist.pdf}    }
-    \subcaptionbox{long \label{fig:temp-hist-long}}{    \includegraphics{bilder/plots/temp_comparison_long/mc_hist.pdf}    }
+    \subcaptionbox{bereich mit sichtbarem TGR\label{fig:temp-hist-tg}}{    \includegraphics{bilder/plots/temp_comparison_long/mc_hist_tgr.pdf}}
+    \subcaptionbox{long \label{fig:temp-hist-long}}{    \includegraphics{bilder/plots/temp_comparison_long/mc_hist.pdf}}
     \caption{temp hist\todo{gleiche colormap und nebeneinander}}\label{fig:temp-hist}    
 \end{figure}
 
@@ -113,8 +116,8 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics{bilder/plots/temp_comparison/autocorrelation_amplitude_diff.pdf}
-    \caption{temp autocorrelation amplitude diff Rauschamplitude\todo{Rauschamplitude von rohem signal hat mehr relevanz}}\label{fig:temp-autocorr-amplitude-diff}
+    \includegraphics{bilder/plots/temp_comparison_long/rauschamplitude.pdf}
+    \caption{temp autocorrelation amplitude (Rauschamplitude)}\label{fig:temp-autocorr-amplitude}
 \end{figure}
 
 \subsection{Simulation mit externem Magnetfeld}
@@ -146,8 +149,8 @@
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox(b up percentage violin\label{fig:bz-up-percentage-violin}){\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
-    \subcaptionbox(b state times comp\label{fig:bz-state-times-comp}){\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
+    \subcaptionbox{b up percentage violin\label{fig:bz-up-percentage-violin}}{\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
+    \subcaptionbox{b state times comp\label{fig:bz-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
     \caption{b up percentage}\label{fig:bz-violin}
 \end{figure}
 
@@ -156,8 +159,8 @@
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \todo{auch nur bis 50mT} \label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
-    \subcaptionbox{clean \label{fig:bz-spd-clean}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_cleaned.pdf}}
+    \subcaptionbox{source\label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
+    \subcaptionbox{clean\label{fig:bz-spd-clean}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:bz-spd-diff}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_diff.pdf}}
     \caption{Bz spectral power densities \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-spd}
 \end{figure}
@@ -165,7 +168,7 @@
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \todo{auch nur bis 50mT} \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocorrelation.pdf}}
+    \subcaptionbox{source \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocorrelation.pdf}}
     \subcaptionbox{clean \label{fig:bz-autocorr-clean}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:bz-autocorr-diff}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_diff.pdf}}
     \caption{Bz autocorrelations \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-autocorr}
@@ -176,7 +179,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/up_percentage_fit.pdf}
-    \caption{b up percentage violin\todo{quelle der Datenpunkte}}\label{fig:bz-up-percentage}
+    \caption{b up percentage sigmoid fit \todo{quelle der Datenpunkte}}\label{fig:bz-up-percentage}
 \end{figure}
 
 \begin{figure}[H]
