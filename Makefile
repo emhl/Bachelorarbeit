@@ -1,7 +1,7 @@
 # Variables
 MAINFILE = main
 #TEX = pdflatex -output-directory=./latex.out
-TEX = latexmk -outdir=latex.out/ -pdf
+TEX = latexmk -outdir=latex.out/ -pdf -f
 # Commands
 
 all: main
