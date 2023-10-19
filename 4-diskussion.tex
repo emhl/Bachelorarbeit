@@ -3,30 +3,66 @@
 \newpage
 \section{Telegrafenrauschen in Samarium-Erbium-Ferrit}
 
-\todo{in allen plots die normierte Magnetisierung verwenden}
+Der Orthoferrit besteht aus vier Untergittern, welche jeweils eine andere Magnetisierung \(\vec{\mu}_i\) besitzen (Normiert \(\vec{S}_i\)). Im nachfolgenden Bereich wird die normierte resultierende Magnetisierung (Überlagerung der vier Untergitter) verwendet.
+
+\begin{align}
+    \mu_{1} &=  \mu_{2} = \mu_{3} = \mu_{4} = \num{3.66}\mu_B \\
+    \vec{m} &= \frac{1}{4} \sum_{i=1}^4 \vec{S}_i
+\end{align}
+
+Das Telegrafenrauschen tritt am untersuchten Reorientierungsübergang in c-Richtung auf, weshalb nur diese Komponente betrachtet wird. 
+
+\todo{plot Reorientierungsübergang?}
+
+Eine Simulation, von einem \(128 \times 128 \times 128\) Gitter mit einem simulierten Zeitraum von \SI{1.2}{\nano\second} mit einer numerischen Schrittweite von \SI{20}{\femto\second} benötigt etwa drei Tage Rechenzeit auf einer Nvidea RTX 2080 Ti Grafikkarte. 
+
+In diesem Simulationszeitraum sind im optimalen Temperaturbereich (um mehrere eindeutige Schaltvorgänge zu beobachten) etwa 15-25 Schaltvorgänge pro Simulation zu beobachten vgl. \cref{fig:bsp-run}
+
+Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulationszeitraum teilweise verdoppelt.
 
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/example-telegraph-sim.pdf}
-    \caption{Einzelne Simulationskurve von \(mu_c\) bei \SI{300}{\kelvin}}\label{fig:bsp-run}
+    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \SI{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen}\label{fig:bsp-run}
 \end{figure}
-
-% \todo{Einzelne Simulationskurve mit Einschwingvorgang}
-
-\subsection{Extraktion des Telegrafenrauschens}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
-    \caption{Extraktion aus \SI{1,2}{\nano\s}\todo{Andere Farbe für fit und extrahiertes Telegrafenrauschen}}\label{fig:Extraktion-ausschnitt}
-\end{figure}
-
-\todo{Gauß vs. Lorenzverteilung zum Fitten?}
-% \todo{vergleich mit kmeans?}
 
 \todo{erklärung warum verschiedene Runs einfach hintereinander hängen geht}
 
-\subsection*{Dominanz des Telegrafenrauschens}
+
+Die Mittleren Aufenthaltszeiten (MDT) in den Beiden Niveaus befinden sich in der gleichen größenordnung, wie der Simulationszeitraum. Um auch bei weniger optimalen Daten, wie in \cref{fig:extraktion-tgr}, eine gute Extraktion des Telegrafenrauschens zu ermöglichen, wurden teilweise die Signale mehrerer Simulationsläufe hintereinander gehängt, um ein langes Signal zu erhalten.
+
+Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau starten und aufhören (so lange die Wahrscheinlichkeit für einen Zustand nicht deutlich höher ist), werden hierbei teilweise zusätzliche Schaltvorgänge hinzugefügt.
+
+\todo{warum ist das meißtens kein problem?}
+
+Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine geringere Gittergröße, oder eine größere Zeitschrittweite.
+
+Die Gittergröße ist allerdings bereits recht klein und eine größere Zeitschrittweite würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \SI{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer.
+
+
+\todo{andere möglichkeiten die Rechenzeit zu verringern}
+
+\todo{was passiert im Einschwingvorgang?}
+
+\subsection{Extraktion des Telegrafenrauschens}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
+    \caption{Extraktion des Telegrafenrauschen mithilfe des Algorithmus aus \cref{algo}. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen. Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
+\end{figure}
+
+\todo{Gauß vs. Lorenzverteilung zum Fitten?}
+
+Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei Zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/theo-vis/hist_fit_comp.pdf}
+    \caption{Vergleich von verschiedenen Verteilungsfunktionen um die Wahrscheinlichkeitsdichte zu fitten}\label{fig:fit_comp}
+\end{figure}
+
+\subsection{Dominanz des Telegrafenrauschens}
 
 \begin{figure}[H]
     \centering
@@ -40,44 +76,56 @@
     \caption{vergleich Autokorrelation, von ursprünglichem und bereinigtem Telegrafenrauschen und Differenz. Simulation bei \SI{26.04}{\milli\electronvolt} ohne externes Magnetfeld.}\label{fig:autocorr}
 \end{figure}
 
-\subsection{Simulation ohne externes Magnetfeld}
-\todo{Anderer Titel? Variation der Temperatur}
-\subsubsection{In der Zeitdomäne}
+\subsection{Variation der Temperatur}
 
-\todo{ist es wirklich eine Wahrscheinlichkeitsdichte?}
+Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden bereits Simulationen für verschiedene Temperaturen durchgeführt. Diese Daten wurden für diesen Teil der Analyse verwendet
+
+\subsubsection{In der Zeitdomäne}
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{bereich mit sichtbarem TGR\label{fig:temp-hist-tg}}{    \includegraphics{bilder/plots/temp_comparison_long/mc_hist_tgr.pdf}}
-    \subcaptionbox{long \label{fig:temp-hist-long}}{    \includegraphics{bilder/plots/temp_comparison_long/mc_hist.pdf}}
-    \caption{temp hist\todo{gleiche colormap und nebeneinander}}\label{fig:temp-hist}    
+    \subcaptionbox{Temperaturbereich mit sichtbarem Telegrafenrauschen \label{fig:temp-hist-tg}}{\includegraphics{bilder/plots/temp_comparison_long/mc_hist_tgr.pdf}}
+    \subcaptionbox{größerer Temperaturbereich um den Reorientierungsübergang \label{fig:temp-hist-long}}{\includegraphics{bilder/plots/temp_comparison_long/mc_hist.pdf}}
+    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen.}\label{fig:temp-hist}    
 \end{figure}
+
+\todo{Grund für unterschiedlich hohe Peaks}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/mc_diff_hist.pdf}
-    \caption{temp diff hist}\label{fig:temp-diff-hist}    
+    \caption{Wahrscheinlichkeitsdichteverteilung für Differenz zwischen rohem Signal und extrahiertem Telegrafenrauschen von \(m_c\) (entspricht extrahiertem statistisches Rauschen)}\label{fig:temp-diff-hist}    
 \end{figure}
+
+\todo{Mutmaßung warum breitere Peaks bei aktivem Telegrafenrauschen (oberhalb und unterhalb spitzer)}
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{scatter\label{fig:temp-switch-count-scatter}}{\includegraphics{bilder/plots/temp_comparison/switch_count_scatter.pdf}}
-    \subcaptionbox{violin\label{fig:temp-switch-count-violin}}{\includegraphics{bilder/plots/temp_comparison/switch_count_violin.pdf}}
-    \caption{temp switch count}\label{fig:temp-switch-count}
+    \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation \label{fig:temp-switch-count-scatter}}{\includegraphics{bilder/plots/temp_comparison/switch_count_scatter.pdf}}
+    \subcaptionbox{Mittel-, Extremwerte und Verteilung für jede Simulationstemperatur \label{fig:temp-switch-count-violin}}{\includegraphics{bilder/plots/temp_comparison/switch_count_violin.pdf}}
+    \caption{Temperaturabhängigkeit der Anzahl an Schaltvorgängen \todo{pro welches Zeitinterval?} \todo{über kette berechneten wert in Plot b einfügen}}\label{fig:temp-switch-count}
 \end{figure}
+
+\todo{verknüpfung mit \cref{fig:temp-hist-tg}}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/switch_events.pdf}
-    \caption{time of switch event}\label{fig:switch-events}
+    \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet \todo{use ns}\todo{use scatter?}}\label{fig:switch-events}
 \end{figure}
+
+\todo{treten hier probleme aufgrund der Verkettung auf}
+
+\todo{Ausreißer datenpunkte vs kette}
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{scatter\label{fig:temp-up-percentage-scatter}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_scatter.pdf}}
-    \subcaptionbox{violin\label{fig:temp-up-percentage-violin}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_violin.pdf}}
-    \caption{temp up percentage}\label{fig:temp-up-percentage}
+    \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation\label{fig:temp-up-percentage-scatter}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_scatter.pdf}}
+    \subcaptionbox{Mittel-, Extremwerte und Verteilung für jede Simulationstemperatur \label{fig:temp-up-percentage-violin}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_violin.pdf}}
+    \caption{Aufenthaltszeit im oberen Zustand}\label{fig:temp-up-percentage}
 \end{figure}
+
+\todo{Gleichgewicht bei 50\%, aber immer schwieriger zu betrachten, weil MDT größer wird}
 
 \subsubsection{In der Frequenzdomäne}
 
@@ -120,7 +168,7 @@
     \caption{temp autocorrelation amplitude (Rauschamplitude)}\label{fig:temp-autocorr-amplitude}
 \end{figure}
 
-\subsection{Simulation mit externem Magnetfeld}
+\subsection{In externem Magnetfeld}
 
 \begin{figure}[H]
     \centering
@@ -129,6 +177,13 @@
 \end{figure}
 
 \todo{Einfluss Vorzeichenumkehr Bz}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/Bz_sign_comparison/20mT_hist_comp.pdf}
+    \caption{Bz sign comparison hist}\label{fig:bz-sign-hist}
+\end{figure}
+
 
 \subsubsection{In der Zeitdomäne}
 
@@ -175,6 +230,13 @@
 \end{figure}
 
 \todo{Die Mean Dwell time ist nicht aus der Autokorrelation Bestimmbar (Mittlere Mean Dwell time)}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/max_Bz/t_corr.pdf}
+    \includegraphics{bilder/plots/max_Bz/amplitude_corr.pdf}
+    \caption{Aus irgendwelchen gründen stimmen Die Datenpunkte nicht miteinander überein \todo{Nachvollziehen, woher die Datenpunkte kommen}}\label{fig:bz-autocorr-amplitude}
+\end{figure}
 
 \begin{figure}[H]
     \centering
