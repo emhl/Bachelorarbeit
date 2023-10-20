@@ -23,7 +23,8 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/example-telegraph-sim.pdf}
-    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \SI{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen}\label{fig:bsp-run}
+    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \SI{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen \todo{Bezeichnung für die zwei Niveaus/Zustände?}
+    }\label{fig:bsp-run}
 \end{figure}
 
 \todo{erklärung warum verschiedene Runs einfach hintereinander hängen geht}
@@ -129,18 +130,20 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
 
 \subsubsection{In der Frequenzdomäne}
 
+\todo{Erklärrung, warum die Daten in der Zeitdomäne experimentell nicht messbar sind.}
+
 \begin{figure}[H]
     \centering
     \subcaptionbox{source \label{fig:temp-spd-source}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density.pdf}}
     \subcaptionbox{clean \label{fig:temp-spd-clean}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:temp-spd-diff}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_diff.pdf}}
-    \caption{temp spectral power densities\todo{nur eine colorbar?}}\label{fig:temp-spd}
+    \caption{Spektrale Leistungsdichten für verschiedene Temperaturen \todo{nur eine colorbar?}}\label{fig:temp-spd}
 \end{figure}
 
 
 \begin{figure}[H]
     \centering
-    % \subcaptionbox{source \label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
+    \subcaptionbox{source \todo{mit fit?}\label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
     \subcaptionbox{clean \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
     \caption{temp autocorrelations}\label{fig:temp-autocorr}
@@ -152,13 +155,15 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/mean_dwell_time_comparison.pdf}
-    \caption{temp mean dwell time comparison}\label{fig:temp-mdt-comp}
+    \caption{Mittlere Aufenthaltszeiten aus Zeitlicher Analyse (Violinenplot) und aus exponentiellem Fit der Autokorrelationsfunktion \todo{mdt aus kette?}}\label{fig:temp-mdt-comp}
 \end{figure}
+
+\todo{underschoot problem? für niedrige temperaturen?}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/mean_dwell_time.pdf}
-    \caption{temp mean dwell time long}\label{fig:temp-mdt-long}
+    \caption{temp mean dwell time long\todo{auch mdt aus autocorr?} \todo{plot mit \cref{fig:temp-mdt-comp} zusammenlegen}}\label{fig:temp-mdt-long}
 \end{figure}
 
 
@@ -170,11 +175,23 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
 
 \subsection{In externem Magnetfeld}
 
+\todo{in plots \(B_z\) statt \(Bz\) nutzen}
+
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_comparison/critical_temperature.pdf}
-    \caption{Bz critical temperature \todo{use Kelvin}}\label{fig:bz-crit-temp}
+    \caption{Bz critical temperature}\label{fig:bz-crit-temp}
 \end{figure}
+
+\todo{erklärung bei so geringen Magnetfeldern wird der Reorientierungsübergang nicht aufgeweicht}
+
+\todo{Plot bei 1T von Julius einfügen}
+
+\todo{welche bedingungen Bleiben für die nachfolgenden Simulationen gleich?}
+
+\todo{z = c}
+
+\todo{eigenschaften B-Feld}
 
 \todo{Einfluss Vorzeichenumkehr Bz}
 
@@ -184,30 +201,41 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
     \caption{Bz sign comparison hist}\label{fig:bz-sign-hist}
 \end{figure}
 
+\todo{Annahme, dass sich das System Symmetrisch verhällt}
+
 
 \subsubsection{In der Zeitdomäne}
-
-\todo{ist es wirklich eine Wahrscheinlichkeitsdichte?}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mc_hist.pdf}
-    \caption{b hist}\label{fig:b-hist}    
+    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen und bei verschieden starken externen Magnetfeldern}\label{fig:b-hist}    
 \end{figure}
+
+\todo{Schwierigkeiten, wenn linker Peak zu klein Wird}
+
+\todo{erklärung verschiebung der Niveau peaks}
+
+\todo{was passiert in den anderen Komponenten}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/switch_events.pdf}
-    \caption{time of switch event\todo{größerer Ausschnitt}}\label{fig:bz-switch-events}   
+    \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet}\label{fig:bz-switch-events}   
 \end{figure}
 
+\todo{hier bei 100mT garantiert kein problem aufgrund der Verkettung, da sich das system quasi durchgängig im oberen Niveau befindet}
+
+In Manchen Simulationsläufen bei \SI{100}{\milli\tesla} findet gar kein Schaltvorgang statt.
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{b up percentage violin\label{fig:bz-up-percentage-violin}}{\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
-    \subcaptionbox{b state times comp\label{fig:bz-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
-    \caption{b up percentage}\label{fig:bz-violin}
+    \subcaptionbox{Aufenthaltszeit im oberen Zustand. Bestimmt über einzelne Simulationsläufe (Violinplot) und über Kette mehrerer Simulationen (schwarze Punkte) \label{fig:bz-up-percentage-violin}}{\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
+    \subcaptionbox{Mittlere Aufenthaltszeit in oberem (blau) und unterem (grün) Zustand in Prozent. Die wagrechte Linie kennzeichnet hierbei den Mittelwert und der Violinplot die Verteilung der verschiedenen Aufenthaltszeiten auf dem jeweiligen Niveau \label{fig:bz-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
+    \caption{Abhängigkeit der Aufenthaltszeit von der Magnetfeldstärke}\label{fig:bz-state-times}
 \end{figure}
+
+\todo{mittlere Aufenthaltszeit (nicht aufgeteilt nach up/down)}
 
 \subsubsection{In der Frequenzdomäne}
 
@@ -217,17 +245,20 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
     \subcaptionbox{source\label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
     \subcaptionbox{clean\label{fig:bz-spd-clean}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:bz-spd-diff}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_diff.pdf}}
-    \caption{Bz spectral power densities \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-spd}
+    \caption{Spektrale Leistungsdichten bei verschiedenen Magnetfeldstärken}\label{fig:bz-spd}
 \end{figure}
 
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocorrelation.pdf}}
-    \subcaptionbox{clean \label{fig:bz-autocorr-clean}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_cleaned.pdf}}
+    \subcaptionbox{source \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocov.pdf}}
+    \subcaptionbox{clean \todo{ohne fit und nur bis 75ps}\label{fig:bz-autocorr-clean}}{\includegraphics{bilder/plots/max_Bz/autocov_cleaned.pdf}}
     \subcaptionbox{diff\label{fig:bz-autocorr-diff}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_diff.pdf}}
-    \caption{Bz autocorrelations \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-autocorr}
+    \caption{Bz autocorrelations \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-autocov}
 \end{figure}
+
+\todo{Autokorrelation vs Autokovarianz}
+
 
 \todo{Die Mean Dwell time ist nicht aus der Autokorrelation Bestimmbar (Mittlere Mean Dwell time)}
 
@@ -235,7 +266,7 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
     \centering
     \includegraphics{bilder/plots/max_Bz/t_corr.pdf}
     \includegraphics{bilder/plots/max_Bz/amplitude_corr.pdf}
-    \caption{Aus irgendwelchen gründen stimmen Die Datenpunkte nicht miteinander überein \todo{Nachvollziehen, woher die Datenpunkte kommen}}\label{fig:bz-autocorr-amplitude}
+    \caption{Aus irgendwelchen gründen stimmen Die Datenpunkte nicht miteinander überein \todo{Nachvollziehen, woher die Datenpunkte kommen}\todo{versuchen nochmal neu zu implementieren}\todo{plots überhaupt einbinden?}}\label{fig:bz-autocorr-amplitude}
 \end{figure}
 
 \begin{figure}[H]
@@ -244,11 +275,24 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
     \caption{b up percentage sigmoid fit \todo{quelle der Datenpunkte}}\label{fig:bz-up-percentage}
 \end{figure}
 
+\todo{fitparameter obere schranke diskutieren}
+
+\todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/max_Bz/autocov_high.pdf}
+    \caption{Autocovarianz für hohe Magnetfeldstärken}\label{fig:bz-autocov-high}
+\end{figure})
+
+
+
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/rauschamplitude.pdf}
-    \caption{Bz rauschamplitude \todo{was bedeutet das?}}\label{fig:bz-rauschampl}
-\end{figure}
+    \caption{Bz rauschamplitude \todo{was bedeutet das?} \todo{daten oberhalb von 90mT einschließen?}}\label{fig:bz-rauschampl}
+\end{figure}Mittlere Mean Dwell time)
 
 
 % bibliography (temporary)
