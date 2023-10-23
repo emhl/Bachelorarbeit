@@ -90,7 +90,15 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen.}\label{fig:temp-hist}    
 \end{figure}
 
-\todo{Grund für unterschiedlich hohe Peaks}
+Unterhalb von \SI{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die Mittlere Aufenthaltszeit irgendwann größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
+
+Da die Mittlere Aufenthaltszeit ähnlich groß, wie der Simulationszeitraum ist, ist die Wahrscheinlichkeitsdichte der beiden Zustände (in den Simulationsdaten) für hohe temperaturen hier teilweise unterschiedlich groß. Wenn man mehr und/oder längere SImulationen machen würde, wären die beiden Niveaus für die gelborangenen plots in \cref{fig:temp-hist} gleich groß.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/temp_comparison_long/mc_time.pdf}
+    \caption{\(m_c\) im Zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf. Die Colormap ist hierbei identisch zu der in \cref{fig:temp-hist}. Die y-achse reicht jeweils von \num{-2e-3} bis \num{+2e-3}}\label{fig:temp-time}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -221,7 +229,7 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mc_time.pdf}
-    \caption{Ausschnitt von \(m_c\) im Zeitlichen Verlauf bei verschieden starken externen Magnetfeldern . Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-3e-4} bis \num{+3e-4}}\label{fig:b-time}    
+    \caption{Ausschnitt von \(m_c\) im Zeitlichen Verlauf bei verschieden starken externen Magnetfeldern . Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-1.5e-3} bis \num{+1.5e-3}}\label{fig:b-time}    
 \end{figure}
 
 \begin{figure}[H]
