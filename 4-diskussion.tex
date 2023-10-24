@@ -100,21 +100,26 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
     \caption{Wahrscheinlichkeitsdichteverteilung für Differenz zwischen rohem Signal und extrahiertem Telegrafenrauschen von \(m_c\) (entspricht extrahiertem statistisches Rauschen)}\label{fig:temp-diff-hist}    
 \end{figure}
 
-\todo{Mutmaßung warum breitere Peaks bei aktivem Telegrafenrauschen (oberhalb und unterhalb spitzer)}
+Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert, wenn nur ein Zustand existiert), bleibt ein statistisches Rauschen übrig, dessen Histogramm einer Gaußverteilung entspricht \cref{fig:temp-diff-hist}. 
+
+Anhand der Abweichung von einer Gausverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
+
+Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. \todo{warum?}
+
+Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen betrachtet (vgl. \cref{fig:temp-hist-tg}) Daher ändert sich die Farbzuordnung der Temperaturen in den Plots.
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation \label{fig:temp-switch-count-scatter}}{\includegraphics{bilder/plots/temp_comparison/switch_count_scatter.pdf}}
+    \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation \todo{plot relevant?}\label{fig:temp-switch-count-scatter}}{\includegraphics{bilder/plots/temp_comparison/switch_count_scatter.pdf}}
     \subcaptionbox{Mittel-, Extremwerte und Verteilung für jede Simulationstemperatur \label{fig:temp-switch-count-violin}}{\includegraphics{bilder/plots/temp_comparison/switch_count_violin.pdf}}
     \caption{Temperaturabhängigkeit der Anzahl an Schaltvorgängen \todo{pro welches Zeitinterval?} \todo{über kette berechneten wert in Plot b einfügen}}\label{fig:temp-switch-count}
 \end{figure}
 
-\todo{verknüpfung mit \cref{fig:temp-hist-tg}}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/switch_events.pdf}
-    \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet \todo{use ns}\todo{use scatter?}}\label{fig:switch-events}
+    \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet \todo{use scatter?}}\label{fig:switch-events}
 \end{figure}
 
 \todo{treten hier probleme aufgrund der Verkettung auf}
@@ -124,7 +129,7 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
 \begin{figure}[H]
     \centering
     \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation\label{fig:temp-up-percentage-scatter}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_scatter.pdf}}
-    \subcaptionbox{Mittel-, Extremwerte und Verteilung für jede Simulationstemperatur \label{fig:temp-up-percentage-violin}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_violin.pdf}}
+    \subcaptionbox{Mittel-, Extremwerte und Verteilung für jede Simulationstemperatur \todo{über kette berechneten wert einfügen} \label{fig:temp-up-percentage-violin}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_violin.pdf}}
     \caption{Aufenthaltszeit im oberen Zustand}\label{fig:temp-up-percentage}
 \end{figure}
 
@@ -154,6 +159,10 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
 
 \todo{Berechnung MDT aus Autokorrelation}
 
+Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit mit der Formel \todo{verknüpfung} berechnen.
+
+Aus dem extrahiertem Telegrafenrauschen lassen sich die Aufenthaltszeiten direkt herauslesen. 
+
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/mean_dwell_time_comparison.pdf}
@@ -164,16 +173,11 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
 
 \begin{figure}[H]
     \centering
-    \includegraphics{bilder/plots/temp_comparison_long/mean_dwell_time.pdf}
-    \caption{temp mean dwell time long\todo{auch mdt aus autocorr?} \todo{plot mit \cref{fig:temp-mdt-comp} zusammenlegen}}\label{fig:temp-mdt-long}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
     \includegraphics{bilder/plots/temp_comparison_long/rauschamplitude.pdf}
     \caption{temp autocorrelation amplitude (Rauschamplitude)}\label{fig:temp-autocorr-amplitude}
 \end{figure}
+
+Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur auch immer weiter an.
 
 \subsection{In externem Magnetfeld}
 
@@ -191,11 +195,9 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
 
 \todo{welche bedingungen Bleiben für die nachfolgenden Simulationen gleich?}
 
-\todo{z = c}
+Das Magnetfeld wird in z-Richtung angelegt, die c-Richtung im Kristall ist aber identisch zur z-Richtung im externen kartesischen koordinatensystem.
 
-\todo{eigenschaften B-Feld}
-
-\todo{Einfluss Vorzeichenumkehr Bz}
+In den Simulationen wird auch immer nur ein konstantes Magnetfeld verwendet.
 
 \begin{figure}[H]
     \centering
@@ -203,7 +205,7 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
     \caption{Bz sign comparison hist}\label{fig:bz-sign-hist}
 \end{figure}
 
-\todo{Annahme, dass sich das System Symmetrisch verhällt}
+Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Dies wurde aber nicht weiter untersucht.
 
 
 \subsubsection{In der Zeitdomäne}
@@ -214,11 +216,13 @@ Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht begin
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen und bei verschieden starken externen Magnetfeldern}\label{fig:b-hist}    
 \end{figure}
 
-\todo{Schwierigkeiten, wenn linker Peak zu klein Wird}
+Anders als bei der Variation der Temperatur ohne externes Magnetfeld (\cref{fig:temp-hist}), sind die beiden Zustände nicht mehr Gleichverteilt. Wenn einer der beiden Peaks zu klein wird, kann der Algorithmus das Telegrafenrauschen nicht mehr extrahieren. 
+
+Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichkeit hat, kommt es auch (je nach stärke des B-Feldes) zu deutlich weniger zusätzlichen Schaltvorgängen bei der Verkettung mehrerer Simulationsläufe.
 
 \todo{erklärung verschiebung der Niveau peaks}
 
-\todo{was passiert in den anderen Komponenten}
+\todo{was passiert in den anderen Komponenten von m?}
 
 \begin{figure}[H]
     \centering

@@ -6,9 +6,6 @@
 \subsection{Numerische Simulation}
 Um das System von mehreren magnetischen Momenten zu simulieren, wird das Programm \texttt{cuteLLG}\cite{cuteLLG} verwendet. \texttt{cuteLLG} wurde von Andread Donges (ehemaliger Mitarbeiter der AG Nowak) entwickelt und von verschiedenen Mitarbeitern der AG Nowak modifiziert.
 
-% \todo{Erklärung wie die numerische lösung von Differentialgleichungen funktioniert}
-
-% \todo{Vergleich numerischer verfahren}
 
 Bei der Bewegungsgleichung (LLG) handelt es sich um eine Differentialgleichung, die nicht analytisch gelöst werden kann.
 Deshalb wird die Differentialgleichung numerisch gelöst. Dafür gibt es verschiedene Verfahren, die sich in der Genauigkeit und der Laufzeit unterscheiden. 
@@ -23,15 +20,11 @@ ersetzt. Die Genauigkeit ist dabei von der Schrittweite abhängig. Je kleiner di
 Die Fehler sind allerdings kumulativ, heißt der Fehler eines Schrittes wird in den nächsten Schritt übernommen. Die Lösung wird also immer ungenauer.
 Daher ist das Euler-Verfahren für lange Simulationen ungeeignet.
 
-% \todo{Heun-Verfahren}
-
 Um die Genauigkeit zu erhöhen gibt es verschiedene Möglichkeiten. Eine davon ist das Heun-Verfahren. Hier wird der nächste Schritt erst mit dem Euler-Verfahren berechnet, aber nur als Schätzwert im impliziten Runge-Kutta-Verfahren 
 \begin{align}
     x_{n+1} = x_n + \frac{h}{2} \cdot \qty(f(x_n,t) + f(\underbrace{\Tilde{x}_{n+1}}_\text{Schätzwert},t))
 \end{align}
 verwendet. Dadurch wird der Fehler des Euler-Verfahrens korrigiert. Die Genauigkeit ist immernoch von der Schrittweite abhängig, aber die Fehler sind nicht kumulativ.
-
-% \todo{Implementation von cuteLLG mit dem Heun-Verfahren}
 
 Die Landau-Lifschitz-Gilbert Gleichung lässt sich auf die Form
 \begin{align}
@@ -42,11 +35,8 @@ bringen.
 Mit dem Heun-Verfahren lässt sich der nächste Schritt dann wie folgt berechnen:
 \begin{align}
     \overline{x}_{n+1} &= x_n + h f(x_n,t) + \sum_{i=1}^{3N} g_i(x_n,t) \xi_i(t) \\
-    x_{n+1} &= x_n + \frac{h}{2} \qty(f(x_n,t) + f(\overline{x}_{n+1},t)) + \frac{1}{2} \sum_{i=1}^{3N} \qty(g_i(x_n,t) + g_i(\overline{x}_{n+1},t)) \xi_i(t)
+    x_{n+1} &= \underbrace{x_n + \frac{h}{2} \qty(f(x_n,t) + f(\overline{x}_{n+1},t))}_\text{deterministischer Teil} + \underbrace{\frac{1}{2} \sum_{i=1}^{3N} \qty(g_i(x_n,t) + g_i(\overline{x}_{n+1},t)) \xi_i(t)}_\text{stochastischer Teil}
 \end{align}
-\todo{label Deterministischer teil und stochastischer teil}
-
-% \todo{warum müssen die Spins nach jedem schritt normiert werden?}
 
 Damit der Betrag der Spins sich nicht durch numerische Fehler ändert, werden diese nach jedem Simulationsschritt normiert.
 
@@ -67,8 +57,6 @@ Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, 
     \includegraphics{bilder/plots/theo-vis/telegraph_fit_comp.pdf}
     \caption{Vergleich von Kmeans (mit \(n=2\)) mit einem eigenen Algorithmus. Bei beiden Plots handelt es sich um einen Ausschnitt aus einer größeren Datenreihe. Bei dem kleineren Interval (rechter Plot) erkennt man gut das Problem, das bei jedem neuen Datenpunkt das Niveau gewechselt wird}\label{fig:fit_comp}
 \end{figure}
-
-% \todo{Erklärung eigener Abwandlung, welche weniger komplex als \cite{random-telegraph-analysis} ist und trotzdem das overshoot problem löst}
 
 In \cite{random-telegraph-analysis} wird ein recht komplexer Algorithmus vorgestellt, der in der Lage ist, eine Telegrafenrauschen Kurve in zwei Zustände zu unterteilen, ohne zum overshooting zu neigen. Für die Analyse der Simulationen wird eine Modifizierte Version dieses Algorithmus verwendet, die weniger komplex ist, aber für die Analyse der Simulationen ausreicht.
 
@@ -100,12 +88,7 @@ Es wird angenommen, dass sich das System am Anfang (Nullter Datenpunkt) im erste
 
 Dann wird jeder Datenpunkt der Rauschkurve durchgegangen. Nur, wenn der Datenpunkt sich nicht im Intervall, welches dem aktuellen Zustand zugeordnet ist, befindet, wird der Zustand gewechselt. 
 
-% \todo{plot mit zuständen und zustandswechsel}
-
 Dadurch, dass die Aufenthaltszeit in einem der Zustände deutlich größer ist, als die in der zwischen den Zuständen gewechselt wird, sollte es kein Problem sein, dass sehr Kurze Hin- und Zurückwechsel teilweise vernachlässigt werden. 
-
-
-\todo{gibt es teilweise ein undershoot problem?}
 
 \subsection{Fouriertransformation}
 
