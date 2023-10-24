@@ -27,10 +27,7 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
     }\label{fig:bsp-run}
 \end{figure}
 
-\todo{erklärung warum verschiedene Runs einfach hintereinander hängen geht}
-
-
-Die Mittleren Aufenthaltszeiten (MDT) in den Beiden Niveaus befinden sich in der gleichen größenordnung, wie der Simulationszeitraum. Um auch bei weniger optimalen Daten, wie in \cref{fig:extraktion-tgr}, eine gute Extraktion des Telegrafenrauschens zu ermöglichen, wurden teilweise die Signale mehrerer Simulationsläufe hintereinander gehängt, um ein langes Signal zu erhalten.
+Die mittleren Aufenthaltszeiten (MDT) in den beiden Niveaus befinden sich in der gleichen Größenordnung, wie der Simulationszeitraum. Um auch bei weniger optimalen Daten, wie in \cref{fig:extraktion-tgr}, eine gute Extraktion des Telegrafenrauschens zu ermöglichen, wurden teilweise die Signale mehrerer Simulationsläufe hintereinander gehängt, um ein langes Signal zu erhalten.
 
 Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau starten und aufhören (so lange die Wahrscheinlichkeit für einen Zustand nicht deutlich höher ist), werden hierbei teilweise zusätzliche Schaltvorgänge hinzugefügt.
 
@@ -39,9 +36,6 @@ Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau s
 Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine geringere Gittergröße, oder eine größere Zeitschrittweite.
 
 Die Gittergröße ist allerdings bereits recht klein und eine größere Zeitschrittweite würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \SI{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer.
-
-
-\todo{andere möglichkeiten die Rechenzeit zu verringern}
 
 \todo{was passiert im Einschwingvorgang?}
 
@@ -52,8 +46,6 @@ Die Gittergröße ist allerdings bereits recht klein und eine größere Zeitschr
     \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
     \caption{Extraktion des Telegrafenrauschen mithilfe des Algorithmus aus \cref{algo}. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen. Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
-
-\todo{Gauß vs. Lorenzverteilung zum Fitten?}
 
 Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei Zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
 
@@ -92,7 +84,9 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
 
 Unterhalb von \SI{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die Mittlere Aufenthaltszeit irgendwann größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
 
-Da die Mittlere Aufenthaltszeit ähnlich groß, wie der Simulationszeitraum ist, ist die Wahrscheinlichkeitsdichte der beiden Zustände (in den Simulationsdaten) für hohe temperaturen hier teilweise unterschiedlich groß. Wenn man mehr und/oder längere SImulationen machen würde, wären die beiden Niveaus für die gelborangenen plots in \cref{fig:temp-hist} gleich groß.
+Da die Mittlere Aufenthaltszeit ähnlich groß, wie der Simulationszeitraum ist, ist die Wahrscheinlichkeitsdichte der beiden Zustände (in den Simulationsdaten) für hohe Temperaturen hier teilweise unterschiedlich groß. Wenn man mehr und/oder längere Simulationen machen würde, wären die beiden Niveaus für die gelb-orangenen plots in \cref{fig:temp-hist} gleich groß.
+
+Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht beginnt, landet das System bei den Temperaturen oberhalb von \SI{305}{\kelvin} immer im oberen Niveau. und wechselt von dort nicht ins untere Niveau. \todo{testen, ob bei anderem Einschwingvorgang unteres Niveau bevorzugt wird?}
 
 \begin{figure}[H]
     \centering
