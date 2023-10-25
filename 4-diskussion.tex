@@ -56,18 +56,15 @@ Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich grö
 \end{figure}
 
 \subsection{Dominanz des Telegrafenrauschens}
-
 \begin{figure}[H]
     \centering
-    \includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}
-    \caption{Spektrale Leistungsdichten von ursprünglichem und bereinigtem Telegrafenrauschen und Differenz. Simulation bei \SI{26.04}{\milli\electronvolt} ohne externes Magnetfeld.}\label{fig:spds}
+    \subcaptionbox{Spektrale Leistungsdichten von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
+    \subcaptionbox{Autokorrelation von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
+    \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \SI{26.03}{\milli\electronvolt} ohne externes Magnetfeld }\label{fig:dominanz-tgr}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}
-    \caption{vergleich Autokorrelation, von ursprünglichem und bereinigtem Telegrafenrauschen und Differenz. Simulation bei \SI{26.04}{\milli\electronvolt} ohne externes Magnetfeld.}\label{fig:autocorr}
-\end{figure}
+Beim direkten betrachten des Rauschsignals ist nicht klar erkennbar, ob das statistische oder das Telegrafenrauschen dominiert. Wenn man jedoch die Spektrale Leistungsdichte oder die Autokorrelation bzw. Autocovarianz betrachtet, ist deutlich erkennbar, dass das Telegrafenrauschen hier den größten Beitrag leistet.
+
 
 \subsection{Variation der Temperatur}
 
@@ -104,7 +101,7 @@ Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert
 
 Anhand der Abweichung von einer Gausverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
 
-Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. \todo{warum?}
+Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vorallem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gausverteilung beschrieben werden (siehe \cref{fig:fit_comp}).
 
 Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen betrachtet (vgl. \cref{fig:temp-hist-tg}) Daher ändert sich die Farbzuordnung der Temperaturen in den Plots.
 
@@ -115,6 +112,7 @@ Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit
     \caption{Temperaturabhängigkeit der Anzahl an Schaltvorgängen \todo{pro welches Zeitinterval?} \todo{über kette berechneten wert in Plot b einfügen}}\label{fig:temp-switch-count}
 \end{figure}
 
+Die ansteigende Anzahl an Schaltvorgängen lässt sich auch in \cref{fig:temp-switch-count} gut erkennen. Außerdem sieht man in \cref{fig:temp-switch-count-scatter} einige Simulationsläufe, deren Werte aufgrund der Kurzen Simulationszeit (und daher teilweise das Telegrafenrauschen nicht immer korrekt extrahiert werden konnte) stark von den anderen abweichen.
 
 \begin{figure}[H]
     \centering
@@ -122,9 +120,7 @@ Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit
     \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet \todo{use scatter?}}\label{fig:switch-events}
 \end{figure}
 
-\todo{treten hier probleme aufgrund der Verkettung auf}
-
-\todo{Ausreißer datenpunkte vs kette}
+In \cref{fig:switch-events} lässt sich gut erkennen, dass die Schaltvorgänge gleichverteilt sind und Aufgrund der hohen Zahl an Schaltvorgängen, die zusätzlichen Schaltvorgänge durch die Verkettung nicht ins Gewicht fallen.
 
 \begin{figure}[H]
     \centering
@@ -133,7 +129,7 @@ Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit
     \caption{Aufenthaltszeit im oberen Zustand}\label{fig:temp-up-percentage}
 \end{figure}
 
-\todo{Gleichgewicht bei 50\%, aber immer schwieriger zu betrachten, weil MDT größer wird}
+Die Aufenthaltswahrscheinlichkeit für beide Zustände liegt in dem Temperaturbereich bei 50\%, aber für die betrachtung der Mittleren Aufenthaltszeit wird die Zahl der Simulationsläufe, in denen sich das System nur in einem Zustand befindet für höhere Temperaturen immer größer.
 
 \subsubsection{In der Frequenzdomäne}
 
@@ -141,21 +137,22 @@ Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \label{fig:temp-spd-source}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density.pdf}}
-    \subcaptionbox{clean \label{fig:temp-spd-clean}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_cleaned.pdf}}
-    \subcaptionbox{diff\label{fig:temp-spd-diff}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_diff.pdf}}
-    \caption{Spektrale Leistungsdichten für verschiedene Temperaturen \todo{nur eine colorbar?}}\label{fig:temp-spd}
+    \subcaptionbox{aus ursprünglichem Signal \label{fig:temp-spd-source}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density.pdf}}
+    \subcaptionbox{aus bereinigtem Telegrafenrauschen \label{fig:temp-spd-clean}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_cleaned.pdf}}
+    \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:temp-spd-diff}}{\includegraphics{bilder/plots/temp_comparison/spectral_power_density_diff.pdf}}
+    \caption{Spektrale Leistungsdichten für verschiedene Temperaturen \todo{nur eine colorbar}\todo{In Anhang verschieben?}}\label{fig:temp-spd}
 \end{figure}
 
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \todo{mit fit?}\label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
-    \subcaptionbox{clean \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
-    \subcaptionbox{diff\label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
-    \caption{temp autocorrelations}\label{fig:temp-autocorr}
+    \subcaptionbox{aus ursprünglichem Signal \todo{mit fit?}\label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
+    \subcaptionbox{aus bereinigtem Telegrafenrauschen \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
+    \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
+    \caption{Autokorrelation für verschiedene Temperaturen}\label{fig:temp-autocorr}
 \end{figure}
 
+Da beide Zustände gleich wahrscheinlich sind, Konvergiert die Autokorrelationsfunktion für große Zeiten gegen 0 und ist daher identisch zur Autokovarianz. 
 
 \todo{Berechnung MDT aus Autokorrelation}
 
@@ -169,12 +166,15 @@ Aus dem extrahiertem Telegrafenrauschen lassen sich die Aufenthaltszeiten direkt
     \caption{Mittlere Aufenthaltszeiten aus Zeitlicher Analyse (Violinenplot) und aus exponentiellem Fit der Autokorrelationsfunktion (schwarze Punkte)}\label{fig:temp-mdt-comp}
 \end{figure}
 
-\todo{underschoot problem? für niedrige temperaturen?}
+\todo{erklärung für starke abweichung bei niedrigen Temperaturen}
+\todo{oder scheint die Abweichung nur so groß?}
+\todo{Telegrafenrauschen nichtmehr dominant in Autokovarianz?}
+\todo{oder undershoot problem?}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/rauschamplitude.pdf}
-    \caption{temp autocorrelation amplitude (Rauschamplitude)}\label{fig:temp-autocorr-amplitude}
+    \caption{Rauschamplitude für verschiedene Temperaturen}\label{fig:temp-autocorr-amplitude}
 \end{figure}
 
 Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur auch immer weiter an.
@@ -186,12 +186,16 @@ Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur a
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_comparison/critical_temperature.pdf}
-    \caption{Bz critical temperature}\label{fig:bz-crit-temp}
+    \caption{Kritische Temperatur bei schwachem Magnetfeld in z-Richtung}\label{fig:bz-crit-temp}
 \end{figure}
 
 \todo{erklärung bei so geringen Magnetfeldern wird der Reorientierungsübergang nicht aufgeweicht}
 
-\todo{Plot bei 1T von Julius einfügen}
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/jschlege/Magnetization_z.pdf}
+    \caption{Kritische Temperatur bei starkem Magnetfeld in z-Richtung \cite{schlegel-master}}\label{fig:high-bz-crit-temp}
+\end{figure}
 
 \todo{welche bedingungen Bleiben für die nachfolgenden Simulationen gleich?}
 
@@ -206,7 +210,7 @@ Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \SI{2.5}{\nano
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_sign_comparison/20mT_hist_comp.pdf}
-    \caption{Bz sign comparison hist}\label{fig:bz-sign-hist}
+    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \SI{20}{\milli\tesla} mit entgegengesetzter Richtung}\label{fig:bz-sign-hist}
 \end{figure}
 
 Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Dies wurde aber nicht weiter untersucht.
@@ -253,24 +257,34 @@ In Manchen Simulationsläufen bei \SI{100}{\milli\tesla} findet gar kein Schaltv
 
 \todo{mittlere Aufenthaltszeit (nicht aufgeteilt nach up/down)}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/max_Bz/up_percentage_fit.pdf}
+    \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet. Die Datenpunkte wurden dabei mittels des Algorithmus aus mehreren verketteten Simulationsläufen extrahiert}\label{fig:bz-up-percentage}
+\end{figure}
+
+\todo{fitparameter obere schranke diskutieren}
+
+\todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
+
 \subsubsection{In der Frequenzdomäne}
 
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source\label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
-    \subcaptionbox{clean\label{fig:bz-spd-clean}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_cleaned.pdf}}
-    \subcaptionbox{diff\label{fig:bz-spd-diff}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_diff.pdf}}
+    \subcaptionbox{aus ursprünglichem Signal\label{fig:bz-spd-source}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density.pdf}}
+    \subcaptionbox{aus bereinigtem Telegrafenrauschen\label{fig:bz-spd-clean}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_cleaned.pdf}}
+    \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:bz-spd-diff}}{\includegraphics{bilder/plots/max_Bz/spectral_power_density_diff.pdf}}
     \caption{Spektrale Leistungsdichten bei verschiedenen Magnetfeldstärken}\label{fig:bz-spd}
 \end{figure}
 
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{source \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocov.pdf}}
-    \subcaptionbox{clean \todo{ohne fit und nur bis 75ps}\label{fig:bz-autocorr-clean}}{\includegraphics{bilder/plots/max_Bz/autocov_cleaned.pdf}}
-    \subcaptionbox{diff\label{fig:bz-autocorr-diff}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_diff.pdf}}
-    \caption{Bz autocorrelations \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-autocov}
+    \subcaptionbox{aus ursprünglichem Signal \label{fig:bz-autocorr-source}}{\includegraphics{bilder/plots/max_Bz/autocov.pdf}}
+    \subcaptionbox{aus bereinigtem Telegrafenrauschen \todo{ohne fit und nur bis 75ps}\label{fig:bz-autocorr-clean}}{\includegraphics{bilder/plots/max_Bz/autocov_cleaned.pdf}}
+    \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:bz-autocorr-diff}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_diff.pdf}}
+    \caption{Autokovarianz für verschiedene Magnetfeldstärken \todo{nur eine colorbar. plots etwas größer}}\label{fig:bz-autocov}
 \end{figure}
 
 \todo{Autokorrelation vs Autokovarianz}
@@ -278,28 +292,14 @@ In Manchen Simulationsläufen bei \SI{100}{\milli\tesla} findet gar kein Schaltv
 
 \todo{Die Mean Dwell time ist nicht aus der Autokorrelation Bestimmbar (Mittlere Mean Dwell time)}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics{bilder/plots/max_Bz/t_corr.pdf}
-    \includegraphics{bilder/plots/max_Bz/amplitude_corr.pdf}
-    \caption{Aus irgendwelchen gründen stimmen Die Datenpunkte nicht miteinander überein \todo{Nachvollziehen, woher die Datenpunkte kommen}\todo{versuchen nochmal neu zu implementieren}\todo{plots überhaupt einbinden?}}\label{fig:bz-autocorr-amplitude}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics{bilder/plots/max_Bz/up_percentage_fit.pdf}
-    \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet \todo{quelle der Datenpunkte (mittelwert?)}}\label{fig:bz-up-percentage}
-\end{figure}
-
-\todo{fitparameter obere schranke diskutieren}
-
-\todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/autocov_high.pdf}
     \caption{Autokovarianz für hohe Magnetfeldstärken}\label{fig:bz-autocov-high}
 \end{figure})
+
+\todo{erkennbar, dass kein telegrafenraushcen mehr stattfindet}
 
 \begin{figure}[H]
     \centering

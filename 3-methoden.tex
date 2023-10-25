@@ -50,7 +50,7 @@ Wenn die breite des weißen gaußverteilten Rauschens in der gleichen größenor
     \caption{Wahrscheinlichkeitsdichte für verschiedene Abstände zwischen zwei Gaußverteilten Zuständen \label{fig:gauss-overlap}}
 \end{figure}
 
-Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig in den anderen Zustand springen. Dieses Problem wird als overshoot problem bezeichnet. \todo{ was ist der offizielle name?}
+Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig in den anderen Zustand springen. Dieses "overshooting" sorgt für eine hohe Anzahl an Zustandswechseln im extrahieren Telegrafenrauschen, die nicht real sind.
 
 \begin{figure}[h]
     \centering
@@ -67,7 +67,7 @@ Das erste und das letzte drittel des Histogramms werden dann jeweils mit einer G
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit.pdf}
-    \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaußfits für das obere, und das untere Niveau}
+    \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaußfits für das obere, und das untere Niveau mit eingezeichnetem Mittelwert und Standardabweichung}
 \end{figure}
 
 Anhand dieser Werte werden dann zwei Schwellwerte bestimmt, die angeben, wann der Zustand gewechselt wird.
