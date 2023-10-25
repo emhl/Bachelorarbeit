@@ -240,7 +240,7 @@ Der Präzessionsterm beschreibt die Präzession der magnetischen Momente um das 
 % Der Dämpfungsterm beschreibt die Energie, die aufgewendet werden muss, um die magnetischen Momente zu drehen. 
 Der Dämpfungsterm ist eine Art Reibungsterm, der die Präzession der magnetischen Momente dämpft und für eine Relaxion in Richtung des effektiven Feldes sorgt.
 
-Bis jetzt wurde das System nur bei \(T = \SI{0}{\kelvin}\) betrachtet.
+Bis jetzt wurde das System nur bei \(T = \qnt{0}{\kelvin}\) betrachtet.
 % Was jetzt noch fehlt ist das weiße Rauschen von \( \vec{\mathcal{H}}_i \), welches durch die endliche Temperatur entsteht. 
 Durch addition eines Rauschterms \(\vec{\xi}_i(t)\) kann die Bewegungsgleichung auch für endliche Temperaturen beschrieben werden.
 % Dieses wird durch einen stochastischen Term \(\vec{\xi}_i(t)\) beschrieben, der die Bewegungsgleichung zu einer stochastischen Differentialgleichung macht:
@@ -257,8 +257,8 @@ Dabei handelt es sich um ein Gausssches weißes Rauschen, welches unkorreliert i
 
 \begin{figure}[H]
 	\centering
-	\subcaptionbox{\(T = \SI{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
-	\subcaptionbox{\(T \gg \SI{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
+	\subcaptionbox{\(T = \qnt{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_T0_labeled.png}}
+	\subcaptionbox{\(T \gg \qnt{0}{\kelvin} \)}{\includegraphics[width=0.45\textwidth]{bilder/jschlege/LLG_labeled.png}}
 	\caption{Visualisierung der LLG-Gleichung. Der blaue Vektor entspricht dem Spin \(\vec{S}\) und die blaue Linie ist die Dynamik. Der Graue Vektor entspricht dem effektiven Feld, ohne Rauschen. Der Ptäzessionsterm wird durch den roten Vektor beschrieben und der Dämpfungsterm durch den grünen.~\cite{schlegel-master}}
 	\label{fig:llg-rauschen}
 \end{figure}
@@ -280,7 +280,7 @@ Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein R
 
 % \todo{erklärung für Samarium (reorientierungstemperatur)}
 
-Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei ungefähr \SI{110}{\kelvin}~\cite{Deng2015}. 
+Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei ungefähr \qnt{110}{\kelvin}~\cite{Deng2015}. 
 Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei(\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist~\cite{Fitzky2021}.
 
 % Parameter für Simulation
@@ -296,8 +296,8 @@ Einheitszelle ist in \cref{fig:orthoferrit} dargestellt.
 Die verwendeten Simulationsparameter sind folgende:
 
 \begin{align}
-	J_1           & = \SI{-22,32}{\milli\electronvolt}, \quad J_2 =
-	\SI{-1,4}{\milli\electronvolt}\label{eq:params-exc}
+	J_1           & = \qnt{-22,32}{\milli\electronvolt}, \quad J_2 =
+	\qnt{-1,4}{\milli\electronvolt}\label{eq:params-exc}
 	\\
 	\mat{d}       & = \mqty(
 	\num{0.0153}  & \num{-0.0153}                                   & 0
@@ -305,10 +305,10 @@ Die verwendeten Simulationsparameter sind folgende:
 	\num{-0.0153} & \num{0.0153}                                    & 0
 	\\
 	0             & 0                                               &
-	\num{0.905})\si{\milli\electronvolt} \label{eq:params-2a}
+	\num{0.905})\unit{\milli\electronvolt} \label{eq:params-2a}
 	\\
 	L_x           & = L_y = L_z =
-	\SI{0.036}{\milli\electronvolt}\label{eq:params-4a}
+	\qnt{0.036}{\milli\electronvolt}\label{eq:params-4a}
 	\\
 	\mat{\kappa}  & = \mqty(
 	0             & 0                                               & 0
@@ -316,16 +316,16 @@ Die verwendeten Simulationsparameter sind folgende:
 	0             & 0                                               & 0
 	\\
 	0             & 0                                               &
-	\num{-0.1255})\si{\milli\electronvolt} \label{eq:params-tia}
+	\num{-0.1255})\unit{\milli\electronvolt} \label{eq:params-tia}
 	\\
 	\vec{D}_x     & = \mqty*(\num{\pm 0.0036}
 	\\ \num{\pm 0.1268} \\ \num{\pm
-		0.1255})\si{\milli\electronvolt} , \quad
+		0.1255})\unit{\milli\electronvolt} , \quad
 	\vec{D}_y = \mqty*(\num{\pm 0.1268}
 	\\ \num{\pm 0.0036} \\ \num{\pm
-		0.1255})\si{\milli\electronvolt} , \quad
+		0.1255})\unit{\milli\electronvolt} , \quad
 	\vec{D}_z = \mqty*(\num{\pm 0.1038}
-	\\ \num{\pm 0.2252} \\ 0)\si{\milli\electronvolt} \label{eq:params-dmi}
+	\\ \num{\pm 0.2252} \\ 0)\unit{\milli\electronvolt} \label{eq:params-dmi}
 \end{align}
 
 \(J_1\) ist hier der Parameter für die Heisenberg-Austauschwechselwirkung

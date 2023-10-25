@@ -5,11 +5,13 @@
 \todo{ Samarium-Erbium-Ferrit oder Samarium-Erbium-Orthoferrit (oder einfach Verhältnisformel)}
 \todo{Roter Faden!}
 \todo{Überschriften}
-\todo{in plots Variable Kursiv und Variable statt englischer Beschreibung}
+\todo{in plots Variable Kursiv und Variable statt englischer Beschreibung (diese in Bildunterschrift aber erklären)}
 \todo{\(B_c\) statt \(B_z\)}
 \todo{\(m_c\) statt \(\mu_c\)}
 \todo{Grid bei Logaritmischen plots}
 \todo{gibt es offizielle namen für die verwendeten Eigenbezeichnungen?}
+
+\todo{\(p_{up}\) statt t\(_{up}\) }
 
 \todo{Autocovarianz mit log y-Achsen plotten}
 \todo{Autokorrelation und Autocovarianz konsistent halten}
@@ -24,7 +26,7 @@ Das Telegrafenrauschen tritt am untersuchten Reorientierungsübergang in c-Richt
 
 \todo{plot Reorientierungsübergang?}
 
-Eine Simulation, von einem \(128 \times 128 \times 128\) Gitter mit einem simulierten Zeitraum von \SI{1.2}{\nano\second} mit einer numerischen Schrittweite von \SI{20}{\femto\second} benötigt etwa drei Tage Rechenzeit auf einer Nvidea RTX 2080 Ti Grafikkarte. 
+Eine Simulation, von einem \(128 \times 128 \times 128\) Gitter mit einem simulierten Zeitraum von \qnt{1.2}{\nano\second} mit einer numerischen Schrittweite von \qnt{20}{\femto\second} benötigt etwa drei Tage Rechenzeit auf einer Nvidea RTX 2080 Ti Grafikkarte. 
 
 In diesem Simulationszeitraum sind im optimalen Temperaturbereich (um mehrere eindeutige Schaltvorgänge zu beobachten) etwa 15-25 Schaltvorgänge pro Simulation zu beobachten vgl. \cref{fig:bsp-run}
 
@@ -33,7 +35,7 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/example-telegraph-sim.pdf}
-    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \SI{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen \todo{Bezeichnung für die zwei Niveaus/Zustände?}
+    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \qnt{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen \todo{Bezeichnung für die zwei Niveaus/Zustände?}
     }\label{fig:bsp-run}
 \end{figure}
 
@@ -45,7 +47,7 @@ Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau s
 
 Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine geringere Gittergröße, oder eine größere Zeitschrittweite.
 
-Die Gittergröße ist allerdings bereits recht klein und eine größere Zeitschrittweite würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \SI{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer.
+Die Gittergröße ist allerdings bereits recht klein und eine größere Zeitschrittweite würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \qnt{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer.
 
 \todo{was passiert im Einschwingvorgang?}
 
@@ -74,7 +76,7 @@ Theoretisch existiert auch noch ein dritter, weniger stabiler, Zustand, der Gena
     \centering
     \subcaptionbox{Spektrale Leistungsdichten von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \todo{lorentian fit?} \label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
     \subcaptionbox{Autokorrelation von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
-    \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \SI{26.03}{\milli\electronvolt} ohne externes Magnetfeld }\label{fig:dominanz-tgr}
+    \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \qnt{26.03}{\milli\electronvolt} ohne externes Magnetfeld }\label{fig:dominanz-tgr}
 \end{figure}
 
 Beim direkten betrachten des Rauschsignals ist nicht klar erkennbar, ob das statistische oder das Telegrafenrauschen dominiert. Wenn man jedoch die Spektrale Leistungsdichte oder die Autokorrelation bzw. Autocovarianz betrachtet, ist deutlich erkennbar, dass das Telegrafenrauschen hier den größten Beitrag leistet.
@@ -93,11 +95,11 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen.}\label{fig:temp-hist}    
 \end{figure}
 
-Unterhalb von \SI{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die Mittlere Aufenthaltszeit irgendwann größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
+Unterhalb von \qnt{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die Mittlere Aufenthaltszeit irgendwann größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
 
 Da die Mittlere Aufenthaltszeit ähnlich groß, wie der Simulationszeitraum ist, ist die Wahrscheinlichkeitsdichte der beiden Zustände (in den Simulationsdaten) für hohe Temperaturen hier teilweise unterschiedlich groß. Wenn man mehr und/oder längere Simulationen machen würde, wären die beiden Niveaus für die gelb-orangenen plots in \cref{fig:temp-hist} gleich groß.
 
-Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht beginnt, landet das System bei den Temperaturen oberhalb von \SI{305}{\kelvin} immer im oberen Niveau. und wechselt von dort nicht ins untere Niveau. \todo{testen, ob bei anderem Einschwingvorgang unteres Niveau bevorzugt wird?}
+Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht beginnt, landet das System bei den Temperaturen oberhalb von \qnt{305}{\kelvin} immer im oberen Niveau. und wechselt von dort nicht ins untere Niveau. \todo{testen, ob bei anderem Einschwingvorgang unteres Niveau bevorzugt wird?}
 
 \begin{figure}[H]
     \centering
@@ -217,14 +219,14 @@ Das Magnetfeld wird in z-Richtung angelegt, die c-Richtung im Kristall ist aber 
 
 In den Simulationen wird auch immer nur ein konstantes Magnetfeld verwendet.
 
-Als Temperatur wurde für jeden Simulationslauf \( \SI{26.025}{\milli\electronvolt} \approx \SI{302}{\kelvin}\) verwendet.
+Als Temperatur wurde für jeden Simulationslauf \( \qnt{26.025}{\milli\electronvolt} \approx \qnt{302}{\kelvin}\) verwendet.
 
-Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \SI{2.5}{\nano\s}
+Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \qnt{2.5}{\nano\s}
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_sign_comparison/20mT_hist_comp.pdf}
-    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \SI{20}{\milli\tesla} mit entgegengesetzter Richtung}\label{fig:bz-sign-hist}
+    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung}\label{fig:bz-sign-hist}
 \end{figure}
 
 Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Dies wurde aber nicht weiter untersucht.
@@ -260,7 +262,7 @@ Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichke
 
 \todo{hier bei 100mT garantiert kein problem aufgrund der Verkettung, da sich das system quasi durchgängig im oberen Niveau befindet}
 
-In Manchen Simulationsläufen bei \SI{100}{\milli\tesla} findet gar kein Schaltvorgang statt.
+In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schaltvorgang statt.
 
 \begin{figure}[H]
     \centering
@@ -321,7 +323,7 @@ In Manchen Simulationsläufen bei \SI{100}{\milli\tesla} findet gar kein Schaltv
     \caption{Amplitude der Autokovarianz abhängig von \(B_z\)}\label{fig:bz-rauschampl}
 \end{figure}
 
-Die Amplitude der Autokovarianz wird bei Erhöhung der Temperatur immer kleiner und oberhalb von \SI{100}{\milli\tesla} minimal. Sie scheint danach wieder anzusteigen, Die Abweichung des Datenpunktes bei \SI{120}{\milli\tesla} ist aber alleine nicht aussagekräftig. 
+Die Amplitude der Autokovarianz wird bei Erhöhung der Temperatur immer kleiner und oberhalb von \qnt{100}{\milli\tesla} minimal. Sie scheint danach wieder anzusteigen, Die Abweichung des Datenpunktes bei \qnt{120}{\milli\tesla} ist aber alleine nicht aussagekräftig. 
 
 \todo{warum fällt die Rauschamplitude ab?}
 
