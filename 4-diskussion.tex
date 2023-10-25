@@ -2,7 +2,17 @@
 \begin{document}
 \newpage
 \section{Telegrafenrauschen in Samarium-Erbium-Ferrit}
+\todo{ Samarium-Erbium-Ferrit oder Samarium-Erbium-Orthoferrit (oder einfach Verhältnisformel)}
+\todo{Roter Faden!}
+\todo{Überschriften}
+\todo{in plots Variable Kursiv und Variable statt englischer Beschreibung}
+\todo{\(B_c\) statt \(B_z\)}
+\todo{\(m_c\) statt \(\mu_c\)}
+\todo{Grid bei Logaritmischen plots}
+\todo{gibt es offizielle namen für die verwendeten Eigenbezeichnungen?}
 
+\todo{Autocovarianz mit log y-Achsen plotten}
+\todo{Autokorrelation und Autocovarianz konsistent halten}
 Der Orthoferrit besteht aus vier Untergittern, welche jeweils eine andere Magnetisierung \(\vec{\mu}_i\) besitzen (Normiert \(\vec{S}_i\)). Im nachfolgenden Bereich wird die normierte resultierende Magnetisierung (Überlagerung der vier Untergitter) verwendet.
 
 \begin{align}
@@ -52,13 +62,17 @@ Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich grö
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit_comp.pdf}
-    \caption{Vergleich von verschiedenen Verteilungsfunktionen um die Wahrscheinlichkeitsdichte zu fitten}\label{fig:fit_comp}
+    \caption{Vergleich von verschiedenen Verteilungsfunktionen um die Wahrscheinlichkeitsdichte zu fitten}\label{fig:fit_func_comp}
 \end{figure}
+
+Theoretisch existiert auch noch ein dritter, weniger stabiler, Zustand, der Genau Zwischen den Zwei Niveaus liegt. Dieser sorgt für die Abweichung von einer Gaußverteilung im Bereich zwischen den zwei Niveaus. 
+
+\todo{warum wird dieser Zustand nicht weiter berücksichtigt?}
 
 \subsection{Dominanz des Telegrafenrauschens}
 \begin{figure}[H]
     \centering
-    \subcaptionbox{Spektrale Leistungsdichten von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
+    \subcaptionbox{Spektrale Leistungsdichten von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \todo{lorentian fit?} \label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
     \subcaptionbox{Autokorrelation von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
     \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \SI{26.03}{\milli\electronvolt} ohne externes Magnetfeld }\label{fig:dominanz-tgr}
 \end{figure}
@@ -101,7 +115,7 @@ Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert
 
 Anhand der Abweichung von einer Gausverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
 
-Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vorallem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gausverteilung beschrieben werden (siehe \cref{fig:fit_comp}).
+Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vorallem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gausverteilung beschrieben werden (siehe \cref{fig:fit_func_comp}).
 
 Im nachfolgenden Bereich werden meist nurnoch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen betrachtet (vgl. \cref{fig:temp-hist-tg}) Daher ändert sich die Farbzuordnung der Temperaturen in den Plots.
 
@@ -147,9 +161,9 @@ Die Aufenthaltswahrscheinlichkeit für beide Zustände liegt in dem Temperaturbe
 \begin{figure}[H]
     \centering
     \subcaptionbox{aus ursprünglichem Signal \todo{mit fit?}\label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
-    \subcaptionbox{aus bereinigtem Telegrafenrauschen \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
+    \subcaptionbox{aus bereinigtem Telegrafenrauschen \todo{identischer plot?} \todo{fit mit konvergenz gegen 0 statt const.}\label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
     \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
-    \caption{Autokorrelation für verschiedene Temperaturen}\label{fig:temp-autocorr}
+    \caption{Autokorrelation für verschiedene Temperaturen \todo{nur eine colorbar}}\label{fig:temp-autocorr}
 \end{figure}
 
 Da beide Zustände gleich wahrscheinlich sind, Konvergiert die Autokorrelationsfunktion für große Zeiten gegen 0 und ist daher identisch zur Autokovarianz. 
@@ -194,7 +208,7 @@ Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur a
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/jschlege/Magnetization_z.pdf}
-    \caption{Kritische Temperatur bei starkem Magnetfeld in z-Richtung \cite{schlegel-master}}\label{fig:high-bz-crit-temp}
+    \caption{Kritische Temperatur bei starkem Magnetfeld in z-Richtung \cite{schlegel-master}\todo{selbst neu plotten zusammen mit einer datenreihe aus \cref{fig:bz-crit-temp}}}\label{fig:high-bz-crit-temp}
 \end{figure}
 
 \todo{welche bedingungen Bleiben für die nachfolgenden Simulationen gleich?}
