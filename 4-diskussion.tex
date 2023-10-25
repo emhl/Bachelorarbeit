@@ -166,7 +166,7 @@ Aus dem extrahiertem Telegrafenrauschen lassen sich die Aufenthaltszeiten direkt
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/mean_dwell_time_comparison.pdf}
-    \caption{Mittlere Aufenthaltszeiten aus Zeitlicher Analyse (Violinenplot) und aus exponentiellem Fit der Autokorrelationsfunktion \todo{mdt aus kette?}}\label{fig:temp-mdt-comp}
+    \caption{Mittlere Aufenthaltszeiten aus Zeitlicher Analyse (Violinenplot) und aus exponentiellem Fit der Autokorrelationsfunktion (schwarze Punkte)}\label{fig:temp-mdt-comp}
 \end{figure}
 
 \todo{underschoot problem? für niedrige temperaturen?}
@@ -198,6 +198,10 @@ Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur a
 Das Magnetfeld wird in z-Richtung angelegt, die c-Richtung im Kristall ist aber identisch zur z-Richtung im externen kartesischen koordinatensystem.
 
 In den Simulationen wird auch immer nur ein konstantes Magnetfeld verwendet.
+
+Als Temperatur wurde für jeden Simulationslauf \( \SI{26.025}{\milli\electronvolt} \approx \SI{302}{\kelvin}\) verwendet.
+
+Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \SI{2.5}{\nano\s}
 
 \begin{figure}[H]
     \centering
@@ -284,28 +288,28 @@ In Manchen Simulationsläufen bei \SI{100}{\milli\tesla} findet gar kein Schaltv
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/up_percentage_fit.pdf}
-    \caption{b up percentage sigmoid fit \todo{quelle der Datenpunkte}}\label{fig:bz-up-percentage}
+    \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet \todo{quelle der Datenpunkte (mittelwert?)}}\label{fig:bz-up-percentage}
 \end{figure}
 
 \todo{fitparameter obere schranke diskutieren}
 
 \todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
 
-
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/autocov_high.pdf}
-    \caption{Autocovarianz für hohe Magnetfeldstärken}\label{fig:bz-autocov-high}
+    \caption{Autokovarianz für hohe Magnetfeldstärken}\label{fig:bz-autocov-high}
 \end{figure})
-
-
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/rauschamplitude.pdf}
-    \caption{Bz rauschamplitude \todo{was bedeutet das?} \todo{daten oberhalb von 90mT einschließen?}}\label{fig:bz-rauschampl}
-\end{figure}Mittlere Mean Dwell time)
+    \caption{Amplitude der Autokovarianz abhängig von \(B_z\)}\label{fig:bz-rauschampl}
+\end{figure}
 
+Die Amplitude der Autokovarianz wird bei Erhöhung der Temperatur immer kleiner und oberhalb von \SI{100}{\milli\tesla} minimal. Sie scheint danach wieder anzusteigen, Die Abweichung des Datenpunktes bei \SI{120}{\milli\tesla} ist aber alleine nicht aussagekräftig. 
+
+\todo{warum fällt die Rauschamplitude ab?}
 
 % bibliography (temporary)
 % \bibliography{literatur} \todo{comment out before compiling main.tex}
