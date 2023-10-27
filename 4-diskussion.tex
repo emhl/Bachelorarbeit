@@ -1,13 +1,9 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 \newpage
-\section{Telegrafenrauschen in Samarium-Erbium-Ferrit}
-\todo{ Samarium-Erbium-Ferrit oder Samarium-Erbium-Orthoferrit (oder einfach Verhältnisformel)}
+\section{Telegrafenrauschen in Samarium-Erbium-Orthoferrit}
 \todo{Roter Faden!}
 \todo{Überschriften}
-\todo{in plots Variable Kursiv und Variable statt englischer Beschreibung (diese in Bildunterschrift aber erklären)}
-\todo{\(B_c\) statt \(B_z\)}
-\todo{\(m_c\) statt \(\mu_c\)}
 \todo{Grid bei Logaritmischen plots}
 \todo{gibt es offizielle namen für die verwendeten Eigenbezeichnungen?}
 
@@ -74,9 +70,9 @@ Theoretisch existiert auch noch ein dritter, weniger stabiler, Zustand, der Gena
 \subsection{Dominanz des Telegrafenrauschens}
 \begin{figure}[H]
     \centering
-    \subcaptionbox{Spektrale Leistungsdichten $S$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Spektrale Leistungsdichte aus dem bereinigten Telegrafenrauschen wurde außerdem mit einem Lorentizan gefitted \label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
+    \subcaptionbox{Spektrale Leistungsdichten $S$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Spektrale Leistungsdichte aus dem bereinigten Telegrafenrauschen wurde außerdem mit einem Lorentizan gefitted\label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
     \subcaptionbox{Autokorrelation $\gamma$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz.Die Autokorrelation aus dem bereinigten Telegrafenrauschen wurde außerdem mit einer exponentialfunktion gefitted \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
-    \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \qnt{26.03}{\milli\electronvolt} ohne externes Magnetfeld \todo{zu überladen mit fit im plot?} \todo{sind die fitparameter relevant?}}\label{fig:dominanz-tgr}
+    \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \qnt{26.03}{\milli\electronvolt} ohne externes Magnetfeld \todo{zu überladen mit fit im plot?} \todo{sind die fitparameter relevant?}\todo{nur eine legende für beide subplots?}}\label{fig:dominanz-tgr}
 \end{figure}
 
 Beim direkten betrachten des Rauschsignals ist nicht klar erkennbar, ob das statistische oder das Telegrafenrauschen dominiert. Wenn man jedoch die Spektrale Leistungsdichte oder die Autokorrelation bzw. Autocovarianz betrachtet, ist deutlich erkennbar, dass das Telegrafenrauschen hier den größten Beitrag leistet.
