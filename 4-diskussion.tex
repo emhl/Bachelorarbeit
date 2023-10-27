@@ -2,25 +2,19 @@
 \begin{document}
 \newpage
 \section{Telegrafenrauschen in Samarium-Erbium-Orthoferrit}
+
 \todo{Roter Faden!}
 \todo{Überschriften}
-\todo{Grid bei Logaritmischen plots}
 \todo{gibt es offizielle namen für die verwendeten Eigenbezeichnungen?}
 
-\todo{\(p_{up}\) statt t\(_{up}\) }
-
-\todo{Autocovarianz mit log y-Achsen plotten}
-\todo{Autokorrelation und Autocovarianz konsistent halten}
-Der Orthoferrit besteht aus vier Untergittern, welche jeweils eine andere Magnetisierung \(\vec{\mu}_i\) besitzen (Normiert \(\vec{S}_i\)). Im nachfolgenden Bereich wird die normierte resultierende Magnetisierung (Überlagerung der vier Untergitter) verwendet.
+Der betrachtete Orthoferrit besteht aus vier Untergittern, welche jeweils eine andere Magnetisierung \(\vec{\mu}_i\) besitzen (Normiert \(\vec{S}_i\)). Im nachfolgenden Bereich wird die normierte resultierende Magnetisierung (Überlagerung der vier Untergitter) verwendet.
 
 \begin{align}
     \mu_{1} &=  \mu_{2} = \mu_{3} = \mu_{4} = \num{3.66}\mu_B \\
     \vec{m} &= \frac{1}{4} \sum_{i=1}^4 \vec{S}_i
 \end{align}
 
-Das Telegrafenrauschen tritt am untersuchten Reorientierungsübergang in c-Richtung auf, weshalb nur diese Komponente betrachtet wird. 
-
-\todo{plot Reorientierungsübergang?}
+Das Telegrafenrauschen tritt am untersuchten Reorientierungsübergang (siehe \cref{fig:bc-crit-temp}) in c-Richtung auf, weshalb nur diese Komponente betrachtet wird.
 
 Eine Simulation, von einem \(128 \times 128 \times 128\) Gitter mit einem simulierten Zeitraum von \qnt{1.2}{\nano\second} mit einer numerischen Schrittweite von \qnt{20}{\femto\second} benötigt etwa drei Tage Rechenzeit auf einer Nvidea RTX 2080 Ti Grafikkarte. 
 
@@ -31,23 +25,22 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/example-telegraph-sim.pdf}
-    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \qnt{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen \todo{Bezeichnung für die zwei Niveaus/Zustände?}
+    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \qnt{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei der Einschwingvorgang zu sehen
     }\label{fig:bsp-run}
 \end{figure}
+\todo{Bezeichnung für die zwei Niveaus/Zustände?}
 
 Die mittleren Aufenthaltszeiten (MDT) in den beiden Niveaus befinden sich in der gleichen Größenordnung, wie der Simulationszeitraum. Um auch bei weniger optimalen Daten, wie in \cref{fig:extraktion-tgr}, eine gute Extraktion des Telegrafenrauschens zu ermöglichen, wurden teilweise die Signale mehrerer Simulationsläufe hintereinander gehängt, um ein langes Signal zu erhalten.
 
-Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau starten und aufhören (so lange die Wahrscheinlichkeit für einen Zustand nicht deutlich höher ist), werden hierbei teilweise zusätzliche Schaltvorgänge hinzugefügt.
-
-\todo{warum ist das meißtens kein problem?}
+Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau starten und aufhören (so lange die Wahrscheinlichkeit für einen Zustand nicht deutlich höher ist), werden hierbei teilweise zusätzliche Schaltvorgänge hinzugefügt. 
 
 Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine geringere Gittergröße, oder eine größere Zeitschrittweite.
 
 Die Gittergröße ist allerdings bereits recht klein und eine größere Zeitschrittweite würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \qnt{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer.
 
-\todo{was passiert im Einschwingvorgang?}
-
 \subsection{Extraktion des Telegrafenrauschens}
+
+Um die beobachteten Schaltvorgänge zu charakterisieren wird der Algorithmus \todo{referenz} angewandt, welcher das Telegrafenrauschen aus dem Signal extrahiert.
 
 \begin{figure}[H]
     \centering
@@ -63,15 +56,15 @@ Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich grö
     \caption{Vergleich von verschiedenen Verteilungsfunktionen um die Wahrscheinlichkeitsdichte $P(m_c)$ zu fitten.}\label{fig:fit_func_comp}
 \end{figure}
 
-Theoretisch existiert auch noch ein dritter, weniger stabiler, Zustand, der Genau Zwischen den Zwei Niveaus liegt. Dieser sorgt für die Abweichung von einer Gaußverteilung im Bereich zwischen den zwei Niveaus. 
+Theoretisch müsste auch noch ein dritter, weniger stabiler, Zustand existieren, der genau zwischen den zwei Niveaus liegt. Dieser sorgt für die Abweichung von einer Gaußverteilung im Bereich zwischen den zwei Niveaus. 
 
-\todo{warum wird dieser Zustand nicht weiter berücksichtigt?}
+Um diesen Zustand auch charakterisieren zu können wäre ein deutlich komplexerer Algorithmus notwendig. Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb er hier nicht weiter betrachtet wird.
 
 \subsection{Dominanz des Telegrafenrauschens}
 \begin{figure}[H]
     \centering
     \subcaptionbox{Spektrale Leistungsdichten $S$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Spektrale Leistungsdichte aus dem bereinigten Telegrafenrauschen wurde außerdem mit einem Lorentizan gefitted\label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
-    \subcaptionbox{Autokorrelation $\gamma$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz.Die Autokorrelation aus dem bereinigten Telegrafenrauschen wurde außerdem mit einer exponentialfunktion gefitted \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
+    \subcaptionbox{Autokorrelation $\gamma$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Autokorrelation aus dem bereinigten Telegrafenrauschen wurde außerdem mit einer exponentialfunktion gefitted \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
     \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \qnt{26.03}{\milli\electronvolt} ohne externes Magnetfeld \todo{zu überladen mit fit im plot?} \todo{sind die fitparameter relevant?}\todo{nur eine legende für beide subplots?}}\label{fig:dominanz-tgr}
 \end{figure}
 
@@ -80,9 +73,13 @@ Beim direkten betrachten des Rauschsignals ist nicht klar erkennbar, ob das stat
 
 \subsection{Variation der Temperatur}
 
+Das Telegrafenrauschen tritt ja nur an der Reorientierungstemperatur auf. Daher wird die Temperatur varriert, um zu beobachten, wie das Telegrafenrauschen entsteht und wieder verschwindet.
+
 Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden bereits Simulationen für verschiedene Temperaturen durchgeführt. Diese Daten wurden für diesen Teil der Analyse verwendet
 
 \subsubsection{In der Zeitdomäne}
+
+Da aus der Simualation das Rauschsignal direkt gewonnen werden kann, bietet es sich an dieses direkt statistisch zu untersuchen.
 
 \begin{figure}[H]
     \centering
@@ -95,7 +92,7 @@ Unterhalb von \qnt{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m
 
 Da die Mittlere Aufenthaltszeit ähnlich groß, wie der Simulationszeitraum ist, ist die Wahrscheinlichkeitsdichte der beiden Zustände (in den Simulationsdaten) für hohe Temperaturen hier teilweise unterschiedlich groß. Wenn man mehr und/oder längere Simulationen machen würde, wären die beiden Niveaus für die gelb-orangenen plots in \cref{fig:temp-hist} gleich groß.
 
-Da der Einschwingvorgang mit einem Positiven Startwert (was \(m_c\) angeht beginnt, landet das System bei den Temperaturen oberhalb von \qnt{305}{\kelvin} immer im oberen Niveau. und wechselt von dort nicht ins untere Niveau. \todo{testen, ob bei anderem Einschwingvorgang unteres Niveau bevorzugt wird?}
+Da der Einschwingvorgang mit einem positiven Startwert (was \(m_c\) angeht beginnt, landet das System immer zuerst im oberen Niveau. Bei den Temperaturen oberhalb von \qnt{305}{\kelvin}, wechselt es nichtmehr von dort nicht ins untere Niveau. 
 
 \begin{figure}[H]
     \centering
