@@ -224,19 +224,17 @@ Die probleme beim fitten des exponentiellen Abfalls sind in \cref{fig:temp-autoc
 
 \subsection{In externem Magnetfeld}
 
-\todo{in plots \(B_z\) statt \(Bz\) nutzen}
+Das Verhalten des magnetischen Moments in c-Richtung kann nicht nur durch eine Veränderung der Temperatur beeinflusst werden, sondern auch durch ein extern angelegtes Magnetfeld.
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_comparison/critical_temperature.pdf}
-    \caption{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung}\label{fig:bc-crit-temp}
+    \caption{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung \todo{bei 100mT noch plotten?}}\label{fig:bc-crit-temp}
 \end{figure}
 
-\todo{erklärung bei so geringen Magnetfeldern wird der Reorientierungsübergang nicht aufgeweicht}
+Bei einem starken Magnetfeld von \qnt{1}{\tesla} weicht der Reorientierungsübergang auf und es kommt kein Telegrafenrauschen mehr zu stande bei einnem schwächeren Magnetfeld (um die \qnt{30}{\milli\tesla}) verändert sich die Position des Reorientierungsübergangs nicht signifikant. Daher wurden alle Simulationen mit angelegtem Magnetfeld bei der gleichen Temperatur durchgeführt.
 
-\todo{welche bedingungen Bleiben für die nachfolgenden Simulationen gleich?}
-
-Das Magnetfeld wird in z-Richtung angelegt, die c-Richtung im Kristall ist aber identisch zur z-Richtung im externen kartesischen koordinatensystem.
+Das Magnetfeld wird in z-Richtung angelegt. Die c-Richtung im Kristall ist identisch zur z-Richtung im externen kartesischen Koordinatensystem.
 
 In den Simulationen wird auch immer nur ein konstantes Magnetfeld verwendet.
 
@@ -250,11 +248,13 @@ Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \qnt{2.5}{\nan
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung}\label{fig:bc-sign-hist}
 \end{figure}
 
-Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Dies wurde aber nicht weiter untersucht.
+Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Daher wurden die Simulationen nur mit positivem B-Feld durchgeführt.
 
 
 \subsubsection{In der Zeitdomäne}
 
+Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten statistischen Analyse des Signals erkennen.
+  
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mc_hist.pdf}
@@ -266,8 +266,6 @@ Anders als bei der Variation der Temperatur ohne externes Magnetfeld (\cref{fig:
 Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichkeit hat, kommt es auch (je nach stärke des B-Feldes) zu deutlich weniger zusätzlichen Schaltvorgängen bei der Verkettung mehrerer Simulationsläufe.
 
 \todo{erklärung verschiebung der Niveau peaks}
-
-\todo{was passiert in den anderen Komponenten von m?}
 
 \begin{figure}[H]
     \centering
@@ -285,6 +283,10 @@ Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichke
 
 In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schaltvorgang statt.
 
+\todo{vergleich mit \cref{fig:switch-events} }
+
+Ähnlich wie in \cref{fig:switch-events} sind die Zustandswechsel recht gleichverteilt. Bei einer höheren Temperatur sind deutlichere Stufen erkennbar, da häufiger auf einen Schaltvorgang direkt ein zweiter (zurück in den energetisch begünstigten Zustand) stattfindet. Die Rate an Zustandswechseln bleibt jedoch im Rahmen der Unsichheiten konstant. Erst wenn quasi keine Zustandswechsel mehr stattfinden, weicht dieser Wert signifikant von denen bei niedrigeren Feldstärken ab. 
+
 \begin{figure}[H]
     \centering
     \subcaptionbox{Aufenthaltszeit im oberen Zustand. Bestimmt über einzelne Simulationsläufe (Violinplot) und über Kette mehrerer Simulationen (schwarze Punkte) \label{fig:bc-up-percentage-violin}}{\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
@@ -292,18 +294,25 @@ In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schalt
     \caption{Abhängigkeit der Aufenthaltszeit von der Magnetfeldstärke}\label{fig:bc-state-times}
 \end{figure}
 
+Was sich allerdings stark ändert ist die Aufenthaltswahrscheinlichkeit und mittleren Aufenthaltszeiten für die beiden Niveaus.
+
+\todo{Diskussion Aufenthaltswahrscheinlichkeit}
+
+\todo{diskussion mittlere Aufenthaltszeiten}
+
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/up_percentage_fit.pdf}
     \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet. Die Datenpunkte wurden dabei mittels des Algorithmus aus mehreren verketteten Simulationsläufen extrahiert}\label{fig:bc-up-percentage}
 \end{figure}
 
-\todo{fitparameter obere schranke diskutieren}
+Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Feldstärken als in \cref{fig:bc-up-percentage-violin} die Aufenthaltswahrscheinlichkeit zu bestimmen. Diese folgt einer Sigmoid-Kurve \todo{muss erklärt werden?} und oberhalb von \qnt{100}{\milli\tesla} findet quasi kein Telegrafenrauschen mehr statt.
 
 \todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
 
 \subsubsection{In der Frequenzdomäne}
 
+Da die Analyse im zeitlichen Durchblick hier experimentell leider nicht möglich ist, müssen Anhaltspunkte im Frequenzdurchblick gefunden werden um u.a. festzustellen, wann kein Telegraphenrauschen mehr stattfindet.
 
 \begin{figure}[H]
     \centering
@@ -313,6 +322,9 @@ In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schalt
     \caption{Spektrale Leistungsdichten $S$ bei verschiedenen Magnetfeldstärken}\label{fig:bc-spd}
 \end{figure}
 
+So wie bei der Erhöhung der der Temperatur in \cref{fig:temp-spd-source} zu einer Verschiebung des ersten Peaks geführt hat, führt in  \cref{fig:bc-spd-source} eine erhöhung der Feldstärke auch zu einer verschiebung des Peaks nach rechts. Der zweite Peak bleibt auch unverändert.
+
+Die spektrale Leistungsdichte ist allerdings im niederfrequenten Bereich in \cref{fig:bc-spd-source,fig:bc-spd-clean} bei größerer Feldstärke deutlich geringer und bleibt in \cref{fig:bc-spd-clean} auch kleiner im Vergleich zu den anderen Kurven.
 
 \begin{figure}[H]
     \centering
@@ -324,17 +336,20 @@ In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schalt
 
 \todo{Autokorrelation vs Autokovarianz}
 
+Die Autokorrelationsfunktionen konvergieren bei externem Magnetfeld nichtmehr gegen \num{0} (da die beiden Zustände eine unterschiedliche Aufenthaltswahrscheinlichkeit haben). Daher musste, um die Autokovarianzkurven in \cref{fig:bc-autocov} zu erhalten, der Grenzwert von der Autokorrelationsfunktion abgezogen werden.
 
-\todo{Die Mean Dwell time ist nicht aus der Autokorrelation Bestimmbar (Mittlere Mean Dwell time)}
-
+Die mittlere Aufenthaltszeit ist aus dem gleichen Grund auch nichtmehr aus der Autokovarianz bestimmbar. Wann der exponentielle Abfall (Abbild \todo{wie lautet korrekter Fachbegriff?} des Telegrafenrauschen in der Autokorrelation) nichtmehr mit den anderen Charakteristika \todo{haben die einen Namen?} überlagert ist lässt sich auch direkt aus der Autokorrelation des rohen Signals erkennen:
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/autocov_high.pdf}
-    \caption{Autokovarianz $\gamma$ für hohe Magnetfeldstärken}\label{fig:bc-autocov-high}
-\end{figure})
+    \caption{Autokovarianz $\gamma$ für hohe Magnetfeldstärken (dem entsprechend ändert sich auch wieder die Skala der colormap)}\label{fig:bc-autocov-high}
+\end{figure}
 
-\todo{erkennbar, dass kein telegrafenraushcen mehr stattfindet}
+Die Autokovarianzkurven für die Feldstärken \qnt{\geq 90}{\milli\tesla (bei denen quasi kein telegrafenrauschen mehr stattfindet) liegen fast 
+perfekt übereinander. 
+
+Um dieses Verhalten zu parametrisieren reicht es aus die Rauschamplitude \(\gamma(0)\) zu betrachten:
 
 \begin{figure}[H]
     \centering
