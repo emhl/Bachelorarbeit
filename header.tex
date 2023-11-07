@@ -136,7 +136,10 @@
 %--------------------------SIUNITX-------------------------------%
 %----------------------------------------------------------------%
 \usepackage[]{siunitx}
-\NewCommandCopy\qnt\SI
+\NewCommandCopy\qnt\SI % compatibility with physics whilst no longer using \SI version
+\ifdefined\unit\else
+  \NewCommandCopy\unit\si % compatibility for compiling with v2
+\fi
 \sisetup{locale = DE}
 %	Automatische Einstellung der Ausgabe für bestimmte Regionen (UK, US, DE, FR, ZA)
 
