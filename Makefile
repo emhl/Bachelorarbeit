@@ -7,7 +7,7 @@ TEX = latexmk -outdir=latex.out/ -pdf -f
 all: main
 
 main: $(MAINFILE).tex
-	$(TEX) $(MAINFILE).tex
+	$(TEX) -draftmode $(MAINFILE).tex
 	$(TEX) $(MAINFILE).tex
 
 subfiles:
