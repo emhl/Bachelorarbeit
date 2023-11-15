@@ -43,7 +43,9 @@ Damit der Betrag der Spins sich nicht durch numerische Fehler ändert, werden di
 \subsection{Algorithmus zur Extraktion von Telegrafenrauschen}\label{algo}
 
 Wenn die breite des weißen gaußverteilten Rauschens in der gleichen größenordnung wie der Abstand zwischen den beiden stabilen Zuständen ist, ist es nicht einfach möglich zu entscheiden, in welchem Zustand sich das System gerade befindet.
-\todo{etwas mehr Erklärung und verweis zu \cref{fig:fit_comp}}
+
+In \cref{fig:gauss-overlap}) sieht man, dass Datenpunkte Existieren, die sowohl zu dem oberen, als auch zu dem unteren Zustand gehören könnten. Konkret sieht man das Problem, dass mehrere Datenpunkte nicht klar zuordenbar sind in \cref{fig:fit_comp}.
+
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/gauss-overlap.pdf}
@@ -118,6 +120,6 @@ und die inverse Fouriertransformation als:
 % Korelationsfunktion?
 
 % bibliography (temporary)
-% \bibliography{literatur} \todo{comment out before compiling main.tex}
+\bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}
