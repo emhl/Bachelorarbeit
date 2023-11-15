@@ -442,7 +442,7 @@ symmetrisch und viele Ausdrücke vereinfachen sich:
 \begin{align}
 	\expval{X}        & = 0                     \\
 	\expval{X^2}      & = c^2                   \\
-	\expval{X(0)X(t)} & = c^2 \exp(-2\lambda t)
+	\expval{X(0)X(t)} & = c^2 \exp(-2\lambda t)\label{eq:autokorr-sym-dmp}
 \end{align}
 \todo{\(e^{-2\lambda t}\) oder \(e^{-\lambda t}\)?}
 
@@ -462,7 +462,7 @@ Fouriertransformierten von \(X(t)\) berechnen:
 Die Spektrale Leistungsdichte lässt sich auch aus der Autokovarianz berechnen~\cite{Petroni}:
 \begin{align}
 	P(\omega) = \int_{-\infty}^{\infty} \dif \tau \ \exp(-i \omega
-	\tau) \expval{X(0) X(\tau)}
+	\tau) \expval{X(0) X(\tau)}\label{eq:spd}
 \end{align}
 
 Eine Herleitung dazu befindet sich in~\cite{Petroni}

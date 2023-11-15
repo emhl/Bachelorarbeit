@@ -62,14 +62,14 @@ Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, 
 
 In \cite{random-telegraph-analysis} wird ein recht komplexer Algorithmus vorgestellt, der in der Lage ist, eine Telegrafenrauschen Kurve in zwei Zustände zu unterteilen, ohne zum overshooting zu neigen. Für die Analyse der Simulationen wird eine Modifizierte Version dieses Algorithmus verwendet, die weniger komplex ist, aber für die Analyse der Simulationen ausreicht.
 
-
-Als erstes wird ein Histogramm der Rauschkurve erstellt (so normiert, das es der Wahrscheinlichkeitsdichte entspricht). 
+Als erstes wird ein Histogramm der Rauschkurve (\cref{fig:hist_fit}) erstellt (so normiert, das es der Wahrscheinlichkeitsdichte entspricht). \label{sec:algo}
 Das erste und das letzte drittel des Histogramms werden dann jeweils mit einer Gaußkurve gefittet, um so die Mittelwerte und die Standardabweichungen der beiden Zustände zu bestimmen.
 
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit.pdf}
     \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaußfits für das obere, und das untere Niveau mit eingezeichnetem Mittelwert und Standardabweichung}
+    \label{fig:hist_fit}
 \end{figure}
 
 Anhand dieser Werte werden dann zwei Schwellwerte bestimmt, die angeben, wann der Zustand gewechselt wird.
@@ -120,6 +120,6 @@ und die inverse Fouriertransformation als:
 % Korelationsfunktion?
 
 % bibliography (temporary)
-\bibliography{literatur} \todo{comment out before compiling main.tex}
+% \bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}

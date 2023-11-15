@@ -37,7 +37,7 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 
 \subsection{Extraktion des Telegrafenrauschens}
 
-Um das Telegrafenrauschen zu extrahieren wird der Algorithmus \todo{referenz} angewandt.
+Um das Telegrafenrauschen zu extrahieren wird der Algorithmus \cref{sec:algo} angewandt.
 
 \begin{figure}[H]
     \centering
@@ -168,8 +168,6 @@ Die Aufenthaltswahrscheinlichkeit für beide Zustände liegt in dem Temperaturbe
     \caption{Spektrale Leistungsdichten $S$ für verschiedene Temperaturen}\label{fig:temp-spd}
 \end{figure}
 
-\todo{verknüpfung berechnung Spektrale Leistungsdichte}
-
 Mit der Temperatuerhöhung verschiebt sich der  erste charakteristische Peak \todo{hat der peak einen Namen? (Eigenmoden)}( in \cref{fig:temp-spd-source}) nach rechts. 
 
 Die Position des zweiten Peaks ändert sich nicht.
@@ -177,7 +175,7 @@ Die Position des zweiten Peaks ändert sich nicht.
 
 Die Spektrale Leistungsdichte des bereinigten Telegrafenrauschens (\cref{fig:temp-spd-clean}) ist bei höherer Temperatur im Niderfrequenten Bereich größer, aber fällt dann schneller ab.
 
-Aus der Spektralen Leistungsdichte lässt sich die Autokorrelationsfunktion berechnen. \todo{ref berechnungsmethode}
+Aus der Spektralen Leistungsdichte lässt sich die Autokorrelationsfunktion berechnen \cref*{eq:spd}.
 
 \begin{figure}[H]
     \centering
@@ -199,7 +197,7 @@ Da beide Zustände gleich wahrscheinlich sind konvergiert die Autokorrelationsfu
 
 Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur auch immer weiter an.
 
-Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit mit der Formel \todo{verknüpfung zu Formel} berechnen.
+Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit für den symmetrischen DMP berechnen (\cref{eq:autokorr-sym-dmp}).
 
 
 \todo{übergang Dominanz TGR}
