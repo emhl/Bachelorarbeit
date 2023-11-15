@@ -336,9 +336,13 @@ Die Dipol-Dipol Wechselwirkung\eqref{eq:hamilton-dd} wird in der Simulation
 nicht berücksichtigt, da sie im Vergleich zu den anderen Wechselwirkungen
 vernachlässigbar ist.
 
-\todo{erklärung Realisation Reorientierungsübergang}
+\todo{erklärung Realisation Reorientierungsübergang (Welche Werte werden modifiziert um die Temperatur zu ändern)}
 
-\todo{Projektion xyz \(\to\) abc}
+\begin{align}
+	\vec{e}_a &= \frac{\vec{e}_x - \vec{e}_y}{\sqrt{2}} \\
+	\vec{e}_b &= \frac{\vec{e}_x + \vec{e}_y}{\sqrt{2}} \\
+	\vec{e}_c &= \vec{e}_z
+\end{align}
 
 \begin{figure}[htbp]
 	\centering
