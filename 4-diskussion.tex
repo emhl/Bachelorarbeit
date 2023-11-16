@@ -6,9 +6,6 @@
 \todo{Roter Faden!}
 \todo{Überschriften}
 \todo{gibt es offizielle namen für die verwendeten Eigenbezeichnungen?}
-\todo{genaue temperaturen in Kelvin für die Simulationsläufe}
-\todo{verknüpfungen zu anderen Teilen}
-\todo{Abkürzungen im Fließtext vs. ausgeschrieben?}
 \todo{mehr direkte refernezen auf Plots}
 
 \todo{Einleitung und Beschreibung \cref{fig:bsp-run}}
@@ -58,14 +55,14 @@ Theoretisch müsste auch noch ein dritter, instabiler, Zustand existieren (Lokal
 
 Um diesen Zustand auch charakterisieren zu können wäre ein deutlich komplexerer Algorithmus notwendig. Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb er hier nicht weiter betrachtet wird.
 
-\subsection{Variation der Temperatur}
+\subsection{Einfluss verschiedener Temperaturen}
 
 % Das Telegrafenrauschen tritt ja nur an der Reorientierungstemperatur auf. 
 % Daher wird die Temperatur varriert, um zu beobachten, wie das Telegrafenrauschen entsteht und wieder verschwindet.
 
 Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden bereits Simulationen für verschiedene Temperaturen durchgeführt. Diese Daten wurden für diesen Teil der Analyse verwendet
 
-\subsubsection{Das Telegrafenrauschen in der Zeitdomäne}
+\subsubsection{Betrachtung in der Zeitdomäne}
 
 Da aus der Simualation das Rauschsignal direkt gewonnen werden kann, bietet es sich an dieses statistisch zu untersuchen.
 
@@ -153,7 +150,7 @@ In \cref{fig:switch-events} lässt sich gut erkennen, dass die Schaltvorgänge g
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation\todo{$P_up$ für y-achse}\label{fig:temp-up-percentage-scatter}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_scatter.pdf}}
+    \subcaptionbox{einzelner Datenpunkt für jede einzelne Simulation\label{fig:temp-up-percentage-scatter}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_scatter.pdf}}
     \subcaptionbox{Mittel-, Extremwerte und Verteilung für jede Simulationstemperatur. Außerdem wurde der Wert auch aus der Kette an Simulationen berechnet (schwarze Punkte)\label{fig:temp-up-percentage-violin}}{\includegraphics{bilder/plots/temp_comparison/up_percentage_violin.pdf}}
     \caption{Aufenthaltswahrscheinlichkeit im oberen Zustand}\label{fig:temp-up-percentage}
 \end{figure}
@@ -199,7 +196,7 @@ Da beide Zustände gleich wahrscheinlich sind konvergiert die Autokorrelationsfu
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/rauschamplitude.pdf}
-    \caption{Rauschamplitude $A$ für verschiedene Temperaturen $T$ \todo{Datenpunkte für T > 303K}\todo{Exisiert eigentlich bereits in julius Masterarbeit. relevant für vergleich mit verhalten bei }}\label{fig:temp-autocorr-amplitude}
+    \caption{Rauschamplitude $A$ für verschiedene Temperaturen $T$ \todo{Datenpunkte für T > 303K werden nicht berücksichtigt, weil autocov $\neq$ autocorr. die Rauschamplitude fällt aber ab}\todo{Exisiert eigentlich bereits in julius Masterarbeit. relevant für vergleich mit verhalten bei mit b-feld }}\label{fig:temp-autocorr-amplitude}
 \end{figure}
 
 Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur auch immer weiter an.
@@ -270,7 +267,7 @@ Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \qnt{2.5}{\nan
 Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Daher wurden die Simulationen nur mit positivem B-Feld durchgeführt.
 
 
-\subsubsection{In der Zeitdomäne}
+\subsubsection{Betrachtung in der Zeitdomäne}
 
 Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten statistischen Analyse des Signals erkennen.
 
