@@ -18,7 +18,7 @@ subfile:
 	$(TEX) $2
 
 clean:
-	rm -rf ./out/*
+	rm  ./latex.out/*
 
 get-plots:
 	rsync -avz --progress scc:Documents/Bachelorarbeit/Analysis/plots/ ~/Bachelorarbeit/Analysis/plots/
