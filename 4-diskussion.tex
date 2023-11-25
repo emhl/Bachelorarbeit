@@ -40,7 +40,7 @@ Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extrakt
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
-    \caption{Extraktion des Telegrafenrauschen mithilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauss-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen. \todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
+    \caption{Extraktion des Telegrafenrauschen mithilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauss-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
 
 Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei Zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
@@ -226,7 +226,7 @@ Aus dem in extrahiertem Telegrafenrauschen lassen sich die Aufenthaltszeiten im 
 \end{figure}
 
 Wie zu erwarten steigt die mittlere Aufenthaltszeit, bei einer höheren Temperatur an. Die auf die zwei verschiedenen Methoden berechneten Werte (und somit die bestimmte Anstiegsrate) weichen, bei niedrigeren Temperaturen, hier stark voneinander Ab. 
-Wahrscheinlich liegt das an Problemen beim Fitten des exponentiellen Abfalls, Da für die niedrigen Temperaturen \todo{was genau?} überwiegt.
+Wahrscheinlich liegt das an Problemen beim Fitten des exponentiellen Abfalls, Da für die niedrigen Temperaturen das charakteristische Verhalten\todo{was genau?} überwiegt.
 
 \todo{Telegrafenrauschen nichtmehr dominant in Autokovarianz?}
 
@@ -324,7 +324,7 @@ Was sich allerdings stark ändert ist die Aufenthaltswahrscheinlichkeit und mitt
     \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet. Die Datenpunkte wurden dabei mittels des Algorithmus aus mehreren verketteten Simulationsläufen extrahiert}\label{fig:bc-up-percentage}
 \end{figure}
 
-Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Feldstärken als in \cref{fig:bc-up-percentage-violin} die Aufenthaltswahrscheinlichkeit zu bestimmen. Diese folgt einer Sigmoid-Kurve. \todo{muss erklärt werden?} Oberhalb von \qnt{100}{\milli\tesla} findet in den Simulationen kein Telegrafenrauschen mehr statt.
+Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Feldstärken als in \cref{fig:bc-up-percentage-violin} die Aufenthaltswahrscheinlichkeit zu bestimmen. Diese folgt einer Sigmoid-Kurve.\todo{muss erklärt werden?} Oberhalb von \qnt{100}{\milli\tesla} findet in den Simulationen kein Telegrafenrauschen mehr statt.
 
 \todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
 

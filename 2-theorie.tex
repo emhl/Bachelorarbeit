@@ -7,7 +7,7 @@ In diesem Abschnitt werden die theoretischen Grundlagen, die diese Arbeit benöt
 
 \subsection{Heisenberg Modell}
 
-Um das System von mehreren magnetischen Momenten zu beschreiben, wird das klassische Heisenberg Modell verwendet. Es beschreibt die Wechselwirkungzwischen den magnetischen Momenten der einzelnen Atome.
+Um das System von mehreren magnetischen Momenten zu beschreiben, wird das klassische Heisenberg Modell verwendet. Es beschreibt die Wechselwirkung zwischen den magnetischen Momenten der einzelnen Atome.
 
 Die magnetischen Momente \(\vec{\mu}\) werden als klassische dreidimensionale Vektoren der Länge \(\mu_{\text{S}}\) angenommen.
 Die normierten und dimensionslosen magnetischen Momente werden mit \(\vec{S}\) bezeichnet:
@@ -20,7 +20,7 @@ Die normierten und dimensionslosen magnetischen Momente werden mit \(\vec{S}\) b
 % entgegengesetzte Richtungen zeigen und die Beträge der magnetischen Momente
 % gleich sind gilt zusätzlich \(\mu_{\text{S},i} = \mu_{\text{S},j} = \mu_{S}\).
 
-Diese Wechselwirkungen werden durch die Hamilton Funktion beschrieben, welche sich aus mehreren Komponenten zusammensetzt:
+Diese Wechselwirkungen werden durch die Hamiltonfunktion beschrieben, welche sich aus mehreren Komponenten zusammensetzt:
 
 \subsubsection*{Heisenberg Austauschwechselwirkung}
 % Heisenberg Austauschwechselwirkung
@@ -29,8 +29,7 @@ Die Heisenberg Austauschwechselwirkung beschreibt die Wechselwirkung zwischen de
 Sie ist in der Regel die dominierende Wechselwirkung in magnetisch geordneten Strukturen.
 % Klassisch ist sie proportional zum Skalarprodukt der magnetischen Momente:
 
-Eine Herleitung dazu lässt sich in \cite{magnetism-in-condensed-matter} finden
-
+Eine Herleitung dazu lässt sich in \cite{magnetism-in-condensed-matter} finden.
 Die Hamiltonfunktion für die Heisenberg Austauschwechselwirkung kann wie folgt geschrieben werden:
 
 \begin{align}
@@ -41,7 +40,7 @@ Die Hamiltonfunktion für die Heisenberg Austauschwechselwirkung kann wie folgt 
 \subsubsection*{Dzyaloshinskii-Moriya Wechselwirkung}
 % Dzyaloshinskii-Moriya interaction 
 
-Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte antisymmetrische Interaktion von zwei Spins. Heißt wenn zwei Spins sich eigentlich parallel oder antiparallel ordnen würden sorgt die DMI dafür, dass die Spins leicht zueinander verkanten. Dadurch entsteht bei schwachen Antiferromagneten die ferromagnetische Komponente~\cite{DMI}.
+Die Dzyaloshinskii-Moriya Wechselwirkung (DMI) beschreibt die indirekte antisymmetrische Interaktion von zwei Spins. Heißt wenn zwei Spins sich eigentlich parallel oder antiparallel ordnen würden, sorgt die DMI dafür, dass die Spins leicht zueinander verkanten. Dadurch entsteht bei schwachen Antiferromagneten die ferromagnetische Komponente~\cite{DMI}.
 Sie ist hier die zweitstärkste Wechselwirkung und ist proportional zum Kreuzprodukt der magnetischen Momente:
 
 \begin{align}
@@ -60,16 +59,16 @@ Es gibt verschiedene Arten von Anisotropien.
 Die hier betrachteten Anisotropien sind verschiedene kristalline Anisotropien.
 Die Anisotropien entstehen also aufgrund der Kristallgitterstruktur. 
 
-Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamilton Funktion bei:
+Eine Kristall-Anistotropie zweiter Ordnung trägt folgenden Term zur Hamiltonfunktion bei:
 \begin{align}
 	\mathcal{H}_{\text{2.AI}} = -\sum_{i} \qty(\vec{S}_i)^\dagger
 	\mat{d}_i
 	\vec{S}_i\label{eq:hamilton-2a}
 \end{align}
 
-Bei Anisotropien gibt es immer eine energetisch ungünstige \enquote{schwere} Raumachse und eine günstige \enquote{leichte} Achse, in die Sich das System auszurichten versucht.
+Bei Anisotropien gibt es immer eine energetisch ungünstige \enquote{schwere} Raumachse und eine günstige \enquote{leichte} Achse, in die sich das System auszurichten versucht.
 
-Ein weiterer Term, der zur Hamilton Funktion beiträgt, ist die kubische Anisotropie, welche eine Anisotropie vierter Ordnung ist~\cite{GrossMarx}:
+Ein weiterer Term, der zur Hamiltonfunktion beiträgt, ist die kubische Anisotropie, welche eine Anisotropie vierter Ordnung ist~\cite{GrossMarx}:
 \begin{align}
 	\mathcal{H}_{\text{4.AI}} = -\sum_{i} L_{i,x} \qty(\vec{S}_{i,y})^2 \qty(\vec{S}_{i,z})^2 
 	+ L_{i,y} \qty(\vec{S}_{i,z})^2 \qty(\vec{S}_{i,x})^2 
@@ -89,7 +88,7 @@ Bei einem äußeren Magnetfeld \(B_\text{ext}\) wirkt auf jedes magnetische Mome
 	- B_\text{ext} \sum_{i} \mu_{\text{S},i} \cdot \vec{S}_i\label{eq:hamilton-zeeman}
 \end{align}
 
-Diese Wechselwirkung sorgt für eine Parallele Ausrichtung aller Spins.
+Diese Wechselwirkung sorgt für eine parallele Ausrichtung aller Spins.
 
 % Dipol Dipol wechselwirkung
 \subsubsection*{Dipol-Dipol Wechselwirkung}
@@ -117,9 +116,9 @@ Wenn zwei magnetische Momente \(\vec{\mu}_i\) und \(\vec{\mu}_j\) in einem Absta
 	- \vec{S}_i \cdot \vec{S}_j \cdot r_{ij}^2}{r_{ij}^5}\label{eq:hamilton-dd}
 \end{align}
 
-\subsubsection*{Gesamte Hamilton Funktion}
+\subsubsection*{Gesamte Hamiltonfunktion}
 
-Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten zusammen:
+Die Gesamte Hamiltonfunktion setzt sich aus den einzelnen Komponenten zusammen:
 
 \begin{align}
 	\mathcal{H} & = \mathcal{H}_{\text{EXC}} + \mathcal{H}_{\text{DMI}} +
@@ -139,7 +138,7 @@ Die Gesamte Hamilton Funktion setzt sich aus den einzelnen Komponenten zusammen:
 % Landau-Lifschitz Gleichung (1935)
 Um die Bewegung der magnetischen Momente zu beschreiben, muss aus der Hamiltonfunktion die Bewegungsgleichung abgeleitet werden.
 
-Obwohl die Hamiltonfunktion klassisch ist \todo{klassisches Heisenberg Modell}, kann die Bewegungsgleichung über die Quantenmechanik hergeleitet werden. 
+Obwohl die Hamiltonfunktion klassisch ist\todo{klassisches Heisenberg Modell}, kann die Bewegungsgleichung über die Quantenmechanik hergeleitet werden. 
 Das Ehrenfest-Theorem besagt, dass die zeitliche Änderung des Erwartungswertes eines Operators gleich dem Erwartungswert des Kommutators des Operators mit der Hamiltonfunktion ist \cite{qm-1-Schwabl}:
 
 \begin{align}
@@ -157,7 +156,7 @@ Mit der Relation
 \(\hat{\vec{S}}_i = \frac{\gamma_i}{\mu_{\text{S}}}\hat{\vec{J}}_i\) 
 und der Kommutatorrelation 
 \(\qty[\hat{\vec{J}}_i, \hat{\vec{J}}_j] = i \hbar \cdot \varepsilon_{abc} \hat{\vec{J}}_{c,i}\) 
-(wobei \(\varepsilon\) das Levi-Civita Symbol und \(\hat{\vec{J}}\) der Drehimpulsist) ergibt sich:
+(wobei \(\varepsilon\) das Levi-Civita Symbol und \(\hat{\vec{J}}\) der Drehimpuls ist) ergibt sich:
 
 \begin{align}
 	\dv{\vec{S}_i}{t}
@@ -178,7 +177,7 @@ und der Kommutatorrelation
 % 	\label{eq:landau-lifschitz}
 % \end{align}\cite{landau-lifshitz}
 
-zusätzlich enthält die gleichung Noch einen Dämpfungsterm~\cite{Gilbert-damping}:
+Zusätzlich enthält die Gleichung noch einen Dämpfungsterm~\cite{Gilbert-damping}:
 
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma }{\mu_{\text{S}}}\qty(\vec{S}_i \times \vec{\mathcal{H}}_{\text{i}}) 
@@ -212,7 +211,7 @@ ergibt sich:
 	\dv{\vec{S}_i}{t})) & = -\alpha^2\dv{\vec{S}_i}{t}
 \end{align}
 Somit lässt sich die Bewegungsgleichung nach \(\dv{\vec{S}_i}{t}\) auflösen.
-Damit erhalten ergibt sich die Landau-Lifschitz-Gilbert Gleichung:
+Damit ergibt sich die Landau-Lifschitz-Gilbert Gleichung:
 \todo{fascinating world of the LLG equation}
 \begin{align}
 	\dv{\vec{S}_i}{t} & = -\frac{\gamma
@@ -276,7 +275,7 @@ Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein R
 % \todo{erklärung für Samarium (reorientierungstemperatur)}
 
 Die Reorientierungstemperatur \(T_l < T < T_h\) liegt bei Erbiumferrit bei ungefähr \qnt{110}{\kelvin}~\cite{Deng2015}. 
-Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Bei(\ce{Sm_{0.7}Er_{0.3}FeO3}) liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist~\cite{Fitzky2021}.
+Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemperatur erhöht werden. Be \ce{Sm_{0.7}Er_{0.3}FeO3} liegt sie ungefähr bei Raumtemperatur, weshalb es im Experiment einfacher zu untersuchen ist~\cite{Fitzky2021}.
 
 % Parameter für Simulation
 % \todo{wer hat die Parameter bestimmt?}
@@ -284,7 +283,7 @@ Durch teilweises Ersetzen von Erbium durch Samarium kann die Reorientierungstemp
 Für die Simulation wird ein Modell von einem Orthoferriten verwendet, bei dem
 die Anisotropie-Parameter angepasst wurden, um eine Reorientierungstemperatur
 bei Raumtemperatur wie bei \ce{Sm_{0.7}Er_{0.3}FeO3} zu erhalten.
-Simuliert wird dabei nur das Gitter aus Eisenatomen. Die Einflüssen der
+Simuliert wird dabei nur das Gitter aus Eisenatomen. Die Einflüsse der
 Sauerstoff-, Erbium und Samariumatome steckt in den Anisotropie-Parametern. Die
 Einheitszelle ist in \cref{fig:orthoferrit} dargestellt.
 
@@ -349,10 +348,10 @@ vernachlässigbar ist.
 	\subcaptionbox{Einheitszelle mit DMI Vektoren(gelb)\label{subfig:orthoferrit-dmi}}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_withDMI_labeled.png}}
 	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für \(T<T_l\)\label{subfig:orthoferrit-below-rt}}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_belowRT.png}}
 	\subcaptionbox{Einheitszelle mit magnetischen Momenten (grün) für \(T>T_h\)\label{subfig:orthoferrit-above-rt}}{\includegraphics[width=0.3\textwidth]{bilder/jschlege/UnitCell_aboveRT.png}}
-	\caption{Kristallstruktur von \ce{ErFeO3}  Die Eisenatome sind dabei blau, die Sauerstoffatome rot und die Erbiumatome magenta gefärbt. 
+	\caption{Kristallstruktur von \ce{ErFeO3}.  Die Eisenatome sind dabei blau, die Sauerstoffatome rot und die Erbiumatome magenta gefärbt. 
 	\textbf{(a)} Die DMI Vektoren sind gelb eingezeichnet und die Richtung entspricht den Werten in \cref{eq:params-dmi} 
-	\textbf{(b)} Unterhalb der Reorientierungstemperatur Dominiert die Anisotropie zweiter Ordnung (\cref{eq:hamilton-2a,eq:params-2a}), weshalb die magnetischen Momente quasi Parallel zur c-Achse ausgerichtet sind. 
-	\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert die Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}), weshalb die magnetischen Momente quasi Senkrecht zur c-Achse ausgerichtet sind. Die Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen Momente Quasi parallel zur a-Achse ausgerichtet sind.~\cite{schlegel-master}}
+	\textbf{(b)} Unterhalb der Reorientierungstemperatur dominiert die Anisotropie zweiter Ordnung (\cref{eq:hamilton-2a,eq:params-2a}), weshalb die magnetischen Momente quasi parallel zur c-Achse ausgerichtet sind. 
+	\textbf{(c)} Oberhalb der Reorientierungstemperatur dominiert die Zwei-Ionen Anisotropie (\cref{eq:hamilton-tia,eq:params-tia}), weshalb die magnetischen Momente quasi senkrecht zur c-Achse ausgerichtet sind. Die Anisotropie zweiter Ordnung sorgt dafür, dass die magnetischen Momente quasi parallel zur a-Achse ausgerichtet sind.~\cite{schlegel-master}}
 	\label{fig:orthoferrit}
 \end{figure}
 
