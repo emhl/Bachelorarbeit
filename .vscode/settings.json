@@ -1,10 +1,15 @@
 {
     "latex-workshop.latex.outDir": "%DIR%/latex.out",
     "cSpell.words": [
+        "Anisotropie",
+        "Anisotropien",
         "Ferrit",
+        "gefittet",
+        "Hamiltonfunktion",
         "Lifschitz",
         "Orthoferrit",
         "Orthoferrite",
+        "Reorientierungstemperatur",
         "Telegrafenrauschen"
     ],
     "latex-workshop.latexindent.args": [

@@ -4,7 +4,7 @@
 \section{Simulationsmethoden und Datenanalyse}
 
 \subsection{Numerische Simulation}
-Um das System von mehreren magnetischen Momenten zu simulieren, wird das Programm \texttt{cuteLLG}\cite{cuteLLG} verwendet. \texttt{cuteLLG} wurde von Andread Donges (ehemaliger Mitarbeiter der AG Nowak) entwickelt und von verschiedenen Mitarbeitern der AG Nowak modifiziert.
+Um das System von mehreren magnetischen Momenten zu simulieren, wird das Programm \texttt{cuteLLG}\cite{cuteLLG} verwendet. \texttt{cuteLLG} wurde von Andreas Donges (ehemaliger Mitarbeiter der AG Nowak) entwickelt und von verschiedenen Mitarbeitern der AG Nowak modifiziert.
 
 
 Bei der Bewegungsgleichung (LLG) handelt es sich um eine Differentialgleichung, die nicht analytisch gelöst werden kann.
@@ -42,9 +42,9 @@ Damit der Betrag der Spins sich nicht durch numerische Fehler ändert, werden di
 
 \subsection{Algorithmus zur Extraktion von Telegrafenrauschen}\label{algo}
 
-Wenn die breite des weißen gaußverteilten Rauschens in der gleichen größenordnung wie der Abstand zwischen den beiden stabilen Zuständen ist, ist es nicht einfach möglich zu entscheiden, in welchem Zustand sich das System gerade befindet.
+Wenn die breite des weißen gaussverteilten Rauschens in der gleichen größenordnung wie der Abstand zwischen den beiden stabilen Zuständen ist, ist es nicht einfach möglich zu entscheiden, in welchem Zustand sich das System gerade befindet.
 
-In \cref{fig:gauss-overlap}) sieht man, dass Datenpunkte Existieren, die sowohl zu dem oberen, als auch zu dem unteren Zustand gehören könnten. Konkret sieht man das Problem, dass mehrere Datenpunkte nicht klar zuordenbar sind in \cref{fig:fit_comp}.
+In \cref{fig:gauss-overlap}) sieht man, dass Datenpunkte existieren, die sowohl zu dem oberen, als auch zu dem unteren Zustand gehören könnten. Konkret sieht man das Problem, dass mehrere Datenpunkte nicht klar zuordenbar sind in \cref{fig:fit_comp}.
 
 \begin{figure}[h]
     \centering
@@ -52,15 +52,15 @@ In \cref{fig:gauss-overlap}) sieht man, dass Datenpunkte Existieren, die sowohl 
     \caption{Wahrscheinlichkeitsdichte für verschiedene Abstände zwischen zwei Gaußverteilten Zuständen \label{fig:gauss-overlap}}
 \end{figure}
 
-Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig in den anderen Zustand springen. Dieses "overshooting" sorgt für eine hohe Anzahl an Zustandswechseln im extrahieren Telegrafenrauschen, die nicht real sind.
+Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig in den anderen Zustand springen. Dieses \enquote{overshooting} sorgt für eine hohe Anzahl an Zustandswechseln im extrahieren Telegrafenrauschen, die nicht real sind.
 
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/telegraph_fit_comp.pdf}
-    \caption{Vergleich von Kmeans (mit \(n=2\)) mit einem eigenen Algorithmus. Bei beiden Plots handelt es sich um einen Ausschnitt aus einer größeren Datenreihe. Bei dem kleineren Interval (rechter Plot) erkennt man gut das Problem, das bei jedem neuen Datenpunkt das Niveau gewechselt wird}\label{fig:fit_comp}
+    \caption{Vergleich von Kmeans (mit \(n=2\)) mit einem eigenen Algorithmus. Bei beiden Plots handelt es sich um einen Ausschnitt aus einer größeren Datenreihe. Bei dem kleineren Intervall (rechter Plot) erkennt man gut das Problem, das bei jedem neuen Datenpunkt das Niveau gewechselt wird}\label{fig:fit_comp}
 \end{figure}
 
-In \cite{random-telegraph-analysis} wird ein recht komplexer Algorithmus vorgestellt, der in der Lage ist, eine Telegrafenrauschen Kurve in zwei Zustände zu unterteilen, ohne zum overshooting zu neigen. Für die Analyse der Simulationen wird eine Modifizierte Version dieses Algorithmus verwendet, die weniger komplex ist, aber für die Analyse der Simulationen ausreicht.
+In \cite{random-telegraph-analysis} wird ein recht komplexer Algorithmus vorgestellt, der in der Lage ist, eine Telegrafenrauschen Kurve in zwei Zustände zu unterteilen, ohne zum overshooting zu neigen. Für die Analyse der Simulationen wird eine modifizierte Version dieses Algorithmus verwendet, die weniger komplex ist, aber für die Analyse der Simulationen ausreicht.
 
 Als erstes wird ein Histogramm der Rauschkurve (\cref{fig:hist_fit}) erstellt (so normiert, das es der Wahrscheinlichkeitsdichte entspricht). \label{sec:algo}
 Das erste und das letzte drittel des Histogramms werden dann jeweils mit einer Gaußkurve gefittet, um so die Mittelwerte und die Standardabweichungen der beiden Zustände zu bestimmen.
@@ -68,7 +68,7 @@ Das erste und das letzte drittel des Histogramms werden dann jeweils mit einer G
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit.pdf}
-    \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaußfits für das obere, und das untere Niveau mit eingezeichnetem Mittelwert und Standardabweichung}
+    \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaussfits für das obere, und das untere Niveau mit eingezeichnetem Mittelwert und Standardabweichung}
     \label{fig:hist_fit}
 \end{figure}
 
@@ -114,7 +114,7 @@ und die inverse Fouriertransformation als:
     \text{mit} \quad m = 0, \dots, n-1
 \end{align}
 
-\todo{Mittlung der Fouriertransformierten (lieber kontante Anzahl an Segmenten, oder den runs entsprechend)}
+\todo{Mittlung der Fouriertransformierten (lieber konstante Anzahl an Segmenten, oder den runs entsprechend)}
 
 
 % Korelationsfunktion?

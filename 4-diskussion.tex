@@ -35,15 +35,15 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 \subsection{Extraktion des Telegrafenrauschens}
 
 Um das Telegrafenrauschen zu extrahieren wird der Algorithmus \cref{sec:algo} angewandt.
-Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extraktion-tgr} rechts zu sehen. Auf dem kurzen intervall ist bereits gut erkennbar, dass die doppelte Gausverteilung den Bereich zwischen den zwei Niveaus nicht gut beschreibt. In \cref{fig:fit_func_comp} wird versucht mithilfe einer Anderen Verteilungsfunktion die Wahrscheinlichkeitsdichteverteilung zu fitten.
+Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extraktion-tgr} rechts zu sehen. Auf dem kurzen Intervall ist bereits gut erkennbar, dass die doppelte Gaussverteilung den Bereich zwischen den zwei Niveaus nicht gut beschreibt. In \cref{fig:fit_func_comp} wird versucht mit Hilfe einer anderen Verteilungsfunktion die Wahrscheinlichkeitsdichteverteilung zu fitten.
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
-    \caption{Extraktion des Telegrafenrauschen mithilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauss-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
+    \caption{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauss-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
 
-Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei Zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
+Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
 
 \begin{figure}[H]
     \centering
@@ -64,7 +64,7 @@ Im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} wurden ber
 
 \subsubsection{Betrachtung in der Zeitdomäne}
 
-Da aus der Simualation das Rauschsignal direkt gewonnen werden kann, bietet es sich an dieses statistisch zu untersuchen.
+Da aus der Simulation das Rauschsignal direkt gewonnen werden kann, bietet es sich an dieses statistisch zu untersuchen.
 
 \begin{figure}[H]
     \centering
@@ -97,9 +97,9 @@ Bei einer Erhöhung der Temperatur wird also der Abstand der Zwei Zustände grö
 
 Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert, wenn nur ein Zustand existiert), bleibt ein statistisches Rauschen übrig, dessen Histogramm einer Gaußverteilung entspricht \cref{fig:temp-diff-hist}. \todo{Das sieht man nicht so einfach. fit hinzufügen?}
 
-\todo{<genauer erklären>}Anhand der Abweichung von einer Gausverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
+\todo{<genauer erklären>}Anhand der Abweichung von einer Gaussverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
 
-Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vorallem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gausverteilung beschrieben werden (siehe \cref{fig:fit_func_comp}).\todo{</genauer erklären>}
+Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vor Allem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gaussverteilung beschrieben werden (siehe \cref{fig:fit_func_comp}).\todo{</genauer erklären>}
 Interessanterweise verändert sich diese Verteilung in diesem Temperaturbereich nicht signifikant.\todo{viel genauer erklären}
 
 Nachfolgend werden meist nur noch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen betrachtet (vgl. \cref{fig:temp-hist-tg})
@@ -127,7 +127,7 @@ Daher ändert sich die Farbzuordnung der Temperaturen in den Plots.
 Die ansteigende Anzahl an Schaltvorgängen lässt sich auch in \cref{fig:temp-switch-count} gut erkennen. Außerdem sieht man in \cref{fig:temp-switch-count-scatter} einige Simulationsläufe, deren Werte aufgrund der Kurzen Simulationszeit (und daher teilweise das Telegrafenrauschen nicht immer korrekt extrahiert werden konnte) stark von den anderen abweichen.
 
 Der aus der Kette berechnete Wert weicht auch jeweils nicht signifikant vom Mittelwert der aus den einzelnen Simulationen berechneten Werte ab.
-Die kleinen Abweichungen lassen sich gut durch Probleme bei der Extraktion des Telegrafenrauschens bei einzenen Simulationsläufen (z.B. der 4. run bei \qnt{301}{\kelvin}) \todo{Satz beenden}
+Die kleinen Abweichungen lassen sich gut durch Probleme bei der Extraktion des Telegrafenrauschens bei einzelnen Simulationsläufen (z.B. der 4. run bei \qnt{301}{\kelvin}) \todo{Satz beenden}
 
 
 \begin{figure}[H]
@@ -145,7 +145,7 @@ Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine e
 \todo{ref anhang für verschiedene zeitschrittweiten}
 
 \todo{andere Formulierung als lässt sich gut erkennen}
-In \cref{fig:switch-events} lässt sich gut erkennen, dass die Schaltvorgänge gleichverteilt sind und Aufgrund der hohen Zahl an Schaltvorgängen, die zusätzlichen Schaltvorgänge durch die Verkettung nicht ins Gewicht fallen. \todo{satz in vorherigen Abschnitt eingliedern}
+In \cref{fig:switch-events} lässt sich gut erkennen, dass die Schaltvorgänge gleichverteilt sind und aufgrund der hohen Zahl an Schaltvorgängen, die zusätzlichen Schaltvorgänge durch die Verkettung nicht ins Gewicht fallen. \todo{satz in vorherigen Abschnitt eingliedern}
 
 
 \begin{figure}[H]
@@ -155,7 +155,7 @@ In \cref{fig:switch-events} lässt sich gut erkennen, dass die Schaltvorgänge g
     \caption{Aufenthaltswahrscheinlichkeit im oberen Zustand}\label{fig:temp-up-percentage}
 \end{figure}
 
-Die Aufenthaltswahrscheinlichkeit für beide Zustände liegt in dem Temperaturbereich bei \qnt{50}{\percent}, aber für die Betrachtung der mittleren Aufenthaltszeit wird die Zahl der Simulationsläufe, in denen sich das System nur in einem Zustand befindet für höhere Temperaturen immer größer. Daher gibt es bei \qnt{303}{\kelvin} sehr viele Datenpunkte in \cref{fig:temp-up-percentage-scatter}, bei denen der aus einem Einzelnen Simulationslauf bereichnete Wert stark von \qnt{50}{\percent} abweicht.
+Die Aufenthaltswahrscheinlichkeit für beide Zustände liegt in dem Temperaturbereich bei \qnt{50}{\percent}, aber für die Betrachtung der mittleren Aufenthaltszeit wird die Zahl der Simulationsläufe, in denen sich das System nur in einem Zustand befindet für höhere Temperaturen immer größer. Daher gibt es bei \qnt{303}{\kelvin} sehr viele Datenpunkte in \cref{fig:temp-up-percentage-scatter}, bei denen der aus einem Einzelnen Simulationslauf berechnete Wert stark von \qnt{50}{\percent} abweicht.
 
 \subsubsection{Spektrale Leistungsdichte und Autocovarianz}
 
@@ -177,7 +177,7 @@ Mit der Temperatuerhöhung verschiebt sich der  erste Eigenmode ( in \cref{fig:t
 Die Position des zweiten Eigenmode ändert sich nicht.
 
 
-Die Spektrale Leistungsdichte des bereinigten Telegrafenrauschens (\cref{fig:temp-spd-clean}) ist bei höherer Temperatur im Niderfrequenten Bereich größer, aber fällt dann schneller ab.
+Die Spektrale Leistungsdichte des bereinigten Telegrafenrauschens (\cref{fig:temp-spd-clean}) ist bei höherer Temperatur im niederfrequenten Bereich größer, aber fällt dann schneller ab.
 
 Aus der Spektralen Leistungsdichte lässt sich die Autokorrelationsfunktion berechnen \cref*{eq:spd}.
 
@@ -186,10 +186,10 @@ Aus der Spektralen Leistungsdichte lässt sich die Autokorrelationsfunktion bere
     \subcaptionbox{aus ursprünglichem Signal\label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
     \subcaptionbox{aus bereinigtem Telegrafenrauschen \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
     \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
-    \caption{Autokorrelation $\gamma$ für verschiedene Temperaturen \todo{lieber fit bei source oder clean? besserer experimenteller vergleich vs. besseres Ergebnis. Die fits bei den unteren Temperaturen klappen bei beiden nicht.}}\label{fig:temp-autocorr}
+    \caption{Autokorrelation $\gamma$ für verschiedene Temperaturen \todo{lieber fit bei source oder clean? besserer experimenteller Vergleich vs. besseres Ergebnis. Die fits bei den unteren Temperaturen klappen bei beiden nicht.}}\label{fig:temp-autocorr}
 \end{figure}
 
-Da beide Zustände gleich wahrscheinlich sind konvergiert die Autokorrelationsfunktion für große Zeiten gegen 0 und ist daher identisch zur Autokovarianz. \todo{konvert das ganze bei hohen temperaturen wirklich gegen 0?}
+Da beide Zustände gleich wahrscheinlich sind, konvergiert die Autokorrelationsfunktion für große Zeiten gegen 0 und ist daher identisch zur Autokovarianz. \todo{konvert das ganze bei hohen temperaturen wirklich gegen 0?}
 
 \todo{charakteristische Abweichung von exponentiellem Abfall}
 
@@ -208,8 +208,8 @@ Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit für den symme
 
 \begin{figure}[H]
     \centering
-    \subcaptionbox{Spektrale Leistungsdichten $S$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Spektrale Leistungsdichte aus dem bereinigten Telegrafenrauschen wurde außerdem mit einem Lorentizan gefitted\label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
-    \subcaptionbox{Autokorrelation $\gamma$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Autokorrelation aus dem bereinigten Telegrafenrauschen wurde außerdem mit einer exponentialfunktion gefitted \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
+    \subcaptionbox{Spektrale Leistungsdichten $S$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Spektrale Leistungsdichte aus dem bereinigten Telegrafenrauschen wurde außerdem mit einem Lorentizan gefittet\label{fig:dominanz-spd}}{\includegraphics{bilder/plots/Bz_0mT/spectral_power_densities_26.03meV.pdf}}
+    \subcaptionbox{Autokorrelation $\gamma$ von ursprünglichem, bereinigtem Telegrafenrauschen und Differenz. Die Autokorrelation aus dem bereinigten Telegrafenrauschen wurde außerdem mit einer exponentialfunktion gefittet \label{fig:dominanz-autocorr}}{\includegraphics{bilder/plots/Bz_0mT/autocorr_26.03meV.pdf}}
     \caption{Dominanz des Telegrafenrauschen in der Frequenzdomäne. Simulation bei \qnt{26.03}{\milli\electronvolt} ohne externes Magnetfeld}\label{fig:dominanz-tgr}
 \end{figure}
 
@@ -237,7 +237,7 @@ Die Probleme beim Fitten des exponentiellen Abfalls sind in \cref{fig:temp-autoc
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned_log.pdf}
-    \caption{Ausschnitt aus \cref{fig:bc-autocorr-clean}, in der versucht wird die Autokorrelation mit einer exponentialfunktion zu fitten. Hier aber in halblogarithmischer Darstellung}\label{fig:temp-autocorr-fit}
+    \caption{Ausschnitt aus \cref{fig:bc-autocorr-clean}, in der versucht wird die Autokorrelation mit einer Exponentialfunktion zu fitten. Hier aber in halblogarithmischer Darstellung}\label{fig:temp-autocorr-fit}
 \end{figure}
 
 \subsection{In externem Magnetfeld}
@@ -250,7 +250,7 @@ Das Verhalten des magnetischen Moments in c-Richtung kann nicht nur durch eine V
     \caption{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung \todo{betrachtete Temperatur einzeichnen?}}\label{fig:bc-crit-temp}
 \end{figure}
 
-Bei einem starken Magnetfeld von \qnt{1}{\tesla} weicht der Reorientierungsübergang auf und es kommt kein Telegrafenrauschen, im Bereich von \num{300} bis \qnt{305}{\kelvin}, mehr zu Stande. Bei einem schwächeren Magnetfeld (um die \qnt{30}{\milli\tesla}) verändert sich die Position des Reorientierungsübergangs nicht signifikant. Daher wurden alle Simulationen mit angelegtem Magnetfeld bei der gleichen Temperatur durchgeführt.
+Bei einem starken Magnetfeld von \qnt{1}{\tesla} weicht der Reorientierungsübergang auf und es kommt kein Telegrafenrauschen, im Bereich von \num{300} bis \qnt{305}{\kelvin}, mehr zustande. Bei einem schwächeren Magnetfeld (um die \qnt{30}{\milli\tesla}) verändert sich die Position des Reorientierungsübergangs nicht signifikant. Daher wurden alle Simulationen mit angelegtem Magnetfeld bei der gleichen Temperatur durchgeführt.
 
 % Das Magnetfeld wird in z-Richtung angelegt. Die c-Richtung im Kristall ist identisch zur z-Richtung im externen kartesischen Koordinatensystem.
 % In den Simulationen wird auch immer nur ein konstantes Magnetfeld verwendet.
@@ -285,7 +285,7 @@ Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten sta
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen und bei verschieden starken externen Magnetfeldern}\label{fig:b-hist}    
 \end{figure}
 
-Anders als bei der Variation der Temperatur ohne externes Magnetfeld (\cref{fig:temp-hist}), sind die beiden Zustände nicht mehr Gleichverteilt. Wenn einer der beiden Peaks zu klein wird, kann der Algorithmus das Telegrafenrauschen nicht mehr extrahieren. 
+Anders als bei der Variation der Temperatur ohne externes Magnetfeld (\cref{fig:temp-hist}), sind die beiden Zustände nicht mehr gleichverteilt. Wenn einer der beiden Peaks zu klein wird, kann der Algorithmus das Telegrafenrauschen nicht mehr extrahieren. 
 
 Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichkeit hat, kommt es auch (je nach stärke des B-Feldes) zu deutlich weniger zusätzlichen Schaltvorgängen bei der Verkettung mehrerer Simulationsläufe.
 
@@ -308,7 +308,7 @@ In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schalt
 \begin{figure}[H]
     \centering
     \subcaptionbox{Aufenthaltszeit im oberen Zustand. Bestimmt über einzelne Simulationsläufe (Violinplot) und über Kette mehrerer Simulationen (schwarze Punkte) \label{fig:bc-up-percentage-violin}}{\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
-    \subcaptionbox{Mittlere Aufenthaltszeit in oberem (blau) und unterem (grün) Zustand in Prozent. Die wagrechte Linie kennzeichnet hierbei den Mittelwert und der Violinplot die Verteilung der verschiedenen Aufenthaltszeiten auf dem jeweiligen Niveau  \todo{Abweichung up 40mT erklären/beheben?}\label{fig:bc-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
+    \subcaptionbox{Mittlere Aufenthaltszeit in oberem (blau) und unterem (grün) Zustand in Prozent. Die wagerechte Linie kennzeichnet hierbei den Mittelwert und der Violinplot die Verteilung der verschiedenen Aufenthaltszeiten auf dem jeweiligen Niveau  \todo{Abweichung up 40mT erklären/beheben?}\label{fig:bc-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
     \caption{Abhängigkeit der Aufenthaltszeit von der Magnetfeldstärke}\label{fig:bc-state-times}
 \end{figure}
 
@@ -341,7 +341,7 @@ Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Fe
     \caption{Spektrale Leistungsdichten $S$ bei verschiedenen Magnetfeldstärken}\label{fig:bc-spd}
 \end{figure}
 
-So wie bei der Erhöhung der der Temperatur in \cref{fig:temp-spd-source} zu einer Verschiebung des ersten Peaks geführt hat, führt in  \cref{fig:bc-spd-source} eine erhöhung der Feldstärke auch zu einer verschiebung des Peaks nach rechts. Der zweite Peak bleibt auch unverändert.\todo{die Peaks heißen Eigenmoden}
+So wie bei der Erhöhung der der Temperatur in \cref{fig:temp-spd-source} zu einer Verschiebung des ersten Peaks geführt hat, führt in  \cref{fig:bc-spd-source} eine Erhöhung der Feldstärke auch zu einer Verschiebung des Peaks nach rechts. Der zweite Peak bleibt auch unverändert.\todo{die Peaks heißen Eigenmoden}
 
 Die spektrale Leistungsdichte ist allerdings im niederfrequenten Bereich in \cref{fig:bc-spd-source,fig:bc-spd-clean} bei größerer Feldstärke deutlich geringer und bleibt in \cref{fig:bc-spd-clean} auch kleiner im Vergleich zu den anderen Kurven.
 
