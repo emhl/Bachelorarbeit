@@ -253,12 +253,14 @@ Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \qnt{2.5}{\nan
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_sign_comparison/20mT_hist_comp.pdf}
-    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung}\label{fig:bc-sign-hist}
+    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung\todo{\(m_c\) statt \(\mu_c\)}}\label{fig:bc-sign-hist}
 \end{figure}
-\todo{Erleuterung}
+
+In \cref{fig:bc-sign-hist} ist die Wahrscheinlichkeitsdichteverteilung für ein externes Magnetfeld von \qnt{20}{\milli\tesla} in entgegengesetzter Richtung zu sehen. Die beiden Niveaus sind hier deutlich zu erkennen. Die Aufenthaltswahrscheinlichkeit im begünstigten Niveau ist jeweils deutlich höher, als im nicht begünstigten. Das Histogramm sieht aus, als ob es an einer senkrechten Achse bei \(m_c=0\) gespiegelt wurde.
+
 \todo{Epemplarische trajektorie (rauschen im zeitlichen Verlauf für beide richtungen)}
 
-Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Daher wurden die Simulationen nur mit positivem B-Feld durchgeführt.
+Das System scheint sich somit bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Daher wurden die Simulationen nur mit positivem B-Feld durchgeführt.
 
 
 \subsubsection{Betrachtung in der Zeitdomäne}
@@ -271,7 +273,10 @@ Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten sta
     \caption{Ausschnitt von \(m_c\) im zeitlichen Verlauf bei verschieden starken externen Magnetfeldern . Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-1.5e-3} bis \num{+1.5e-3}}\label{fig:b-time}    
 \end{figure}
 
-\todo{Erläuterung}
+Je stärker das externe Magnetfeld ist, desto kürzer beibt das System im unteren Niveau (Siehe \cref{fig:b-time}). 
+Bei dem Ausschnitt aus dem Simulationslauf mit einem Magnetfeld von \qnt{100}{\milli\tesla} ist das System durchgängig im oberen Niveau.
+
+Die kürzen aufenthaltszeiten im unteren Niveau lassen sich auch in einer Histogramm Darstellung in \cref{fig:b-hist} betrachten.
 
 \begin{figure}[H]
     \centering
@@ -279,11 +284,11 @@ Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten sta
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) für eine Kombination von mehreren Simulationsläufen und bei verschieden starken externen Magnetfeldern}\label{fig:b-hist}    
 \end{figure}
 
-Anders als bei der Variation der Temperatur ohne externes Magnetfeld (\cref{fig:temp-hist}), sind die beiden Zustände nicht mehr gleichverteilt. Wenn einer der beiden Peaks zu klein wird, kann der Algorithmus das Telegrafenrauschen nicht mehr extrahieren. 
+Anders als bei der Variation der Temperatur ohne externes Magnetfeld (\cref{fig:temp-hist}), sind die beiden Zustände hier nicht mehr gleich wahrscheinlich. Wenn einer der beiden Peaks zu klein wird, kann der Algorithmus das Telegrafenrauschen nicht mehr extrahieren. 
+
+Außerdem sieht man in \cref{fig:b-hist} den Effekt, dass sich nicht nur die Aufenthaltswahrscheinlichkeiten der zwei zustände verändern, sondern auch deren Position. \todo{mögliche gründe}
 
 Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichkeit hat, kommt es auch (je nach stärke des B-Feldes) zu deutlich weniger zusätzlichen Schaltvorgängen bei der Verkettung mehrerer Simulationsläufe.
-
-\todo{erklärung verschiebung der Niveau peaks}
 
 \begin{figure}[H]
     \centering
@@ -299,15 +304,20 @@ In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schalt
 \begin{figure}[H]
     \centering
     \subcaptionbox{Aufenthaltszeit im oberen Zustand. Bestimmt über einzelne Simulationsläufe (Violinplot) und über Kette mehrerer Simulationen (schwarze Punkte) \label{fig:bc-up-percentage-violin}}{\includegraphics{bilder/plots/max_Bz/up_percentage_violin.pdf}}
-    \subcaptionbox{Mittlere Aufenthaltszeit in oberem (blau) und unterem (grün) Zustand in Prozent. Die wagerechte Linie kennzeichnet hierbei den Mittelwert und der Violinplot die Verteilung der verschiedenen Aufenthaltszeiten auf dem jeweiligen Niveau  \todo{Abweichung up 40mT erklären/beheben?}\label{fig:bc-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
+    \subcaptionbox{Mittlere Aufenthaltszeit in oberem (blau) und unterem (grün) Zustand in Prozent. Die wagerechte Linie kennzeichnet hierbei den Mittelwert und der Violinplot die Verteilung der verschiedenen Aufenthaltszeiten auf dem jeweiligen Niveau \label{fig:bc-state-times-comp}}{\includegraphics{bilder/plots/max_Bz/state_times_comp.pdf}}
     \caption{Abhängigkeit der Aufenthaltszeit von der Magnetfeldstärke}\label{fig:bc-state-times}
 \end{figure}
 
 Was sich allerdings stark ändert ist die Aufenthaltswahrscheinlichkeit und mittleren Aufenthaltszeiten für die beiden Niveaus.
 
-\todo{Diskussion Aufenthaltswahrscheinlichkeit}
+Wie zu erwarten steigt die mittlere Aufenthaltszeit im oberen Niveau mit der Magnetfeldstärke an und die mittlere Aufenthaltszeit im unteren Niveau sinkt. 
+Allerdings scheinen die mittleren Aufenthaltszeiten mit der gleichen Rate zu steigen bzw. zu sinken. 
 
-\todo{diskussion mittlere Aufenthaltszeiten}
+\todo{Abweichung up 40mT in \cref{fig:bc-state-times-comp} erklären/beheben? Zufälligerweise mehr sehr  kurze aufenthaltszeiten, die den mittelwert verzerrent?}
+\todo{mittelwert oder median?}
+\todo{plot summe/mittelwert mittlere Aufenthaltszeiten (MMDT)?}
+
+Im Bereich bis \SI{30}{\milli\tesla} (siehe \cref{fig:bc-up-percentage-violin}) lässt die Aufenthaltswahrscheinlichkeit im oberen Zustand mit einer linearen Abhängigkeit von der Magnetfeldstärke annähen. Das eigentliche verhalten, welches einem beschränktem Wachstum entspricht ist bei der Betrachtung stärkerer Magnetfelder, in \cref{fig:bc-up-percentage} deutlich erkennbar. 
 
 \begin{figure}[H]
     \centering
