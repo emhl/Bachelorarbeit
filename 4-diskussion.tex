@@ -21,9 +21,9 @@ Das Telegrafenrauschen tritt am untersuchten Reorientierungsübergang (siehe \cr
 
 % Eine Simulation, von einem \(192 \times 192 \times 192\) Gitter mit einem simulierten Zeitraum von \qnt{1.2}{\nano\second} mit einer numerischen Schrittweite von \qnt{20}{\femto\second} benötigt etwa drei Tage Rechenzeit auf einer Nvidia RTX 2080 Ti Grafikkarte. 
 
-In diesem Simulationszeitraum sind im optimalen Temperaturbereich (um mehrere eindeutige Schaltvorgänge zu beobachten) etwa 15-25 Schaltvorgänge pro Simulation zu beobachten vgl. \cref{fig:bsp-run}
+In diesem Simulationszeitraum sind im optimalen Temperaturbereich (um mehrere eindeutige Schaltvorgänge zu beobachten) wie z.B  in \cref{fig:bsp-run} etwa 15-25 Schaltvorgänge pro Simulation zu beobachten.
 
-Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulationszeitraum teilweise verdoppelt.
+Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulationszeitraum später teilweise verdoppelt.
 
 \begin{figure}[h]
     \centering
@@ -43,17 +43,16 @@ Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extrakt
     \caption{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauß-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
 
-Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
-\todo{lorenz oder lorentz?}
+Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorentzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit_comp.pdf}
     \caption{Vergleich von verschiedenen Verteilungsfunktionen um die Wahrscheinlichkeitsdichte $P(m_c)$ zu fitten.}\label{fig:fit_func_comp}
 \end{figure}
 
-Theoretisch existiert auch noch ein dritter, instabiler, Zustand (lokales Mengenaximum), der genau zwischen den zwei Niveaus liegt. Dieser sorgt für die Abweichung von einer Gaußverteilung im Bereich zwischen den zwei Niveaus. \todo{Etwas weniger schwammig formulieren}
+Die erhöhte Aufenthaltswahrscheinlichkeit im Bereich zwischen den zwei Zuständen lässt sich aufgrund eines lokalen Maximums im Potential erklären. Da es sich um ein Maximum handelt existiert hier kein stabiler Zustand.
 
-Um diesen Zustand auch charakterisieren zu können wäre ein deutlich komplexerer Algorithmus notwendig. Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb er hier nicht weiter betrachtet wird.
+Um den Einfluss des lokalen Maximums zu analysieren zu können wäre ein deutlich komplexerer Algorithmus notwendig. Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb er hier nicht weiter betrachtet wird.
 
 \subsection{Einfluss verschiedener Temperaturen}
 
@@ -69,7 +68,7 @@ Da aus der Simulation das Rauschsignal direkt gewonnen werden kann, bietet es si
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/mc_time.pdf}
-    \caption{\(m_c\) im Zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf. Die Colormap ist hierbei identisch zu der in \cref{fig:temp-hist}. Die y-achse reicht jeweils von \num{-2e-3} bis \num{+2e-3}}\label{fig:temp-time}
+    \caption{\(m_c\) im zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf. Die Colormap ist hierbei identisch zu der in \cref{fig:temp-hist}. Die y-achse reicht jeweils von \num{-2e-3} bis \num{+2e-3}}\label{fig:temp-time}
 \end{figure}
 
 Unterhalb von \qnt{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die mittlere Aufenthaltszeit ab \(\approx\SI{305}{\kelvin}\) größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
@@ -95,14 +94,15 @@ Da der Einschwingvorgang mit einem positiven Startwert (was \(m_c\) angeht begin
 
 Bei einer Erhöhung der Temperatur wird texalso der Abstand der Zwei Zustände größer und ein Wechsel seltener. Doch welchen Einfluss hat dies auf die Verteilung des restlichen statistischen Rauchens?
 
-Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert, wenn nur ein Zustand existiert), bleibt ein statistisches Rauschen übrig, dessen Histogramm einer Gaußverteilung entspricht (siehe \cref{fig:temp-diff-hist}). \todo{Das sieht man nicht so einfach. fit hinzufügen?}
+Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert, wenn nur ein Zustand existiert), bleibt ein statistisches Rauschen übrig, dessen Histogramm (siehe \cref{fig:temp-diff-hist}) einer Gaußverteilung ähnelt.
 
-\todo{<genauer erklären>}Anhand der Abweichung von einer Gaußverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
+Die Kurven im mittleren Temperaturbereich weichen in ihrer Form deutlich von einer Gaußverteilung ab. Sie haben im Randbereich deutlich größere Werte und enden in einem senkrechten Abfall. Die Gründe dafür sind einerseits die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat. 
 
-Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vor Allem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gaußverteilung beschrieben werden (siehe \cref{fig:fit_func_comp}).\todo{</genauer erklären>}
-Interessanterweise verändert sich diese Verteilung in diesem Temperaturbereich nicht signifikant.\todo{viel genauer erklären}
+Andererseits ist das in \cref{fig:fit_func_comp} beobachtete lokale Maximum im Potential für eine Veränderung der Verteilung verantwortlich. 
 
-Nachfolgend werden meist nur noch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen betrachtet (vgl. \cref{fig:temp-hist-tg})
+Interessanterweise verändert sich die Form der Verteilung in \cref{fig:temp-diff-hist} für die Temperaturen mit stabilem Telegrafenrauschen nicht signifikant. Die Kurven liegen fast direkt übereinander.
+
+Nachfolgend werden meist nur noch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen aus \cref{fig:temp-hist-tg} betrachtet diese haben folgende Werte:
 
 \begin{align}
     T_1 = \qnt{301.37}{\kelvin},~
@@ -122,30 +122,28 @@ Daher ändert sich die Farbzuordnung der Temperaturen in den Plots.
     \caption{Temperaturabhängigkeit der Anzahl an Schaltvorgängen}\label{fig:temp-switch-count}
 \end{figure}
 
-\todo{Abb genauer Erklären und AUsreißerdatenpunkt diskutieren oder entfernen}
-
 Die sinkende Anzahl an Schaltvorgängen, die bereits in \cref{fig:temp-time} beobachtbar war,  ist in \cref{fig:temp-switch-count} mit konkreten werten dargestellt. Außerdem sieht man in \cref{fig:temp-switch-count-scatter} einige Simulationsläufe, deren Werte aufgrund der Kurzen Simulationszeit (und daher teilweise das Telegrafenrauschen nicht immer korrekt extrahiert werden konnte) stark von den anderen abweichen.
 
 Der aus der Kette berechnete Wert weicht auch jeweils nicht signifikant vom Mittelwert der aus den einzelnen Simulationen berechneten Werte ab.
-Die kleinen Abweichungen lassen sich gut durch Probleme bei der Extraktion des Telegrafenrauschens bei einzelnen Simulationsläufen (z.B. der 4. run bei \qnt{301}{\kelvin}) \todo{Satz beenden}
+Die kleinen Abweichungen lassen sich gut durch Probleme bei der Extraktion des Telegrafenrauschens bei einzelnen Simulationsläufen erklären. So konnte der Algorithmus bei dem 4. Simulationslauf bei \(T=T_1\) das Telegrafenrauschen nicht extrahieren, da das Histogramm zu verrauscht war. Daher wurden hier keine Schaltvorgänge gezählt und somit verschiebt sich der Mittelwert im Violinenplot (\cref{fig:temp-switch-count-violin}) nach unten.
 
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/switch_events.pdf}
-    \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet \todo{loglog achsen?}}\label{fig:switch-events}
+    \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet}\label{fig:switch-events}
 \end{figure}
 
-Die mittleren Aufenthaltszeiten (MDT) in den beiden Niveaus befinden sich in der gleichen Größenordnung, wie der Simulationszeitraum. Um auch bei weniger optimalen Daten, wie in \cref{fig:extraktion-tgr}, eine gute Extraktion des Telegrafenrauschens zu ermöglichen, wurden teilweise die Signale mehrerer Simulationsläufe hintereinander gehängt, um ein langes Signal zu erhalten.
+
+Die Rate an Schaltvorgängen ist in 
+\cref{fig:switch-events} noch auf eine andere Weise dargestellt. Hier lässt sich erkennen, dass die Schaltvorgänge gleichverteilt sind. Außerdem sind, aufgrund der hohen Zahl an natürlichen Schaltvorgängen, keine zusätzlichen Schaltvorgänge, wegen der Verkettung mehrerer Simulationsläufe, erkennbar. 
+
+Denn da die mittleren Aufenthaltszeiten (MDT) in den beiden Niveaus befinden sich in der gleichen Größenordnung, wie der Simulationszeitraum. Um auch bei weniger optimalen Daten, wie in \cref{fig:extraktion-tgr}, eine gute Extraktion des Telegrafenrauschens zu ermöglichen, wurden teilweise die Signale mehrerer Simulationsläufe hintereinander gehängt, um ein langes Signal zu erhalten.
 
 Da aber nicht Zufälligerweise alle Simulationsläufe immer im gleichen Niveau starten und aufhören (so lange die Wahrscheinlichkeit für einen Zustand nicht deutlich höher ist), werden hierbei teilweise zusätzliche Schaltvorgänge hinzugefügt. 
 
-Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine eine größere Zeitschrittweite. Diese würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \qnt{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer.
-
-\todo{ref anhang für verschiedene zeitschrittweiten}
-
-\todo{andere Formulierung als lässt sich gut erkennen}
-In \cref{fig:switch-events} lässt sich gut erkennen, dass die Schaltvorgänge gleichverteilt sind und aufgrund der hohen Zahl an Schaltvorgängen, die zusätzlichen Schaltvorgänge durch die Verkettung nicht ins Gewicht fallen. \todo{satz in vorherigen Abschnitt eingliedern}
+Andere Möglichkeiten um die Rechenzeit zu verringern wären zum Beispiel eine eine größere Zeitschrittweite. Diese würde die Genauigkeit der Simulation verringern, sodass die Ergebnisse nicht mehr mit den experimentellen Daten vergleichbar wären. Bei einer Schrittweite von \qnt{100}{\femto\second} (wahrscheinlich aber schon früher) tritt das Telegrafenrauschen garnicht mehr auf und der Betrag der Magnetisierung ist deutlich größer. 
+Im Anhang lässt sich \cref{fig:dh-variation} finden, in der der Einfluss der Schrittweite auf das Rauschsignal untersucht wird.
 
 
 \begin{figure}[H]
@@ -159,9 +157,8 @@ Die Aufenthaltswahrscheinlichkeit für beide Zustände liegt in dem Temperaturbe
 
 \subsubsection{Spektrale Leistungsdichte und Autocovarianz}
 
-\todo{Erklärrung, warum die Daten in der Zeitdomäne experimentell nicht messbar sind.}
-
-\todo{wie misst man das experimentell überhaupt? (nur die Autocovarianz \(\gamma\) kann direkt bestimmt werden. darüber wird dann die Spektrale Leistungsdichte \(S\) berechnet)}
+Experimentell kann nur die Autocovarianz \(\gamma\) direkt in einer genau genugen Zeitauflösung bestimmt werden. Darüber wird dann die Spektrale Leistungsdichte \(S\) berechnet.
+Da in der Simulation das Rauschsignal direkt vorliegt, kann auch die Spektrale Leistungsdichte direkt berechnet werden. Um darüber dann die Autocovarianz zu bestimmen.
 
 % Aufgrund der kurzen Zeitskalen (\unit{\femto\second})(\todo{und anderen Dingen?}) kann das magnetische Moment in c-Richtung Zeitlich aufgelöst so nicht beobachtet werden. Es ist aber möglich die Fouriertransformierte des Rauschsignals zu ermitteln und so das Phänomen zu charakterisieren. 
 
@@ -186,25 +183,20 @@ Aus der Spektralen Leistungsdichte lässt sich die Autokorrelationsfunktion bere
     \subcaptionbox{aus ursprünglichem Signal\label{fig:temp-autocorr-source}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation.pdf}}
     \subcaptionbox{aus bereinigtem Telegrafenrauschen \label{fig:temp-autocorr-clean}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_cleaned.pdf}}
     \subcaptionbox{aus Differenz, bzw. statistischem Rauschen \label{fig:temp-autocorr-diff}}{\includegraphics{bilder/plots/temp_comparison/autocorrelation_diff.pdf}}
-    \caption{Autokorrelation $\gamma$ für verschiedene Temperaturen \todo{lieber fit bei source oder clean? besserer experimenteller Vergleich vs. besseres Ergebnis. Die fits bei den unteren Temperaturen klappen bei beiden nicht.}}\label{fig:temp-autocorr}
+    \caption{Autokorrelation $\gamma$ für verschiedene Temperaturen}\label{fig:temp-autocorr}
 \end{figure}
 
-Da beide Zustände gleich wahrscheinlich sind, konvergiert die Autokorrelationsfunktion für große Zeiten gegen 0 und ist daher identisch zur Autokovarianz. \todo{konvert das ganze bei hohen temperaturen wirklich gegen 0?}
-
-\todo{charakteristische Abweichung von exponentiellem Abfall}
+Da beide Zustände gleich wahrscheinlich sind, konvergiert die Autokorrelationsfunktion für große Zeiten gegen 0 und ist daher identisch zur Autokovarianz.
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/rauschamplitude.pdf}
-    \caption{Rauschamplitude $A$ für verschiedene Temperaturen $T$ \todo{Datenpunkte für T > 303K werden nicht berücksichtigt, weil autocov $\neq$ autocorr. die Rauschamplitude fällt aber ab}\todo{Exisiert eigentlich bereits in julius Masterarbeit. relevant für vergleich mit verhalten bei mit b-feld }}\label{fig:temp-autocorr-amplitude}
+    \caption{Rauschamplitude $A$ für verschiedene Temperaturen $T$. Die Datenpunkte für \(T > \SI{303}{\kelvin}\) werden nicht berücksichtigt, weil dort die Autocovarianz nicht mehr der Autokorrelation entspricht. 
+    Die Rauschamplitude fällt bei weiterer Erhöhung der Temperatur wieder ab, wie bereits in \cite{schlegel-master} beobachtet wurde.}\label{fig:temp-autocorr-amplitude}
 \end{figure}
 
-Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur auch immer weiter an.
+Die Amplitude der Autokorrelationsfunktion steigt mit Erhöhung der Temperatur auch immer weiter an (Solange stabiles Telegrafenrauschen vorliegt).
 
-Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit für den symmetrischen DMP berechnen (\cref{eq:autokorr-sym-dmp}).
-
-
-\todo{übergang Dominanz TGR}
 
 \begin{figure}[H]
     \centering
@@ -215,18 +207,19 @@ Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit für den symme
 
 Beim direkten betrachten des Rauschsignals ist nicht klar erkennbar, ob das statistische oder das Telegrafenrauschen dominiert. Wenn man jedoch die Spektrale Leistungsdichte oder die Autokorrelation bzw. Autocovarianz betrachtet, ist deutlich erkennbar, dass das Telegrafenrauschen hier den größten Beitrag leistet.
 
-\todo{Erklärung fits}
+Außerdem entsprechen die Verläufe von Spektraler Leistungsdichte und Autokorrelation den theoretischen Erwartungen. Die Spektrale Leistungsdichte des Telegrafenrauschens ist eine Lorentzverteilung und die Autokorrelation eine Exponentialfunktion.
 
-Aus dem in extrahiertem Telegrafenrauschen lassen sich die Aufenthaltszeiten im Zeitlichen Durchblick direkt herauslesen und mit den Berechneten Werten vergleichen. 
+Aus Autokorrelationszeit lässt sich die mittlere Aufenthaltszeit für den symmetrischen DMP berechnen (\cref{eq:autokorr-sym-dmp}).
+Und aus dem extrahiertem Telegrafenrauschen lassen sich die Aufenthaltszeiten im zeitlichen Durchblick direkt herauslesen und mit den Berechneten Werten vergleichen. 
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison/mean_dwell_time_comparison.pdf}
-    \caption{Mittlere Aufenthaltszeiten $MDT$ aus Zeitlicher Analyse (Violinenplot) und aus exponentiellem Fit der Autokorrelationsfunktion (schwarze Punkte) \todo{erwähnung, dass die Autokorrelationsfunktion aus den bereinigten Daten gefittet wurde}}\label{fig:temp-mdt-comp}
+    \caption{Mittlere Aufenthaltszeiten $MDT$ aus Zeitlicher Analyse (Violinenplot) und aus exponentiellem Fit der Autokorrelationsfunktion \cref{fig:temp-autocorr-clean} (schwarze Punkte)}\label{fig:temp-mdt-comp}
 \end{figure}
 
 Wie zu erwarten steigt die mittlere Aufenthaltszeit, bei einer höheren Temperatur an. Die auf die zwei verschiedenen Methoden berechneten Werte (und somit die bestimmte Anstiegsrate) weichen, bei niedrigeren Temperaturen, hier stark voneinander Ab. 
-Wahrscheinlich liegt das an Problemen beim Fitten des exponentiellen Abfalls, Da für die niedrigen Temperaturen das charakteristische Verhalten\todo{was genau?} überwiegt.
+Wahrscheinlich liegt das an Problemen beim Fitten des exponentiellen Abfalls, Da für die niedrigen Temperaturen das charakteristische Resonanzverhalten überwiegt (selbst im bereinigten Telegrafenrauschen).
 
 \todo{Telegrafenrauschen nichtmehr dominant in Autokovarianz?}
 
@@ -247,7 +240,7 @@ Das Verhalten des magnetischen Moments in c-Richtung kann nicht nur durch eine V
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_comparison/critical_temperature.pdf}
-    \caption{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung \todo{betrachtete Temperatur einzeichnen?}}\label{fig:bc-crit-temp}
+    \caption{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung. Die für die restlichen Simulationen mit externem Magnetfeld verwendete Temperatur \(T_B\) ist mit einer senkrechten Linie eingezeichnet.}\label{fig:bc-crit-temp}
 \end{figure}
 
 Bei einem starken Magnetfeld von \qnt{1}{\tesla} weicht der Reorientierungsübergang auf und es kommt kein Telegrafenrauschen, im Bereich von \num{300} bis \qnt{305}{\kelvin}, mehr zustande. Bei einem schwächeren Magnetfeld (um die \qnt{30}{\milli\tesla}) verändert sich die Position des Reorientierungsübergangs nicht signifikant. Daher wurden alle Simulationen mit angelegtem Magnetfeld bei der gleichen Temperatur durchgeführt.
@@ -262,7 +255,8 @@ Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \qnt{2.5}{\nan
     \includegraphics{bilder/plots/Bz_sign_comparison/20mT_hist_comp.pdf}
     \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung}\label{fig:bc-sign-hist}
 \end{figure}
-\todo{Erleuterung/Epemplarische trajektorie (rauschen im Zeitlichen Verlauf)}
+\todo{Erleuterung}
+\todo{Epemplarische trajektorie (rauschen im zeitlichen Verlauf für beide richtungen)}
 
 Das System scheint sich bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Daher wurden die Simulationen nur mit positivem B-Feld durchgeführt.
 
@@ -274,7 +268,7 @@ Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten sta
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mc_time.pdf}
-    \caption{Ausschnitt von \(m_c\) im Zeitlichen Verlauf bei verschieden starken externen Magnetfeldern . Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-1.5e-3} bis \num{+1.5e-3}}\label{fig:b-time}    
+    \caption{Ausschnitt von \(m_c\) im zeitlichen Verlauf bei verschieden starken externen Magnetfeldern . Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-1.5e-3} bis \num{+1.5e-3}}\label{fig:b-time}    
 \end{figure}
 
 \todo{Erläuterung}
@@ -297,11 +291,8 @@ Da das obere Niveau jetzt aber eine deutlich höhere Aufenthaltswahrscheinlichke
     \caption{Zeitpunkt an dem ein Schaltvorgang stattfindet}\label{fig:bc-switch-events}   
 \end{figure}
 
-\todo{hier bei 100mT garantiert kein problem aufgrund der Verkettung, da sich das system quasi durchgängig im oberen Niveau befindet}
 
-In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schaltvorgang statt. \todo{mehr roten Faden}
-
-\todo{vergleich mit \cref{fig:switch-events} }
+In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schaltvorgang statt. Die dargestellten Schaltvorgänge fanden aber alle innerhalb eines Simulationslaufs statt und sind keine Artefakte aufgrund der Verkettung, da sich das System quasi durchgängig im oberen Niveau befindet.
 
 Ähnlich wie in \cref{fig:switch-events} sind die Zustandswechsel recht gleichverteilt. Bei einer höheren Temperatur sind deutlichere Stufen erkennbar, da häufiger auf einen Schaltvorgang direkt ein zweiter (zurück in den energetisch begünstigten Zustand) stattfindet. Die Rate an Zustandswechseln bleibt jedoch im Rahmen der Unsichheiten konstant. Erst wenn quasi keine Zustandswechsel mehr stattfinden, weicht dieser Wert signifikant von denen bei niedrigeren Feldstärken ab. 
 
@@ -324,13 +315,12 @@ Was sich allerdings stark ändert ist die Aufenthaltswahrscheinlichkeit und mitt
     \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet. Die Datenpunkte wurden dabei mittels des Algorithmus aus mehreren verketteten Simulationsläufen extrahiert}\label{fig:bc-up-percentage}
 \end{figure}
 
-Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Feldstärken als in \cref{fig:bc-up-percentage-violin} die Aufenthaltswahrscheinlichkeit zu bestimmen. Diese folgt einer Sigmoid-Kurve.\todo{muss erklärt werden?} Oberhalb von \qnt{100}{\milli\tesla} findet in den Simulationen kein Telegrafenrauschen mehr statt.
-
-\todo{worin ist das sonst erkennbar, dass kein Schaltvorgang mehr stattfindet?}
+Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Feldstärken als in \cref{fig:bc-up-percentage-violin} die Aufenthaltswahrscheinlichkeit zu bestimmen. Diese folgt einer Sigmoid-Kurve. Oberhalb von \qnt{100}{\milli\tesla} findet in den Simulationen kein Telegrafenrauschen mehr statt.
 
 \subsubsection{Spektrale Leistungsdichte und Autokovarianz}
 
-\todo{Hinsichtlich des Experiments sind  ... besonders interessant}
+Um experimentell erkennen zu können, ob kein Schaltvorgang mehr stattfindet oder in wie weit sich das System bereits davor verändert hat muss die Autokovarianz (und die daraus berechnete Spektrale Leistungsdichte) betrachtet werden.
+
 % Da die Analyse im zeitlichen Durchblick hier experimentell leider nicht möglich ist, müssen Anhaltspunkte im Frequenzdurchblick gefunden werden um u.a. festzustellen, wann kein Telegraphenrauschen mehr stattfindet.
 
 \begin{figure}[H]
@@ -341,11 +331,11 @@ Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Fe
     \caption{Spektrale Leistungsdichten $S$ bei verschiedenen Magnetfeldstärken}\label{fig:bc-spd}
 \end{figure}
 
-So wie bei der Erhöhung der der Temperatur in \cref{fig:temp-spd-source} zu einer Verschiebung des ersten Peaks geführt hat, führt in  \cref{fig:bc-spd-source} eine Erhöhung der Feldstärke auch zu einer Verschiebung des Peaks nach rechts. Der zweite Peak bleibt auch unverändert.\todo{die Peaks heißen Eigenmoden}
+So wie bei der Erhöhung der der Temperatur in \cref{fig:temp-spd-source} zu einer Verschiebung der ersten Eigenmode geführt hat, führt in  \cref{fig:bc-spd-source} eine Erhöhung der Feldstärke auch zu einer Verschiebung der Eigenmode nach rechts. Die zweite Eigenmode bleibt auch unverändert.
 
 Die spektrale Leistungsdichte ist allerdings im niederfrequenten Bereich in \cref{fig:bc-spd-source,fig:bc-spd-clean} bei größerer Feldstärke deutlich geringer und bleibt in \cref{fig:bc-spd-clean} auch kleiner im Vergleich zu den anderen Kurven.
 
-\todo{Aber TGR Dominiert für niedrige Frequenzen}
+Wie in \cref{fig:dominanz-spd} dominiert das Telegrafenrauschen auch in \cref{fig:bc-spd} im niederfrequenten Bereich.
 
 \begin{figure}[H]
     \centering
@@ -354,8 +344,6 @@ Die spektrale Leistungsdichte ist allerdings im niederfrequenten Bereich in \cre
     \subcaptionbox{aus Differenz, bzw. statistischem Rauschen\label{fig:bc-autocorr-diff}}{\includegraphics{bilder/plots/max_Bz/autocorrelation_diff.pdf}}
     \caption{Autokovarianz $\gamma$ für verschiedene Magnetfeldstärken }\label{fig:bc-autocov}
 \end{figure}
-
-\todo{Autokorrelation vs Autokovarianz}
 
 Die Autokorrelationsfunktionen konvergieren bei externem Magnetfeld nichtmehr gegen \num{0} (da die beiden Zustände eine unterschiedliche Aufenthaltswahrscheinlichkeit haben). Daher musste, um die Autokovarianzkurven in \cref{fig:bc-autocov} zu erhalten, der Grenzwert von der Autokorrelationsfunktion abgezogen werden.
 
@@ -383,7 +371,7 @@ Die mittlere Aufenthaltszeit ist aus dem gleichen Grund auch nichtmehr aus der A
 Die Amplitude der Autokovarianz wird bei Erhöhung der Temperatur immer kleiner und oberhalb von \qnt{100}{\milli\tesla} minimal.
 % Sie scheint danach wieder anzusteigen, Die Abweichung des Datenpunktes bei \qnt{120}{\milli\tesla} ist aber alleine nicht aussagekräftig. 
 
-\todo{warum fällt die Rauschamplitude ab?}
+Eine Erhöhung der Temperatur (\cref{fig:temp-autocorr-amplitude}) führt also zu einer Erhöhung der Amplitude der Autokorrelationsfunktion, während eine Erhöhung der magnetischen Feldstärke (\cref{fig:bc-rauschampl}) zu einer Verringerung führt.
 
 % bibliography (temporary)
 % \bibliography{literatur} \todo{comment out before compiling main.tex}
