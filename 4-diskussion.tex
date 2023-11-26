@@ -34,24 +34,24 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 
 \subsection{Extraktion des Telegrafenrauschens}
 
-Um das Telegrafenrauschen zu extrahieren wird der Algorithmus \cref{sec:algo} angewandt.
-Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extraktion-tgr} rechts zu sehen. Auf dem kurzen Intervall ist bereits gut erkennbar, dass die doppelte Gaussverteilung den Bereich zwischen den zwei Niveaus nicht gut beschreibt. In \cref{fig:fit_func_comp} wird versucht mit Hilfe einer anderen Verteilungsfunktion die Wahrscheinlichkeitsdichteverteilung zu fitten.
+Um das in \cref{fig:bsp-run} gezeigte Telegrafenrauschen zu extrahieren wird der Algorithmus aus \cref{sec:algo} angewandt.
+Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extraktion-tgr} rechts zu sehen. Auf dem kurzen Intervall ist bereits gut erkennbar, dass die doppelte Gaußverteilung den Bereich zwischen den zwei Niveaus nicht gut beschreibt. In den Randbereichen passt der fit aber sehr gut.  In \cref{fig:fit_func_comp} wird versucht mit Hilfe einer anderen Verteilungsfunktion die Wahrscheinlichkeitsdichteverteilung zu fitten.
 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
-    \caption{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauss-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
+    \caption{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauß-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
 
 Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorenzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
-
+\todo{lorenz oder lorentz?}
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit_comp.pdf}
     \caption{Vergleich von verschiedenen Verteilungsfunktionen um die Wahrscheinlichkeitsdichte $P(m_c)$ zu fitten.}\label{fig:fit_func_comp}
 \end{figure}
 
-Theoretisch müsste auch noch ein dritter, instabiler, Zustand existieren (Lokales maximum), der genau zwischen den zwei Niveaus liegt. Dieser sorgt für die Abweichung von einer Gaußverteilung im Bereich zwischen den zwei Niveaus. \todo{Etwas weniger schwammig formulieren}
+Theoretisch existiert auch noch ein dritter, instabiler, Zustand (lokales Mengenaximum), der genau zwischen den zwei Niveaus liegt. Dieser sorgt für die Abweichung von einer Gaußverteilung im Bereich zwischen den zwei Niveaus. \todo{Etwas weniger schwammig formulieren}
 
 Um diesen Zustand auch charakterisieren zu können wäre ein deutlich komplexerer Algorithmus notwendig. Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb er hier nicht weiter betrachtet wird.
 
@@ -72,7 +72,7 @@ Da aus der Simulation das Rauschsignal direkt gewonnen werden kann, bietet es si
     \caption{\(m_c\) im Zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf. Die Colormap ist hierbei identisch zu der in \cref{fig:temp-hist}. Die y-achse reicht jeweils von \num{-2e-3} bis \num{+2e-3}}\label{fig:temp-time}
 \end{figure}
 
-Unterhalb von \qnt{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die mittlere Aufenthaltszeit irgendwann\todo{Genauer} größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
+Unterhalb von \qnt{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die mittlere Aufenthaltszeit ab \(\approx\SI{305}{\kelvin}\) größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
 
 
 \begin{figure}[H]
@@ -93,13 +93,13 @@ Da der Einschwingvorgang mit einem positiven Startwert (was \(m_c\) angeht begin
     \caption{Wahrscheinlichkeitsdichteverteilung für Differenz zwischen rohem Signal und extrahiertem Telegrafenrauschen von \(m_c\) (entspricht extrahiertem statistisches Rauschen)}\label{fig:temp-diff-hist}    
 \end{figure}
 
-Bei einer Erhöhung der Temperatur wird also der Abstand der Zwei Zustände größer und ein Wechsel seltener. Doch welchen Einfluss hat dies auf die Verteilung des restlichen statistischen Rauchens?
+Bei einer Erhöhung der Temperatur wird texalso der Abstand der Zwei Zustände größer und ein Wechsel seltener. Doch welchen Einfluss hat dies auf die Verteilung des restlichen statistischen Rauchens?
 
-Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert, wenn nur ein Zustand existiert), bleibt ein statistisches Rauschen übrig, dessen Histogramm einer Gaußverteilung entspricht \cref{fig:temp-diff-hist}. \todo{Das sieht man nicht so einfach. fit hinzufügen?}
+Wenn vom rohen Signal das Telegrafenrauschen abgezogen wird (oder der Mittelwert, wenn nur ein Zustand existiert), bleibt ein statistisches Rauschen übrig, dessen Histogramm einer Gaußverteilung entspricht (siehe \cref{fig:temp-diff-hist}). \todo{Das sieht man nicht so einfach. fit hinzufügen?}
 
-\todo{<genauer erklären>}Anhand der Abweichung von einer Gaussverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
+\todo{<genauer erklären>}Anhand der Abweichung von einer Gaußverteilung im Randbereich (Sprünge statt kontinuierlicher Übergang) sind die Schwellenwerte, die der Algorithmus für die Zustände bestimmt hat, erkennbar.
 
-Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vor Allem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gaussverteilung beschrieben werden (siehe \cref{fig:fit_func_comp}).\todo{</genauer erklären>}
+Diese Verteilung ist für den Temperaturbereich mit aktivem Telegrafenrauschen deutlich breiter, als oberhalb und unterhalb. Dies Liegt wahrscheinlich auch vor Allem an den Datenpunkten im Bereich zwischen den zwei Zuständen, welche nicht von der Gaußverteilung beschrieben werden (siehe \cref{fig:fit_func_comp}).\todo{</genauer erklären>}
 Interessanterweise verändert sich diese Verteilung in diesem Temperaturbereich nicht signifikant.\todo{viel genauer erklären}
 
 Nachfolgend werden meist nur noch die 6 simulierten Temperaturen mit klar erkennbarem Telegrafenrauschen betrachtet (vgl. \cref{fig:temp-hist-tg})
@@ -124,7 +124,7 @@ Daher ändert sich die Farbzuordnung der Temperaturen in den Plots.
 
 \todo{Abb genauer Erklären und AUsreißerdatenpunkt diskutieren oder entfernen}
 
-Die ansteigende Anzahl an Schaltvorgängen lässt sich auch in \cref{fig:temp-switch-count} gut erkennen. Außerdem sieht man in \cref{fig:temp-switch-count-scatter} einige Simulationsläufe, deren Werte aufgrund der Kurzen Simulationszeit (und daher teilweise das Telegrafenrauschen nicht immer korrekt extrahiert werden konnte) stark von den anderen abweichen.
+Die sinkende Anzahl an Schaltvorgängen, die bereits in \cref{fig:temp-time} beobachtbar war,  ist in \cref{fig:temp-switch-count} mit konkreten werten dargestellt. Außerdem sieht man in \cref{fig:temp-switch-count-scatter} einige Simulationsläufe, deren Werte aufgrund der Kurzen Simulationszeit (und daher teilweise das Telegrafenrauschen nicht immer korrekt extrahiert werden konnte) stark von den anderen abweichen.
 
 Der aus der Kette berechnete Wert weicht auch jeweils nicht signifikant vom Mittelwert der aus den einzelnen Simulationen berechneten Werte ab.
 Die kleinen Abweichungen lassen sich gut durch Probleme bei der Extraktion des Telegrafenrauschens bei einzelnen Simulationsläufen (z.B. der 4. run bei \qnt{301}{\kelvin}) \todo{Satz beenden}

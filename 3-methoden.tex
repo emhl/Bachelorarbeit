@@ -42,17 +42,17 @@ Damit der Betrag der Spins sich nicht durch numerische Fehler ändert, werden di
 
 \subsection{Algorithmus zur Extraktion von Telegrafenrauschen}\label{algo}
 
-Wenn die breite des weißen gaussverteilten Rauschens in der gleichen größenordnung wie der Abstand zwischen den beiden stabilen Zuständen ist, ist es nicht einfach möglich zu entscheiden, in welchem Zustand sich das System gerade befindet.
+Wenn die Breite des weißen gaußverteilten Rauschens in der gleichen Größenordnung wie der Abstand zwischen den beiden stabilen Zuständen ist, ist es nicht einfach möglich zu entscheiden, in welchem Zustand sich das System gerade befindet.
 
-In \cref{fig:gauss-overlap}) sieht man, dass Datenpunkte existieren, die sowohl zu dem oberen, als auch zu dem unteren Zustand gehören könnten. Konkret sieht man das Problem, dass mehrere Datenpunkte nicht klar zuordenbar sind in \cref{fig:fit_comp}.
+In \cref{fig:gauss-overlap} sieht man, dass Datenpunkte existieren, die sowohl zu dem oberen, als auch zu dem unteren Zustand gehören könnten. Das Problem, dass mehrere Datenpunkte nicht klar zuordenbar sind, ist in \ref{fig:fit_comp} dargestellt.
 
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/gauss-overlap.pdf}
-    \caption{Wahrscheinlichkeitsdichte für verschiedene Abstände zwischen zwei Gaußverteilten Zuständen \label{fig:gauss-overlap}}
+    \caption{Wahrscheinlichkeitsdichte für verschiedene Abstände zwischen zwei gaußverteilten Zuständen \label{fig:gauß-overlap}}
 \end{figure}
 
-Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig in den anderen Zustand springen. Dieses \enquote{overshooting} sorgt für eine hohe Anzahl an Zustandswechseln im extrahieren Telegrafenrauschen, die nicht real sind.
+Viele Algorithmen, die versuchen die Zustände zu bestimmen, haben das Problem, dass sie bei einem Übergang von einem Zustand in den anderen, kurzzeitig zwischen den Zuständen hin und her springen. Dieses \enquote{overshooting} sorgt für eine hohe Anzahl an Zustandswechseln im extrahieren Telegrafenrauschen, die nicht real sind.
 
 \begin{figure}[h]
     \centering
@@ -68,7 +68,7 @@ Das erste und das letzte drittel des Histogramms werden dann jeweils mit einer G
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit.pdf}
-    \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaussfits für das obere, und das untere Niveau mit eingezeichnetem Mittelwert und Standardabweichung}
+    \caption{Histogramm des Rauschsignals aus \cref{fig:fit_comp} mit Gaußfits für das obere, und das untere Niveau mit eingezeichnetem Mittelwert und Standardabweichung\todo{auch in Wahrscheinlichkeitsdichteverteilung?}}
     \label{fig:hist_fit}
 \end{figure}
 
@@ -82,7 +82,7 @@ Es ergeben sich also zwei (sich überlappende) Intervalle, welche jeweils einem 
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/bounds.pdf}
-    \caption{Zwei sich überlappende gaussverteilte Zustände (wie in \cref{fig:gauss-overlap}) mit den sich überlappenden Intervallgrenzen (bei \(3\sigma\)) eingezeichnet }
+    \caption{Zwei sich überlappende gaußverteilte Zustände (wie in \cref{fig:gauss-overlap}) mit den sich überlappenden Intervallgrenzen (bei \(3\sigma\)) eingezeichnet }
 \end{figure}
 
 
