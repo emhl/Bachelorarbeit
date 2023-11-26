@@ -259,7 +259,6 @@ Dabei handelt es sich um ein gaußsches weißes Rauschen, welches unkorreliert i
 \subsection{Modellierung von Orthoferrit}
 
 Orthoferrite sind chemische Verbindungen der Form \ce{RFeO3}, wobei \ce{R} ein Rest ist, durch den sich die verschiedenen Orthoferrite unterscheiden. Hier bildet Erbium (\ce{Er}) diese Restgruppe. 
-\todo{Samarium jetzt oder erst	später?}
 
 % \begin{figure}[htbp]
 % 	\centering
@@ -323,7 +322,7 @@ Die verwendeten Simulationsparameter sind folgende:
 
 \(J_1\) ist hier der Parameter für die Heisenberg-Austauschwechselwirkung
 \eqref{eq:hamilton-heisenberg-exc} mit den nächsten Nachbarn (6) und \(J_2\)
-die mit den übernächsten Nachbarn (12). \todo{Antiferromagnetisch?}\(\bm{d}\)
+die mit den übernächsten Nachbarn (12). \(\bm{d}\)
 beschreibt die uniaxiale Anisotropie\eqref{eq:hamilton-2a}, \(L_x\), \(L_y\)
 und \(L_z\) sind die Koeffizienten der kubischen
 Anisotropie\eqref{eq:hamilton-4a}, \(\bm{\kappa}\) ist die Zwei-Ionen
@@ -334,7 +333,7 @@ Die Dipol-Dipol Wechselwirkung\eqref{eq:hamilton-dd} wird in der Simulation
 nicht berücksichtigt, da sie im Vergleich zu den anderen Wechselwirkungen
 vernachlässigbar ist.
 
-\todo{erklärung Realisation Reorientierungsübergang (Welche Werte werden modifiziert um die Temperatur zu ändern)}
+Die Basisvektoren der Einheitszelle (\cref{fig:orthoferrit}) sind anders als die karthesischen Einheitsvektoren: 
 
 \begin{align}
 	\vec{e}_a &= \frac{\vec{e}_x - \vec{e}_y}{\sqrt{2}} \\
@@ -354,13 +353,12 @@ vernachlässigbar ist.
 	\label{fig:orthoferrit}
 \end{figure}
 
+Am Reorientierungsübergang ändert sich die Ausrichtung der magnetischen Momente, und in Samarium-Erbium-Orthoferrit gibt es dabei während dieses Übergangs teilweise mehrere stabile Zustände. Durch den spontanen Übergang zwischen diesen Zuständen entsteht das Telegrafenrauschen.
+
+\newpage
 \subsection{Telegrafenrauschen}
 
-\todo{Einleitung warum Telegrafenrauschen relevant ist}
-
-% Das Telegrafenrauschen ist ein stochastischer Prozess, der aus zwei Zuständen besteht, die zufällig zwischen einander wechseln.
-\todo{erkllärung TGR (mehrere zustände) übergangszeit deutlich kürzer als
-	aufenthaltszeit}
+Im allgemeinen ist das Telegrafenrauschen ein stochastischer Prozess, bei dem ein System zwischen mehreren Zuständen zufällig hin und her wechselt. Dabei liegt die Aufenthaltszeit in einem Zustand deutlich über der Übergangszeit zwischen den Zuständen.
 
 Hier wird ein Telegrafenrauschen mit zwei Zuständen betrachtet.
 Ein gängiges Modell ist der Dichtomische Markow-Prozess (DMP).
