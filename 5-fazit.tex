@@ -3,8 +3,7 @@
 \newpage
 \section{Fazit}
 
-\todo{Ziel der Arbeit war/ist es...}
-
+\todo{
 \textbf{Aufbau}
 \begin{itemize}
     \item Zielsetzung
@@ -14,10 +13,16 @@
     \item vergleich experiment
     \item Tunen Telegrafenrauschen
 \end{itemize}
+}
+
+Ziel der Arbeit war es das Telegrafenrauschen in Samarium-Erbium-Orthoferrit theoretisch zu untersuchen. Das Kristallgitter wurde dafür sowohl für verschiedene Temperaturen, als auch unter Einfluss eines externen Magnetfeldes simuliert. 
+Um das Telegrafenrauschen zu untersuchen, wurde ein Algorithmus entwickelt, der das Rauschen aus den Simulationsdaten extrahiert und so eine direkte Analyse des Telegrafenrauschens ermöglicht.\\
 
 Das Extrahieren des Telegrafenrauschens aus den Daten mit dem Algorithmus hat gut funktioniert und hat vielversprechende Ergebnisse geliefert.\\
+Außerden wurde vom rohen Rauschsignal das extrahierte Telegrafenrauschen abgezogen, um den Einfluss und die Eingenschaften der restlichen Rauschanteile zu untersuchen.
+Durch die Aufteilung in die verschiedenen Komponenten (Telegrafenrauschen und restliche Anteile des Rauschsignals) konnte gezeigt werden, dass das Telegrafenrauschen in der Zeitlichen und Frequenzauflösung das Rauschsignal dominiert. Speziell im niederfrequenten Bereich lag die Spektrale Leistungsdichte des Telegrafenrauschens immer über dem der restlichen Rauschanteile.\\
 
-Durch die Aufteilung in die verschiedenen Komponenten\todo{erklären} konnte gezeigt werden, dass das Telegrafenrauschen in der Zeitlichen und Frequenzauflösung dominant ist. \todo{Dominanz ausführen (niderfrequent...)}
+Bei dem Vergleich von Simulationen ohne externem B-Feld und mit verschiedenen Temperaturen wurden mehrere Zusammenhänge durch die analyse des extrahierten Telegrafenrauschens gefunden.\\
 Die Aufenthaltszeiten steigen exponentiell mit der Temperatur an, wodurch die Häufigkeit von Zustandswechseln sinkt. Die Berechnung der mittleren Aufenthaltszeiten hat für die höheren Temperaturen (mit stabilem Telegrafenrauschen) \SIrange{302}{303}{\kelvin} gut funktioniert. Für die niedrigeren Temperaturen \SIrange{301}{302}{\kelvin} war die Autokorrelationszeit zu kurz, um die mittlere Aufenthaltszeit zuverlässig zu bestimmen.\\
 
 Durch die Simulationen unter Einfluss eines externen B-Feldes konnten weitere Erkenntnisse gewonnen werden.\\
@@ -31,13 +36,15 @@ Das untersuchte Phänomen des Telegrafenrauschens ist ein sehr interessantes und
 Vor allem ein Modell um aus der Autokorrelationsfunktion (bei den symmetrischen Systemen mit externem Magnetfeld) die Aufenthaltswahrscheinlichkeiten und mittleren Aufenthaltszeiten zu bestimmen, wäre sehr interessant. Versuche dies in dieser Arbeit zu realisieren sind leider gescheitert.
 Außerdem könnte eventuell ein Algorithmus entwickelt werden, der das Verhalten im Bereich zwischen den beiden Zuständen besser klassifiziert.\todo{abschnitt weglassen?}\\
 
-Außerdem bleibt noch abzuwarten, ob die Ergebnisse experimentell reproduziert werden können, oder ob das Modell noch angepasst werden muss.\\
-Die in der Simulation verwendeten Magnetfeldstärken sind experimentell machbat zugänglich. 
-
+Bisher wurde der Einfluss von externem Magnetfeld auf das Telegrafenrauschen noch nicht untersucht, daher bleibt noch abzuwarten, ob die Ergebnisse experimentell reproduziert werden können, oder ob das Modell noch angepasst werden muss.\\
+Die in der Simulation verwendeten Magnetfeldstärken sind experimentell gut machbar. 
 \todo{Auf Rauschamplitude/ experimentelle messbarkeit eingehen}
 
 \todo{krass, dass ps-Telegrafenrauschen beobachtet wurde}
+Es ist unglaublich, dass es möglich ist, im Experiment Telegrafenrauschen auf einer so kurzen Zeitskala zu beobachten. \todo{ausführen}
 
 \todo{Tunen von Telegrafenrauschen ist möglich!}
+Und diese Arbeit hat gezeigt, dass es in der Theorie möglich ist dieses Telegrafenrauschen durch ein externes Magnetfeld zu tunen.\todo{ausführen}
+
 
 \end{document}

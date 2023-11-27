@@ -3,24 +3,30 @@
 \section{Einleitung}
 
 % Der Nobelpreis für Physik wurde dieses Jahr für die experimentelle Erzeugung von Attosekunden-Lichtimpulse vergeben \cite{nobel-phy-2023}. Diese ultrakurzen Lichtimpulse haben es in den letzten Jahren ermöglicht, diverse elektromagnetische Phänomene auf sehr kurzen Zeitskalen zu untersuchen. Ein solches Phänomen ist das Spin-Rauschen in Orthoferrit, das in dieser Arbeit mittels numerischer Simulationen untersucht wird.
-
+\todo{
 \begin{itemize}
     \item Paper, Masterarbeit haben sich mit dem Spin-Rauschen in Orthoferrit beschäftigt \cite{weiss-ultrafast,schlegel-master} im picosekunden-Bereich (schneller als bisher sonst)
     \item paper erscheint gleichzeitig mit dieser Arbeit.
     \item SFB 1432: \enquote{Fluctuations and Nonlinearities in Classical and Quantum Matter beyond Equilibrium} \cite{sfb-1432-b06} beschäftigt sich mit Rausch effekten 
     \item Industrie Rauscheffekte zu entfernen vgl. \cite{schlegel-bachelor, schlegel-master}
 \end{itemize}
+}
+In vielen Messungen ist ein Rauschen in den Messdaten ein unbequemer Begleiter, der immer dabei ist und bei der Auswertung von den \enquote{richtigen Daten} entfernt wird. 
+Es gibt gar eine ganze Industrie, die sich mit der Entwicklung von Algorithmen beschäftigt, die Rauschen aus Daten entfernen.\todo{cite?}\\
 
-In vielen Messungen ist ein Rauschen in den Messdaten ein unbequemer Begleiter, der immer dabei ist und bei der Auswertung von den \enquote{richtigen Daten} entfernt wird. Hier ist es anders: Das Spin-Rauschen ist das interessante Signal, das es zu untersuchen gilt. Denn nahe der Reorientierungstemperatur des schwachen Antiferromagneten kann ein Telegrafenrauschen der Magnetisierung beobachtet werden \cite{weiss-ultrafast}.
+\todo{weitere erleuterungen zum rauschen wie in \cite{schlegel-master}}
 
+Hier ist es anders: Das Spin-Rauschen ist das interessante Signal, das es zu untersuchen gilt. Denn nahe der Reorientierungstemperatur des schwachen Antiferromagneten kann ein Telegrafenrauschen der Magnetisierung beobachtet werden. 
+In dem Paper \enquote{Ultrafast spontaneous spin switching in an antiferromagnet} \cite{weiss-ultrafast} wird diese experimentelle Beobachtung von Telegrafenrauschen der Spins in Orthoferrit auf einer picosekundenskala beschrieben. Das ist das schnellste Telegrafenrauschen, das bisher beobachtet wurde.\\
 
-\textbf{Ziele der Arbeit:}
-\begin{itemize}
-    \item genauere theoretische Untersuchung des Spin-Rauschens in Orthoferrit anhand der Daten aus \cite{schlegel-master}
-    \item einfluss von B-Feld auf Rauschen
-\end{itemize}
+Der DFG-Sonderforschungsbereich 1432 \cite{sfb-1432} beschäftigt sich mit Rauscheffekten in verschiedenen Systemen.\todo{ausführen}\\
+
+In dieser Arbeit sollen die im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} entstandenen Simulationsdaten von Spin-Rauschen in Orthoferrit bei verschiedenen Temperaturen genauer untersucht werden. Dafür soll Das Telegrafenrauschen mittels eines Algorithmus aus dem Rauschsignal extrahiert und charakterisiert werden.\\
+Außerdem soll der Einfluss eines externen B-Feldes auf die Eingenschaften des Telegrafenrauschens betrachtet werden.
+
+\todo{Aufbau der Arbeit erleutern?}
 
 % bibliography (temporary)
-% \bibliography{literatur} \todo{comment out before compiling main.tex}
+% \newpage\bibliography{literatur} \todo{comment out before compiling main.tex}
 
 \end{document}
