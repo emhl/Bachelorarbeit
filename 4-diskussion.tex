@@ -252,13 +252,12 @@ Der Simulationszeitraum beträgt für alle Simulationsläufe etwa \qnt{2.5}{\nan
 
 \begin{figure}[H]
     \centering
+    \includegraphics{bilder/plots/Bz_sign_comparison/20mT_t_comp.pdf}
     \includegraphics{bilder/plots/Bz_sign_comparison/20mT_hist_comp.pdf}
-    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung\todo{\(m_c\) statt \(\mu_c\)}}\label{fig:bc-sign-hist}
+    \caption{Wahrscheinlichkeitsdichteverteilung von \(m_c\) bei einem externen Magnetfeld von \qnt{20}{\milli\tesla} mit entgegengesetzter Richtung. Und Ausschnitt aus dem Rauschsignals für beide Magnetfeldrichtungen }\label{fig:bc-sign-hist}
 \end{figure}
 
 In \cref{fig:bc-sign-hist} ist die Wahrscheinlichkeitsdichteverteilung für ein externes Magnetfeld von \qnt{20}{\milli\tesla} in entgegengesetzter Richtung zu sehen. Die beiden Niveaus sind hier deutlich zu erkennen. Die Aufenthaltswahrscheinlichkeit im begünstigten Niveau ist jeweils deutlich höher, als im nicht begünstigten. Das Histogramm sieht aus, als ob es an einer senkrechten Achse bei \(m_c=0\) gespiegelt wurde.
-
-\todo{Epemplarische trajektorie (rauschen im zeitlichen Verlauf für beide richtungen)}
 
 Das System scheint sich somit bei angelegtem B-Feld in entgegengesetzter Richtung Symmetrisch zu verhalten. Daher wurden die Simulationen nur mit positivem B-Feld durchgeführt.
 
@@ -311,11 +310,17 @@ In Manchen Simulationsläufen bei \qnt{100}{\milli\tesla} findet gar kein Schalt
 Was sich allerdings stark ändert ist die Aufenthaltswahrscheinlichkeit und mittleren Aufenthaltszeiten für die beiden Niveaus.
 
 Wie zu erwarten steigt die mittlere Aufenthaltszeit im oberen Niveau mit der Magnetfeldstärke an und die mittlere Aufenthaltszeit im unteren Niveau sinkt. 
-Allerdings scheinen die mittleren Aufenthaltszeiten mit der gleichen Rate zu steigen bzw. zu sinken. 
+Allerdings scheinen die mittleren Aufenthaltszeiten mit der gleichen Rate zu steigen bzw. zu sinken. Daher bleibt die mittlere Aufenthaltszeit (nicht nach Niveaus aufgeteilt wie in \cref{fig:b-mmdt}) etwa konstant. 
+Das die mittlere Aufenthaltszeit konstant bleibt ist wahrscheinlich auch der grund für die konstante Rate an Zustandswechseln in \cref{fig:bc-switch-events}. 
 
-\todo{Abweichung up 40mT in \cref{fig:bc-state-times-comp} erklären/beheben? Zufälligerweise mehr sehr  kurze aufenthaltszeiten, die den mittelwert verzerrent?}
-\todo{mittelwert oder median?}
-\todo{plot summe/mittelwert mittlere Aufenthaltszeiten (MMDT)?}
+\begin{figure}[H]
+    \centering
+    \includegraphics{bilder/plots/max_Bz/mean_dwell_time.pdf}
+    \caption{Mittlere Aufenthaltszeit nicht aufgeteilt auf die zwei Niveaus. Violinenplot mit Mittelwert und Extrema in Blau. Median in Schwarz}
+    \label{fig:b-mmdt}
+\end{figure}
+
+Die Abweichung der mittleren Aufenthaltszeit bei \SI{40}{\milli\tesla} vom restlichen Trend in \cref{fig:bc-state-times-comp,fig:b-mmdt} liegt vermutlich daran, dass die gesamte simulierte Zeit für \(B_c \geq \SI{40}{\milli\tesla}\) nur je ein viertel der für die geringeren Magnetfeldstärken ist (4 statt 16 Simulationsläufe). Man müsste wahrscheinlich einfach noch weitere Simulationen durchführen um die Abhängigkeit zu überprüfen
 
 Im Bereich bis \SI{30}{\milli\tesla} (siehe \cref{fig:bc-up-percentage-violin}) lässt die Aufenthaltswahrscheinlichkeit im oberen Zustand mit einer linearen Abhängigkeit von der Magnetfeldstärke annähen. Das eigentliche verhalten, welches einem beschränktem Wachstum entspricht ist bei der Betrachtung stärkerer Magnetfelder, in \cref{fig:bc-up-percentage} deutlich erkennbar. 
 
