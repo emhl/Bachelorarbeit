@@ -35,7 +35,7 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 \subsection{Extraktion des Telegrafenrauschens}
 
 Um das in \cref{fig:bsp-run} gezeigte Telegrafenrauschen zu extrahieren wird der Algorithmus aus \cref{sec:algo} angewandt.
-Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extraktion-tgr} rechts zu sehen. Auf dem kurzen Intervall ist bereits gut erkennbar, dass die doppelte Gaußverteilung den Bereich zwischen den zwei Niveaus nicht gut beschreibt. In den Randbereichen passt der fit aber sehr gut.  In \cref{fig:fit_func_comp} wird versucht mit Hilfe einer anderen Verteilungsfunktion die Wahrscheinlichkeitsdichteverteilung zu fitten.
+Das Histogramm, über das die Zustände bestimmt werden, ist in \cref{fig:extraktion-tgr} rechts zu sehen. Im linken Plot sieht man dabei, dass der Algorithmus funktioniert. Die rote Linie beschreibt die Zustandswechsel, so wie man sie manuell auch einzeichneen würde.  Auf dem kurzen Intervall ist (im rechten Plot) bereits gut erkennbar, dass die doppelte Gaußverteilung den Bereich zwischen den zwei Niveaus nicht gut beschreibt. Außerhalb der Nivaus und and den Niveauspitzen passt der Fit aber sehr gut. Zum Vergleich wird in \cref{fig:fit_func_comp} zusätzlich versucht mit einer doppelten Lorentzverteilung die Wahrscheinlichkeitsdichteverteilung zu fitten.
 
 \begin{figure}[H]
     \centering
@@ -43,7 +43,7 @@ Das Histogramm über das die Zustände bestimmt werden, ist in \cref{fig:extrakt
     \caption{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauß-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
 
-Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorentzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch gar nicht passend.
+Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorentzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch nicht passend.
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/theo-vis/hist_fit_comp.pdf}
@@ -52,7 +52,8 @@ Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich grö
 
 Die erhöhte Aufenthaltswahrscheinlichkeit im Bereich zwischen den zwei Zuständen lässt sich aufgrund eines lokalen Maximums im Potential erklären. Da es sich um ein Maximum handelt existiert hier kein stabiler Zustand.
 
-Um den Einfluss des lokalen Maximums zu analysieren zu können wäre ein deutlich komplexerer Algorithmus notwendig. Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb er hier nicht weiter betrachtet wird.
+Um den Einfluss des lokalen Maximums zu analysieren zu können wäre ein komplexerer Algorithmus mit drei Niveaus notwendig. Mit drei statt zwei Gaußverteilungen das Histogramm zu fitten sollte kein Problem sein. Anhand der Fitparameter für jeden zu entscheiden in welchem Niveau sich das Teilchen befindet ist aber deutlich schwieriger und würde wahrscheinlich nicht zuverlässig funktionieren.
+Außerdem ist die Aufenthaltswahrscheinlichkeit doch verhältnismäßig klein, weshalb für den Rahmen dieser Arbeit nur die zwei deutlichen Niveaus betrachtet werden.
 
 \subsection{Einfluss verschiedener Temperaturen}
 
