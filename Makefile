@@ -21,5 +21,8 @@ clean:
 	rm  ./latex.out/*
 
 get-plots:
-	rsync -avz --progress scc:Documents/Bachelorarbeit/Analysis/plots/ ~/Bachelorarbeit/Analysis/plots/
+	rsync -avz --progress scc:Documents/Bachelorarbeit/Analysis/plots/ bilder/plots/ --exclude="*.svg"
 
+add-plots:
+	grep "includegraphics{bilder/plots/" *.tex | sed  's/.*includegraphics{//g' | sed 's/}//g' > used-plots.txt
+	git add -f `cat used-plots.txt`

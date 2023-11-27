@@ -12,6 +12,9 @@
 *.cb2
 .*.lb
 
+# plots are untracked by default since they can be quite large.
+bilder/plots
+
 ## Intermediate documents:
 *.dvi
 *.xdv
