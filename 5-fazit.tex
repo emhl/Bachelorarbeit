@@ -3,35 +3,32 @@
 \newpage
 \section{Fazit}
 
-\textbf{entwicklung algo zur extraktion tgr}\\
+Das Extrahieren des Telegrafenrauschens aus den Daten mit dem Algorithmus hat gut funktioniert und hat vielversprechende Ergebnisse geliefert.\\
 
-\textbf{Ergebnisse zusammenfassen}\\
-Ohne B-Feld
-\begin{itemize}
-    \item Das Telegrafenrauschen ist sowohl in Zeitlicher, als auch in Frequenzauflösung Dominant (Autocorr und Spektrale leistungsdichte)
-    \item Die Aufenthaltszeiten steigen Exponentiell an (mit der temperatur)
-    \item Die Häufigkeit von Switching Events sinkt mit erköhung der Temperatur
-\end{itemize}
+Durch die Aufteilung in die verschiedenen Komponenten konnte gezeigt werden, dass das Telegrafenrauschen in der Zeitlichen und Frequenzauflösung dominant ist.
+Die Aufenthaltszeiten steigen exponentiell mit der Temperatur an, wodurch die Häufigkeit von Zustandswechseln sinkt. Die Berechnung der mittleren Aufenthaltszeiten hat für die höheren Temperaturen (mit stabilem Telegrafenrauschen) \SIrange{302}{303}{\kelvin} gut funktioniert. Für die niedrigeren Temperaturen \SIrange{301}{302}{\kelvin} war die Autokorrelationszeit zu kurz, um die mittlere Aufenthaltszeit zuverlässig zu bestimmen.\\
 
-Mit B-Feld
-\begin{itemize}
-    \item Temperaturbereich in dem Telegrafenrauschen stattfindet Wird von B-Feld nicht signifikant Beeinflusst (keine Aufweichung wie bei 1T)
-    \item Das System ist symmetrisch bezüglich der Polung des B-Felds 
-    \item Die Aufenthaltswahrscheinlichkeit folgt einer Sigmoid Kurve
-    \item Die Aufenthaltszeiten auf dem Begünstigten niveau werden länger (und die auf dem unbegünstigten kürzer), im mittelwert mit der Gleichen Rate
-    \item so dass Die Rate von Zustandswechseln und die mittlere Aufenthaltszeit sind unverändert durch Die Stärke Des B-Felds (sofern stabiles Telegrafenrauschen Stattfindet)
-\end{itemize}
+Durch die Simulationen unter Einfluss eines externen B-Feldes konnten weitere Erkenntnisse gewonnen werden.\\
+Bei einem starken Magnetfeld von \SI{1}{\tesla} weicht der Reorientierungsübergang auf, weshalb kein Telegrafenrauschen stattfinden kann. Bei schwächeren Magnetfeldern um \SI{50}{\milli\tesla} findet das Telegrafenrauschen weiterhin statt und der Reorientierungsübergang wird nicht verschoben. Das System wird aber dennoch signifikant beeinflusst. Die Aufenthaltszeiten auf dem begünstigten Niveau werden länger und die auf dem unbegünstigten kürzer. Die mittlere Aufenthaltszeit (zustandsunabhängig) bleibt allerdings (für \(B_c \leq \SI{50}{\milli\tesla}\)) in etwa konstant. Daher verändert sich die Rate an Zustandswechseln nicht signifikant durch eine Änderung des Magnetfeldes (so lange noch ein Telegrafenrauschen stattfindet).\\
+Die Aufenthaltswahrscheinlichkeit im oberen Zustand steigt mit dem Magnetfeld an und folgt dabei einem beschränktem Wachstum. Bis \SI{30}{\milli\tesla} kann das Wachstum linear angenähert werden.\\ 
+Ab \SI{100}{\milli\tesla} konnte im Simulationszeitraum kein Zustandswechsel mehr beobachtet werden. Bei der Autokovarianz konvergiert dabei die Rauschamplitude gegen ein Minimum.\\
 
-\textbf{Frustrierend, wie lange es dauert, bis numerische ergebnisse da sind}\\
+Dadurch, dass die theoretischen Zusammenhänge numerisch bestimmt werden mussten (statt analytisch), gab es oft längere Wartezeiten, bis die Ergebnisse vorlagen. Zusätzlich war mehrfach das Rechnen auf dem Cluster nicht möglich, da alle Knoten belegt waren. Das dadurch ein bis zwei Wochen gewartet werden musste, bis die Ergebnisse einer Messreihe vorlagen, war mitunter sehr frustrierend.\\
+
 \textbf{Ausblick auf weitere Untersuchungen und Verbesserungen}
 \begin{itemize}
     \item Algorithmus mit 3 statt 2 Zuständen
     \item mean dwell time aus Frequenzauflösung (war mit b-feld nicht möglich)
-    \item experimentelle reproduktion 
+    \item experimentelle reproduktion
     \begin{itemize}
+        \item B-Felder in der größenordnung sind Experimentell gut zugänglich
         \item Telegrafenrauschen hört bei ca. 100mT auf
         \item verhalten der raushcamplitude
     \end{itemize}
+    \item Modell um Vorhersagen für die Aufenthaltswahrscheinlichkeiten aufgrund der Autokorrelationsfunktion zu treffen
 \end{itemize}
+
+
+
 
 \end{document}
