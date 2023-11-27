@@ -3,22 +3,41 @@
 \newpage
 \section{Fazit}
 
+\todo{Ziel der Arbeit war/ist es...}
+
+\textbf{Aufbau}
+\begin{itemize}
+    \item Zielsetzung
+    \item Algorithmus
+    \item Ohne B-Feld
+    \item mit B-Feld
+    \item vergleich experiment
+    \item Tunen Telegrafenrauschen
+\end{itemize}
+
 Das Extrahieren des Telegrafenrauschens aus den Daten mit dem Algorithmus hat gut funktioniert und hat vielversprechende Ergebnisse geliefert.\\
 
-Durch die Aufteilung in die verschiedenen Komponenten konnte gezeigt werden, dass das Telegrafenrauschen in der Zeitlichen und Frequenzauflösung dominant ist.
+Durch die Aufteilung in die verschiedenen Komponenten\todo{erklären} konnte gezeigt werden, dass das Telegrafenrauschen in der Zeitlichen und Frequenzauflösung dominant ist. \todo{Dominanz ausführen (niderfrequent...)}
 Die Aufenthaltszeiten steigen exponentiell mit der Temperatur an, wodurch die Häufigkeit von Zustandswechseln sinkt. Die Berechnung der mittleren Aufenthaltszeiten hat für die höheren Temperaturen (mit stabilem Telegrafenrauschen) \SIrange{302}{303}{\kelvin} gut funktioniert. Für die niedrigeren Temperaturen \SIrange{301}{302}{\kelvin} war die Autokorrelationszeit zu kurz, um die mittlere Aufenthaltszeit zuverlässig zu bestimmen.\\
 
 Durch die Simulationen unter Einfluss eines externen B-Feldes konnten weitere Erkenntnisse gewonnen werden.\\
-Bei einem starken Magnetfeld von \SI{1}{\tesla} weicht der Reorientierungsübergang auf, weshalb kein Telegrafenrauschen stattfinden kann. Bei schwächeren Magnetfeldern um \SI{50}{\milli\tesla} findet das Telegrafenrauschen weiterhin statt und der Reorientierungsübergang wird nicht verschoben. Das System wird aber dennoch signifikant beeinflusst. Die Aufenthaltszeiten auf dem begünstigten Niveau werden länger und die auf dem unbegünstigten kürzer. Die mittlere Aufenthaltszeit (zustandsunabhängig) bleibt allerdings (für \(B_c \leq \SI{50}{\milli\tesla}\)) in etwa konstant. Daher verändert sich die Rate an Zustandswechseln nicht signifikant durch eine Änderung des Magnetfeldes (so lange noch ein Telegrafenrauschen stattfindet).\\
+Bei einem starken Magnetfeld von \SI{1}{\tesla} weicht der Reorientierungsübergang auf, weshalb kein Telegrafenrauschen stattfinden kann. Bei schwächeren Magnetfeldern um \SI{50}{\milli\tesla} findet das Telegrafenrauschen weiterhin statt und der Reorientierungsübergang wird nur marginal verschoben. Aber die Aufenthaltszeiten auf dem begünstigten Niveau werden länger und die auf dem unbegünstigten kürzer. Die mittlere Aufenthaltszeit (zustandsunabhängig) bleibt allerdings (für \(B_c \leq \SI{50}{\milli\tesla}\)) konstant. Daher verändert sich die Rate an Zustandswechseln nicht signifikant durch eine Änderung des Magnetfeldes.\\
 Die Aufenthaltswahrscheinlichkeit im oberen Zustand steigt mit dem Magnetfeld an und folgt dabei einem beschränktem Wachstum. Bis \SI{30}{\milli\tesla} kann das Wachstum linear angenähert werden.\\ 
-Ab \SI{100}{\milli\tesla} konnte im Simulationszeitraum kein Zustandswechsel mehr beobachtet werden. Bei der Autokovarianz konvergiert dabei die Rauschamplitude gegen ein Minimum.\\
+Ab \SI{100}{\milli\tesla} konnte im Simulationszeitraum kein Zustandswechsel mehr beobachtet werden. Bei der Autokovarianz konvergiert dabei die Rauschamplitude gegen ein Minimum. \todo{Rauschamplitude thema ausführen}\\
 
-Dadurch, dass die theoretischen Zusammenhänge numerisch bestimmt werden mussten (statt analytisch), gab es oft längere Wartezeiten, bis die Ergebnisse vorlagen. Zusätzlich war mehrfach das Rechnen auf dem Cluster nicht möglich, da alle Knoten belegt waren. Das dadurch ein bis zwei Wochen gewartet werden musste, bis die Ergebnisse einer Messreihe vorlagen, war mitunter sehr frustrierend.\\
+% Dadurch, dass die theoretischen Zusammenhänge numerisch bestimmt werden mussten (statt analytisch), gab es oft längere Wartezeiten, bis die Ergebnisse vorlagen. Zusätzlich war mehrfach das Rechnen auf dem Cluster nicht möglich, da alle Knoten belegt waren. Das dadurch ein bis zwei Wochen gewartet werden musste, bis die Ergebnisse einer Messreihe vorlagen, war mitunter sehr frustrierend.\\
 
 Das untersuchte Phänomen des Telegrafenrauschens ist ein sehr interessantes und vielseitiges Thema. Es gibt viele weitere Aspekte, die untersucht werden können.\\
 Vor allem ein Modell um aus der Autokorrelationsfunktion (bei den symmetrischen Systemen mit externem Magnetfeld) die Aufenthaltswahrscheinlichkeiten und mittleren Aufenthaltszeiten zu bestimmen, wäre sehr interessant. Versuche dies in dieser Arbeit zu realisieren sind leider gescheitert.
-Außerdem könnte eventuell ein Algorithmus entwickelt werden, der das Verhalten im Bereich zwischen den beiden Zuständen besser klassifiziert.\\
+Außerdem könnte eventuell ein Algorithmus entwickelt werden, der das Verhalten im Bereich zwischen den beiden Zuständen besser klassifiziert.\todo{abschnitt weglassen?}\\
+
 Außerdem bleibt noch abzuwarten, ob die Ergebnisse experimentell reproduziert werden können, oder ob das Modell noch angepasst werden muss.\\
-Die in der Simulation verwendeten Magnetfeldstärken sind experimentell gut zugänglich. Und die maximale Magnetfeldstärke, bei der noch ein Telegrafenrauschen stattfindet sollte sich experimentell gut bestimmen lassen.\\ 
+Die in der Simulation verwendeten Magnetfeldstärken sind experimentell machbat zugänglich. 
+
+\todo{Auf Rauschamplitude/ experimentelle messbarkeit eingehen}
+
+\todo{krass, dass ps-Telegrafenrauschen beobachtet wurde}
+
+\todo{Tunen von Telegrafenrauschen ist möglich!}
 
 \end{document}
