@@ -28,7 +28,7 @@ Um mehr Schaltvorgänge pro Simulation betrachten zu können, wurde der Simulati
 \begin{figure}[h]
     \centering
     \includegraphics{bilder/plots/theo-vis/example-telegraph-sim.pdf}
-    \caption{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \qnt{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei die Equilibrierung zu sehen
+    \caption[Einzelne Simulationskurve von \(m_c\) bei \(T \approx \qnt{302}{\kelvin}\)]{Einzelne Simulationskurve von \(m_c\) bei \(T \approx \qnt{302}{\kelvin}\). Im Zeitraum \(<0\) ist hierbei die Equilibrierung zu sehen
     }\label{fig:bsp-run}
 \end{figure}
 
@@ -40,7 +40,7 @@ Das Histogramm, über das die Zustände bestimmt werden, ist in \cref{fig:extrak
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_0mT/mc_fit_hist_part2_26.03meV.pdf}
-    \caption{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauß-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
+    \caption[Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}]{Extraktion des Telegrafenrauschen mit Hilfe des Algorithmus aus \cref{sec:algo}. Die Fitfunktion im rechten Plot ist dabei ein doppelter Gauß-Peak über den den die Intervalle der beiden Zustände bestimmt werden. Das bereinigte Telegrafenrauschen ist im linken Plot in rot zu sehen.\todo{in Legende hinzufügen} Die Differenz zwischen bereinigtem Telegrafenrauschen und dem rohen Signal ist in grün zu sehen.}\label{fig:extraktion-tgr}
 \end{figure}
 
 Die Aufenthaltswahrscheinlichkeit zwischen den zwei Zuständen ist deutlich größer, als bei zwei überlagerte Gaußverteilungen anzunehmen wäre. Bei zwei Lorentzverteilungen ist die Aufenthaltswahrscheinlichkeit im Randbereich jedoch nicht passend.
@@ -69,7 +69,7 @@ Da aus der Simulation das Rauschsignal direkt gewonnen werden kann, bietet es si
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/mc_time.pdf}
-    \caption{\(m_c\) im zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf. Die Colormap ist hierbei identisch zu der in \cref{fig:temp-hist}. Die y-achse reicht jeweils von \num{-2e-3} bis \num{+2e-3}}\label{fig:temp-time}
+    \caption[\(m_c\) im zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf.]{\(m_c\) im zeitlichen Verlauf für verschiedene Temperaturen. Die Daten sind jeweils aus einem einzelnen Simulationslauf. Die Colormap ist hierbei identisch zu der in \cref{fig:temp-hist}. Die y-achse reicht jeweils von \num{-2e-3} bis \num{+2e-3}}\label{fig:temp-time}
 \end{figure}
 
 Unterhalb von \qnt{300}{\kelvin} existiert nur ein einzelner Zustand, um den \(m_c\) fluktuiert. Je höher die Temperatur wird, desto stärker bilden sich die beiden Zustände aus und das Telegrafenrauschen wird deutlicher sichtbar. Wenn die Temperatur weiter erhöht wird, ist die mittlere Aufenthaltszeit ab \(\approx\SI{305}{\kelvin}\) größer als der Simulationszeitraum und kann kein Schaltvorgang mehr beobachtet werden.
@@ -192,7 +192,7 @@ Da beide Zustände gleich wahrscheinlich sind, konvergiert die Autokorrelationsf
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/temp_comparison_long/rauschamplitude.pdf}
-    \caption{Rauschamplitude $A$ für verschiedene Temperaturen $T$. Die Datenpunkte für \(T > \SI{303}{\kelvin}\) werden nicht berücksichtigt, weil dort die Autocovarianz nicht mehr der Autokorrelation entspricht. 
+    \caption[Rauschamplitude $A$ für verschiedene Temperaturen $T$.]{Rauschamplitude $A$ für verschiedene Temperaturen $T$. Die Datenpunkte für \(T > \SI{303}{\kelvin}\) werden nicht berücksichtigt, weil dort die Autocovarianz nicht mehr der Autokorrelation entspricht. 
     Die Rauschamplitude fällt bei weiterer Erhöhung der Temperatur wieder ab, wie bereits in \cite{schlegel-master} beobachtet wurde.}\label{fig:temp-autocorr-amplitude}
 \end{figure}
 
@@ -241,7 +241,7 @@ Das Verhalten des magnetischen Moments in c-Richtung kann nicht nur durch eine V
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/Bz_comparison/critical_temperature.pdf}
-    \caption{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung. Die für die restlichen Simulationen mit externem Magnetfeld verwendete Temperatur \(T_B\) ist mit einer senkrechten Linie eingezeichnet.}\label{fig:bc-crit-temp}
+    \caption[Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung.]{Kritische Temperatur bei schwachem und starkem Magnetfeld in c-Richtung. Die für die restlichen Simulationen mit externem Magnetfeld verwendete Temperatur \(T_B\) ist mit einer senkrechten Linie eingezeichnet.}\label{fig:bc-crit-temp}
 \end{figure}
 
 Bei einem starken Magnetfeld von \qnt{1}{\tesla} weicht der Reorientierungsübergang auf und es kommt kein Telegrafenrauschen, im Bereich von \num{300} bis \qnt{305}{\kelvin}, mehr zustande. Bei einem schwächeren Magnetfeld (um die \qnt{30}{\milli\tesla}) verändert sich die Position des Reorientierungsübergangs nicht signifikant. Daher wurden alle Simulationen mit angelegtem Magnetfeld bei der gleichen Temperatur durchgeführt.
@@ -270,7 +270,7 @@ Auch hier lassen sich die Charakteristiken am schnellsten bei einer direkten sta
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mc_time.pdf}
-    \caption{Ausschnitt von \(m_c\) im zeitlichen Verlauf bei verschieden starken externen Magnetfeldern . Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-1.5e-3} bis \num{+1.5e-3}}\label{fig:b-time}    
+    \caption[Ausschnitt von \(m_c\) im zeitlichen Verlauf bei verschieden starken externen Magnetfeldern.]{Ausschnitt von \(m_c\) im zeitlichen Verlauf bei verschieden starken externen Magnetfeldern. Die Colormap ist hier identisch zu der von \cref{fig:b-hist}. Die y-Achse reicht hier jeweils von \num{-1.5e-3} bis \num{+1.5e-3}}\label{fig:b-time}    
 \end{figure}
 
 Je stärker das externe Magnetfeld ist, desto kürzer beibt das System im unteren Niveau (Siehe \cref{fig:b-time}). 
@@ -317,7 +317,7 @@ Das die mittlere Aufenthaltszeit konstant bleibt ist wahrscheinlich auch der gru
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/mean_dwell_time.pdf}
-    \caption{Mittlere Aufenthaltszeit nicht aufgeteilt auf die zwei Niveaus. Violinenplot mit Mittelwert und Extrema in Blau. Median in Schwarz}
+    \caption[Mittlere Aufenthaltszeit nicht aufgeteilt auf die zwei Niveaus.]{Mittlere Aufenthaltszeit nicht aufgeteilt auf die zwei Niveaus. Violinenplot mit Mittelwert und Extrema in Blau. Median in Schwarz}
     \label{fig:b-mmdt}
 \end{figure}
 
@@ -328,7 +328,7 @@ Im Bereich bis \SI{30}{\milli\tesla} (siehe \cref{fig:bc-up-percentage-violin}) 
 \begin{figure}[H]
     \centering
     \includegraphics{bilder/plots/max_Bz/up_percentage_fit.pdf}
-    \caption{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet. Die Datenpunkte wurden dabei mittels des Algorithmus aus mehreren verketteten Simulationsläufen extrahiert}\label{fig:bc-up-percentage}
+    \caption[Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet.]{Die Aufenthaltszeit im oberen Zustand mit einer Sigmoid-Funktion gefittet. Die Datenpunkte wurden dabei mittels des Algorithmus aus mehreren verketteten Simulationsläufen extrahiert}\label{fig:bc-up-percentage}
 \end{figure}
 
 Aus mehreren verketteten Simulationsläufen ist es möglich auch für höhere Feldstärken als in \cref{fig:bc-up-percentage-violin} die Aufenthaltswahrscheinlichkeit zu bestimmen. Diese folgt einer Sigmoid-Kurve. Oberhalb von \qnt{100}{\milli\tesla} findet in den Simulationen kein Telegrafenrauschen mehr statt.
