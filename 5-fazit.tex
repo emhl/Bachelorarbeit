@@ -3,20 +3,20 @@
 \newpage
 \section{Fazit}
 
-Ziel der Arbeit war es das Telegrafenrauschen in Samarium-Erbium-Orthoferrit theoretisch zu untersuchen. Das Kristallgitter wurde dafür sowohl für verschiedene Temperaturen, als auch unter Einfluss eines externen Magnetfeldes simuliert. 
+Ziel der Arbeit war es das Telegrafenrauschen in Samarium-Erbium-Orthoferrit theoretisch zu untersuchen. Die magnetische Dynamik wurde dafür sowohl für verschiedene Temperaturen, als auch unter Einfluss eines externen Magnetfeldes simuliert. 
 Um das Telegrafenrauschen zu untersuchen, wurde ein Algorithmus entwickelt, der das Rauschen aus den Simulationsdaten extrahiert und so eine direkte Analyse des Telegrafenrauschens ermöglicht.\\
 
 Das Extrahieren des Telegrafenrauschens aus den Daten mit dem Algorithmus hat gut funktioniert und hat vielversprechende Ergebnisse geliefert.\\
 Außerden wurde vom rohen Rauschsignal das extrahierte Telegrafenrauschen abgezogen, um den Einfluss und die Eingenschaften der restlichen Rauschanteile zu untersuchen.
-Durch die Aufteilung in die verschiedenen Komponenten (Telegrafenrauschen und restliche Anteile des Rauschsignals) konnte gezeigt werden, dass das Telegrafenrauschen in der Zeitlichen und Frequenzauflösung das Rauschsignal dominiert. Speziell im niederfrequenten Bereich lag die Spektrale Leistungsdichte des Telegrafenrauschens immer über dem der restlichen Rauschanteile.\\
+Durch die Aufteilung in die verschiedenen Komponenten (Telegrafenrauschen und restliche Anteile des Rauschsignals) kann gezeigt werden, dass das Telegrafenrauschen in der Zeit- und Frequenzdomäne das Rauschsignal dominiert. Speziell im niederfrequenten Bereich liegt die Spektrale Leistungsdichte des Telegrafenrauschens immer über dem der restlichen Rauschanteile. Und auch bei der Autokovarianz leistet das Telegrafenrauschen den größten Beitrag.\\
 
 Bei dem Vergleich von Simulationen ohne externem B-Feld und mit verschiedenen Temperaturen wurden mehrere Zusammenhänge durch die Analyse des extrahierten Telegrafenrauschens gefunden.\\
-Die Aufenthaltszeiten steigen exponentiell mit der Temperatur an, wodurch die Häufigkeit von Zustandswechseln sinkt. Die Berechnung der mittleren Aufenthaltszeiten hat für die höheren Temperaturen mit stabilem Telegrafenrauschen (\SIrange{302}{303}{\kelvin}) gut funktioniert. Für die niedrigeren Temperaturen (\SIrange{301}{302}{\kelvin}) war die Autokorrelationszeit zu kurz, um die mittlere Aufenthaltszeit zuverlässig zu bestimmen.\\
+Die Aufenthaltszeiten steigen exponentiell mit der Temperatur an, wodurch die Häufigkeit von Zustandswechseln sinkt. Die Berechnung der mittleren Aufenthaltszeiten hat für die höheren Temperaturen mit stabilem Telegrafenrauschen (\SIrange{302}{303}{\kelvin}) gut funktioniert. Für die niedrigeren Temperaturen (\SIrange{301}{302}{\kelvin}) war die Autokorrelationszeit zu kurz, um die mittlere Aufenthaltszeit auf diesem Weg zuverlässig zu bestimmen.\\
 
 Durch die Simulationen unter Einfluss eines externen B-Feldes konnten weitere Erkenntnisse gewonnen werden.\\
-Bei einem starken Magnetfeld von \SI{1}{\tesla} weicht der Reorientierungsübergang auf, weshalb kein Telegrafenrauschen stattfinden kann. Bei schwächeren Magnetfeldern um \SI{50}{\milli\tesla} findet das Telegrafenrauschen weiterhin statt und der Reorientierungsübergang wird nur marginal verschoben. Aber die Aufenthaltszeiten auf dem begünstigten Niveau werden länger und die auf dem unbegünstigten kürzer. Die mittlere Aufenthaltszeit (zustandsunabhängig) bleibt allerdings (für \(B_c \leq \SI{50}{\milli\tesla}\)) konstant. Daher verändert sich die Rate an Zustandswechseln nicht signifikant durch eine Änderung des Magnetfeldes.\\
+Bei einem starken Magnetfeld von \SI{1}{\tesla} weicht der Reorientierungsübergang auf, weshalb kein Telegrafenrauschen stattfinden kann. Bei schwächeren Magnetfeldern um \SI{50}{\milli\tesla} findet das Telegrafenrauschen weiterhin statt und der Reorientierungsübergang wird nur marginal verschoben. Die Aufenthaltszeiten auf dem begünstigten Niveau werden länger und die auf dem unbegünstigten kürzer. Die mittlere Aufenthaltszeit bleibt allerdings für \(B_c \leq \SI{50}{\milli\tesla}\) konstant. Daher verändert sich die Rate an Zustandswechseln nicht durch eine Änderung des Magnetfeldes.\\
 Die Aufenthaltswahrscheinlichkeit im oberen Zustand steigt mit dem Magnetfeld an und folgt dabei einem beschränktem Wachstum. Bis \SI{30}{\milli\tesla} kann das Wachstum linear angenähert werden.\\ 
-Ab \SI{100}{\milli\tesla} konnte im Simulationszeitraum kein Zustandswechsel mehr beobachtet werden. Bei der Autokovarianz konvergiert dabei die Rauschamplitude gegen ein Minimum. \todo{Rauschamplitude thema ausführen}\\
+Ab \SI{100}{\milli\tesla} kann im Simulationszeitraum kein Zustandswechsel mehr beobachtet werden. Bei der Autokovarianz konvergiert durch die Erhöhung des Magnetfelds die Rauschamplitude gegen ein Minimum.\\
 
 % Dadurch, dass die theoretischen Zusammenhänge numerisch bestimmt werden mussten (statt analytisch), gab es oft längere Wartezeiten, bis die Ergebnisse vorlagen. Zusätzlich war mehrfach das Rechnen auf dem Cluster nicht möglich, da alle Knoten belegt waren. Das dadurch ein bis zwei Wochen gewartet werden musste, bis die Ergebnisse einer Messreihe vorlagen, war mitunter sehr frustrierend.\\
 
@@ -27,8 +27,10 @@ Ab \SI{100}{\milli\tesla} konnte im Simulationszeitraum kein Zustandswechsel meh
 Bisher wurde der Einfluss von externem Magnetfeld auf das Telegrafenrauschen noch nicht untersucht, daher bleibt noch abzuwarten, ob die Ergebnisse experimentell reproduziert werden können, oder ob das Modell noch angepasst werden muss.\\
 Die in der Simulation verwendeten Magnetfeldstärken sind experimentell gut machbar. Eine direkte Messung des Telegrafenrauschens und erst recht die des reinen Telegrafensrauschens ist experimentell nicht möglich. Aber über Autokorrelationsmessungen kann unter anderem die Rauschamplitude bestimmt werden. Damit könnte dann das verschwinden des Telegrafenrauschens bei starken Magnetfeldern experimentell nachgewiesen werden.\\
 
-Es ist unglaublich, dass es überhaupt möglich ist, im Experiment Telegrafenrauschen auf einer so unvorstellbar kurzen Zeitskala zu beobachten. 
+% Es ist unglaublich, dass es überhaupt möglich ist, im Experiment Telegrafenrauschen auf einer so unvorstellbar kurzen Zeitskala zu beobachten. 
 
-Und diese Arbeit hat gezeigt, dass es in der Theorie möglich ist dieses Telegrafenrauschen durch ein externes Magnetfeld zu tunen. Diese sehr direkte Kontrolle über das Rauschen ist ein sehr interessanter Aspekt, der in Zukunft noch weiter untersucht werden sollte.
+Die Existenz von Telegrafenrauschen in Orthoferrit auf einer ultrakurzen Picosekunden-Zeitskala ist sehr spannend. Speziell, da es auch experimentell nachgewiesen wurde. Im Bereich \enquote{probabilistic computing} könnte ein so schnelles Telegrafenrauschen vielversprechend für Anwendungen sein.\\
+
+Darüber hinaus hat diese Arbeit gezeigt, dass es in der Theorie möglich ist dieses Telegrafenrauschen durch ein externes Magnetfeld zu tunen. Diese sehr direkte Kontrolle über das Rauschen ist ein sehr interessanter Aspekt, der in Zukunft noch weiter untersucht werden sollte.
 
 \end{document}
