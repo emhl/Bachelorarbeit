@@ -8,17 +8,19 @@ In vielen physikalischen Messungen ist das thermische Rauschen in den Messdaten 
 Es gibt gar eine ganze Industrie, die sich mit der Entwicklung von Algorithmen beschäftigt, die verschiedene Arten von Rauschen aus Daten entfernen \cite{digital-noise-reduction}. So werden beispielsweise bei digitalen Bildaufnahmen, diverse komplexe technische Verfahren angewendet, um das Rauschen aus den Bildern zu entfernen. Auch in elektrischen Leitern treten bei endlichen Temperaturen diverse Rauschphänomene auf, die unter anderem Störungen in der Signalübertragung verursachen.\\ 
 
 Der DFG-Sonderforschungsbereich 1432 an der Universität Konstanz \enquote{Fluctuations and Nonlinearities in Classical and Quantum Matter beyond Equilibrium} \cite{sfb-1432} beschäftigt sich unter anderem auch mit diversen Rauscheffekten auf einem breiten physikalischen Feld.
-Das besondere hierbei ist aber: Das Rauschen ist das interessante Signal, das es zu untersuchen gilt. So auch im Rahmen der Publikation \enquote{Ultrafast spontaneous spin switching in an antiferromagnet} \cite{weiss-ultrafast} wo ein Telegrafenrauschen der Magnetisierung (Spinfluktuationen) in Orthoferrit auf einer Picosekundenskala gemessen und simuliert wurde. In der Alltagserfahrung ist eine Picosekunde ein unvorstellbar kurzer Zeitraum. In dieser Zeit legt Licht in einem Vakuum gerade einmal \SI{0.3}{\milli\meter} zurück.\\
+Das besondere hierbei ist aber: Das Rauschen ist das interessante Signal, das es zu untersuchen gilt. So auch im Rahmen der Publikation \enquote{Ultrafast spontaneous spin switching in an antiferromagnet} \cite{weiss-ultrafast}, in welcher ein Telegrafenrauschen der Magnetisierung (Spinfluktuationen) in Orthoferrit auf einer Picosekundenskala gemessen und simuliert wurde. In der Alltagserfahrung ist eine Picosekunde ein unvorstellbar kurzer Zeitraum. In dieser Zeit legt Licht in einem Vakuum gerade einmal \SI{0.3}{\milli\meter} zurück.\\
 
 Diese theoretische Arbeit soll darauf aufbauen und die im Rahmen der Masterarbeit von Julius Schlegel \cite{schlegel-master} entstandenen Simulationsdaten von Spin-Rauschen in Samarium-Erbium-Orthoferrit bei verschiedenen Temperaturen genauer untersuchen. Dafür soll das Telegrafenrauschen mittels eines Algorithmus aus dem Rauschsignal extrahiert und charakterisiert werden.\\
-Außerdem soll der Einfluss eines externen Magnetfeldes auf die Eingenschaften des Telegrafenrauschens analysiert werden.
+Außerdem soll der Einfluss eines externen Magnetfeldes auf die Eingenschaften des Telegrafenrauschens analysiert werden.\\
 
-Im Zweiten Kapitel werden werden die Theoretischen Grundlagen für die Arbeit gelegt. Dafür wird zunächst die magnetische Dynamik von Orthoferrit anhand des Heisenberg Modells und der Landau-Lifschitz-Gilbert Gleichung hergeleitet und die Modellierung des \ce{Sm_{0.7}Er_{0.3}FeO3} Kristalls erläutert.
+
+Der Aufbau der Arbeit ist folgender:
+Im zweiten Kapitel werden werden die theoretischen Grundlagen für die Arbeit gelegt. Dafür wird zunächst die magnetische Dynamik von Orthoferrit anhand des Heisenberg Modells und der Landau-Lifschitz-Gilbert Gleichung beschrieben und die Modellierung des \ce{Sm_{0.7}Er_{0.3}FeO3} Kristalls erläutert.
 Anschließend wird der Dichtomische Markow-Prozess als Modell für das Telegrafenrauschen eingeführt.
 
-Das Dritte Kapitel beschäftigt sich mit den numerischen Methoden, die für die Simulationen verwendet wurden. Dafür wird zunächst das Programm \texttt{cuteLLG} vorgestellt, mit dem die Simulationen durchgeführt wurden. Anschließend wird ein Algorithmus zur Extraktion des Telegrafenrauschens aus den Simulationsdaten vorgestellt.
+Das dritte Kapitel beschäftigt sich mit den numerischen Methoden, die für die Simulationen verwendet wurden. Dafür wird zunächst das Programm \texttt{cuteLLG} vorgestellt, mit dem die Simulationen durchgeführt wurden. Anschließend wird ein Algorithmus zur Extraktion des Telegrafenrauschens aus den Simulationsdaten vorgestellt.
 
-Die Ergebnisse der Simulationen werden im Vierten Kapitel vorgestellt und diskutiert. 
+Die Ergebnisse der Simulationen werden im vierten Kapitel vorgestellt und diskutiert. 
 
 % bibliography (temporary)
 % \newpage\bibliography{literatur} \todo{comment out before compiling main.tex}
