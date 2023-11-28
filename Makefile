@@ -8,7 +8,6 @@ all: main
 
 main: $(MAINFILE).tex
 	$(TEX) $(MAINFILE).tex
-	$(TEX) $(MAINFILE).tex
 
 subfiles:
 	$(TEX) 1-*.tex 2-*.tex 3-*.tex 4-*.tex 5-*.tex 6-*.tex
